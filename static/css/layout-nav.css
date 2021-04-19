@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.bg {
+    width: 100%;
+    height: 100vh;
+    background-color: #06002a;
+    /* z-index: 10; */
+}
+
+.shape-main {
+    background-image: linear-gradient(0deg, rgb(12,250,178,100%) , rgb(0,25,48,100%));
+    height: 12vh;
+    width: 100%;
+    border-radius: 0 0 25px 25px;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+}
+.shape-main.is-active {
+    height: 100vh;
+    z-index: 12;
+    border-radius: 0;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+}
+
+.logo-circle {
+    height: 2em;
+    width: 2em;
+    border-radius: 100%;
+    background-color: white;
+    position: absolute;
+    left: 14%;
+    right: 50%;
+    -webkit-transform: translate(-50%, 100%);
+    transform: translate(-50%, 100%);
+}
+
+.text-main {
+    height: max-content;
+    font-size: 28px;
+    position: absolute;
+    left: 50%;
+    right: 0%;
+    -webkit-transform: translate(-100%, 0%);
+    transform: translate(-50%, 100%);
+} 
+
+.menu-icon {
+    position: absolute;
+    left: 75%;
+    z-index: 3;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+}
+.menu-icon.is-active {
+    opacity: 0;
+    z-index: 2;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+}
+
+.menu-close {
+    position: absolute;
+    left: 82.5%;
+    top: 3.75%;
+    opacity: 0;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+}
+.menu-close.is-active {
+    opacity: 1;
+    z-index: 0;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+}
+
+.container {
+    background-color: white;
+    /* margin-top: 4vh; */
+}
+
+.nav-1 {
+    position: absolute;
+    margin-top: 10vh;
+    background-color: transparent;
+    opacity: 0;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+    z-index: -1;
+}
+.nav-1.is-active {
+    z-index: 5;
+    transform: translateY(10vh);
+    opacity: 1;
+    transition-delay: 0.25s;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+}
+
+.links {
+    width: 100vw;
+    height: 80vh;
+    list-style: none;
+}
+
+.nav-link {
+    color: whitesmoke;
+    font-size: 2em;
+    padding: 6vh 0 0 0;
+    width: fit-content;
+    position: relative;
+    margin: auto;
+    border-bottom: 2px solid whitesmoke;
+}
+.nav-link:hover {
+    color: darkblue;
+    border-bottom: 2px solid darkblue;
+}

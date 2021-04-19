@@ -1,0 +1,33 @@
+{% extends "layout-nav.html" %}
+
+{% block extendedcss %}
+    {% block pagecss %}
+    {% endblock pagecss %}
+{% endblock extendedcss %}
+
+{% block nav1 %}
+<div class="nav-1">
+    <li class="links">
+        <a href="{{url_for('welcome')}}" class="nav-link">
+            Home
+        </a>
+        <a href="{{url_for('login')}}" class="nav-link">
+            Login
+        </a>
+        <a href="{{url_for('register')}}" class="nav-link">
+            Register
+        </a>
+        <a href="#" class="nav-link">
+            Admin
+        </a>
+        <a href="#" class="nav-link">
+            About Us
+        </a>
+    </li>
+</div>
+{% endblock nav1 %}
+
+{% block pagecontent %}
+    {% block page %}
+    {% endblock page %}
+{% endblock pagecontent %}

@@ -1,0 +1,94 @@
+* {
+    max-width: 100vh;
+    overflow: hidden ;
+}
+
+.register-page {
+    z-index: 0;
+}
+
+.message {
+    background-color: transparent;
+    color: whitesmoke;
+    position: absolute;
+    margin-top: 6vh;
+    margin-left: 10vw;
+}
+
+.subtext-1,
+.subtext-2 {
+    text-align: center;
+    margin-left: 2vw;
+    font-size: 32px;
+    font-weight: lighter;
+    width: fit-content;
+    border-bottom: 5px solid #0cfab2;
+}
+.subtext-2 {
+    margin-top: 1vh;
+}
+
+.form-group {
+    z-index: 1;
+    margin-left: 12vw;
+    margin-top: 1vh;
+}
+
+.form-group label {
+    padding-top: 1vh;
+    margin-bottom: -1vh;
+    font-size: 20px;
+    color: whitesmoke;
+}
+
+.form-control {
+    /* margin-top: 1vh; */
+    width: 75vw;
+    border-radius: 10px;
+}
+
+.form-group input {
+    margin-top: 1vh;
+    width: 75vw;
+    border-radius: 10px;
+}
+
+.form-horizontal {
+    margin-top: -12vh;
+}
+
+.col-12 {
+    margin-top: 2vh;
+    margin-left: 22vw;
+}
+
+.text-bottom {
+    position: absolute;
+    font-size: 1.5em;
+    margin-left: 13vw;
+    margin-top: -5vh;
+    color: whitesmoke;
+    border-bottom: 5px solid #0cfab2;
+}
+
+.btn02 {
+    max-width: fit-content;
+    height: fit-content;
+    border-radius: 25px;
+    margin-left: 7.5em;
+    border: none;
+    border-radius: 50%;
+    outline: none;
+    color: white;
+    background: linear-gradient(45deg, rgb(0,58,125,100%), rgb(17,110,220,100%));
+}
+
+#txt-mute-1 {
+    position: absolute;
+    margin-top: 3vh;
+    margin-left: 27vw;
+}
+
+.text-muted a {
+    color: whitesmoke;
+}

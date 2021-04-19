@@ -1,0 +1,45 @@
+{% extends "layout-01.html" %}
+
+{% block title %}
+    Register Page
+{% endblock title %}
+
+{% block css %}
+    {% block extendedcss %}
+    {% endblock extendedcss %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/layout-nav.css') }}">
+{% endblock css %}
+
+{% block content %}
+    <div class="register-page">
+        <div class="top-bar">
+            <div class="bg">
+                <div id="shape-main" class="shape-main">
+                    <div class="row">
+                        <div class="col">
+                            <div class="logo-circle">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <h1 class="text-main text-center font-weight-bolder text-white">
+                                CYCLOFIT
+                            </h1>
+                        </div>
+                        <div class="col">
+                            <a class="menu-open" onclick="navtoggle()">
+                                <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" style="position: absolute; margin-top: 4vh; margin-left: 4vh"><path fill="none" d="M0 0h24v24H0z"/><path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" fill="rgba(255,255,255,1)"/></svg>
+                            </a>
+                            <a class="menu-close" onclick="navtoggle()">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z" fill="rgba(255,255,255,1)"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                    {% block nav1 %}
+                    {% endblock nav1 %}
+                </div>
+                {% block pagecontent %}
+                {% endblock pagecontent %}
+            </div>
+        </div>
+<script src="{{ url_for('static', filename='js/layout-nav.js') }}"></script>
+{% endblock content %}

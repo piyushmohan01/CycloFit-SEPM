@@ -1,0 +1,92 @@
+* {
+    max-width: 100vh;
+    overflow: hidden ;
+}
+
+.register-page {
+    z-index: 0;
+}
+
+.message {
+    background-color: transparent;
+    color: whitesmoke;
+    position: absolute;
+    margin-top: 10vh;
+    margin-left: 10vw;
+}
+
+.subtext-1,
+.subtext-2 {
+    margin-left: 2vw;
+    font-size: 32px;
+    font-weight: lighter;
+    width: fit-content;
+    border-bottom: 5px solid #0cfab2;
+}
+.subtext-2 {
+    margin-top: 2vh;
+}
+
+.form-group {
+    z-index: 1;
+    margin-left: 12vw;
+    margin-top: 3vh;
+}
+
+.form-group label {
+    font-size: 20px;
+    color: whitesmoke;
+}
+
+.form-control {
+    margin-top: 1vh;
+    width: 75vw;
+    border-radius: 10px;
+}
+
+.form-group input {
+    margin-top: 1vh;
+    width: 75vw;
+    border-radius: 10px;
+}
+
+.form-horizontal {
+    margin-top: -10vh;
+}
+
+.col-12 {
+    margin-top: 2vh;
+    margin-left: 20vw;
+}
+
+.btn02 {
+    max-width: 30vw;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    color: white;
+    background: linear-gradient(45deg, rgb(0,58,125,100%), rgb(17,110,220,100%));
+}
+
+#txt-mute-1 {
+    margin-left: 14vw;
+}
+
+#txt-mute-2 {
+    margin-left: 4vw;
+}
+
+#line-center {
+    color: whitesmoke;
+    margin-left: 4vw;
+}
+
+.text-muted a {
+    color: whitesmoke;
+}
+
+.link-section {
+    display: flex;
+    position: absolute;
+    margin-top: 6vh;
+}
