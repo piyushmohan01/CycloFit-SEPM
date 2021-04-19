@@ -1,0 +1,93 @@
+{% extends "nav-01.html" %}
+
+{% block pagecss %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/register.css') }}">
+{% endblock pagecss %}
+
+{% block page %}
+    <div class="register-page">
+        <div class="message"> 
+            <h1 class="subtext-1 text-left font-weight-light text-white">
+                Glad to
+            </h1>
+            <h1 class="subtext-2 text-left font-weight-light text-white">
+                have you here!
+            </h1>
+        </div>
+        <form class="form-horizontal", role="form", autocomplete="off", method="POST", action="">
+            {{ form.hidden_tag() }}
+            <div class="form-group" style="margin-top: 34vh;">
+                {{ form.email.label(class='form-control-label') }}
+                {% if form.email.errors %}
+                    {{ form.email(class='form-control form-control-md is-invalid') }}
+                    <div class="invalid-feedback">
+                        {% for error in form.email.errors %}
+                            <span>
+                                {{ error }}
+                            </span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.email(class='form-control form-control-md', placeholder='name@example.com') }}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.username.label(class='form-control-label') }}
+                    
+                {% if form.username.errors %}
+                {{ form.username(class='form-control form-control-md is-invalid') }}
+                <div class="invalid-feedback">
+                    {% for error in form.username.errors %}
+                        <span>
+                            {{ error }}
+                        </span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                    {{ form.username(class='form-control form-control-md', placeholder='name123') }}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.password.label(class='form-control-label') }}
+                    
+                    {% if form.password.errors %}
+                    {{ form.password(class='form-control form-control-md is-invalid') }}
+                    <div class="invalid-feedback">
+                        {% for error in form.password.errors %}
+                            <span>
+                                {{ error }}
+                            </span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                        {{ form.password(class='form-control form-control-md', placeholder='Set a strong password!') }}
+                    {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.confirm_password.label(class='form-control-label') }}
+                    
+                {% if form.confirm_password.errors %}
+                {{ form.confirm_password(class='form-control form-control-md is-invalid') }}
+                <div class="invalid-feedback">
+                    {% for error in form.confirm_password.errors %}
+                        <span>
+                            {{ error }}
+                        </span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                    {{ form.confirm_password(class='form-control form-control-md', placeholder='Make sure they match!') }}
+                {% endif %}
+            </div>
+            <div class="col-12">
+                <div class="form-group">
+                    {{ form.submit(class='btn02 btn-color01 btn-lg') }}
+                </div>
+            </div>
+
+            <small class="text-muted ml-2", id="txt-mute-1">
+                <a href="{{ url_for('login') }}">Already have an Account?</a>
+            </small>
+        </form>
+    </div>
+{% endblock page %}
