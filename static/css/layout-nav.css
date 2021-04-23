@@ -39,6 +39,12 @@
     transform: translate(-50%, 100%);
 }
 
+.logo-welcome {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+}
+
 .text-main {
     height: max-content;
     font-size: 28px;
