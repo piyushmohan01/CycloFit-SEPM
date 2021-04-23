@@ -18,13 +18,13 @@ class RegistrationForm(FlaskForm):
     submit = SubmitField('Register')
 
 class ProfileForm(FlaskForm):
-    emergencyno = IntegerField('Emergency Number', validators=[NumberRange(min=10), DataRequired('Enter valid number with no symbols')])
     area = StringField('Area', 
                 validators=[DataRequired(), 
                 Length(min=2, max=20)])
+    contactno = IntegerField('Contact Number', validators=[NumberRange(min=10), DataRequired('Enter valid number with no symbols')])
     dob = StringField('Date of Birth',
                 validators=[DataRequired(), Length(min=7)])
-    contactno = IntegerField('Contact Number', validators=[NumberRange(min=10), DataRequired('Enter valid number with no symbols')])
+    emergencyno = IntegerField('Emergency Number', validators=[NumberRange(min=10), DataRequired('Enter valid number with no symbols')])
     submit = SubmitField('GO')
 
 class LoginForm(FlaskForm):
