@@ -1,7 +1,15 @@
-from cyclofit import db
+from cyclofit import db, login_manager
 from datetime import datetime
+from flask_login import UserMixin
 
-class User(db.Model):
+# use same naming conventions
+# pass user_id from the User Model
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
+
+# also inherting from UserMixin built-in class
+class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(20), unique=True, nullable=False)
     email = db.Column(db.String(100), unique=True, nullable=False)
