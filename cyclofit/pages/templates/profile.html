@@ -1,0 +1,30 @@
+{% extends "nav-02.html" %}
+
+{% block pagecss %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/account.css') }}">
+{% endblock pagecss %}
+
+{% block page %}
+    <div class="account-page">
+        <div class="container" style="background-color: transparent;">
+            <div class="user-box">
+                <img class="user-image" src="{{ image_file }}" alt="">
+                <div class="text-box">
+                    <div class="user-name" style="font-size: 1.25em;">Username : {{ current_user.username }}</div>
+                    <div class="user-name" style="font-size: 1.25em;">Email : {{ current_user.email }}</div>
+                </div>
+            </div>
+            <div class="user-box">
+                <!-- <img class="user-image" src="{{ image_file }}" alt=""> -->
+                <div class="text-box">
+                    <div class="user-name" style="font-size: 1.25em;">Area : {{ current_area}}</div>
+                    <div class="user-name" style="font-size: 1.25em;">Contact No : {{ current_contactno }}</div>
+                    <div class="user-name" style="font-size: 1.25em;">Age : {{ current_age }}</div>
+                    <div class="user-name" style="font-size: 1.25em;">Gender : {{ current_gender }}</div>
+                    <div class="user-name" style="font-size: 1.25em;">Emergency No : {{ current_emergencyno }}</div>
+                    <div class="user-name" style="font-size: 1.25em;">Date Joined : {{ current_datereg }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock page %}

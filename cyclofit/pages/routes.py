@@ -66,6 +66,27 @@ def logout():
     logout_user()
     return redirect(url_for('welcome'))
 
+@app.route("/profile")
+def profile():
+    user_info = Profile.query.get(current_user.id)
+    current_area = user_info.area
+    current_contactno = user_info.contact_no
+    current_age = user_info.age
+    current_gender = user_info.gender
+    current_emergencyno = user_info.emergency_no
+    date_string = str(user_info.date_registered)
+    date_li = list(date_string.split(' '))
+    current_datereg = date_li[0]
+    image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
+    
+    return render_template('profile.html', image_file=image_file,
+    current_area=current_area,
+    current_contactno=current_contactno,
+    current_age=current_age,
+    current_gender=current_gender,
+    current_emergencyno=current_emergencyno,
+    current_datereg=current_datereg
+    )
 
 # To update with uploaded pic
 # using _ when not needed
