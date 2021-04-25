@@ -1,0 +1,139 @@
+body {
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.account-page {
+    background-color: transparent;
+    width: 100%;
+    /* height: fit-content; */
+    z-index: 0;
+    color: whitesmoke;
+    overflow-y: hidden;
+}
+
+a {
+    /* text-decoration: none; */
+    outline: none;
+    text-emphasis: none;
+    margin: 0;
+    color: whitesmoke;
+}
+
+.container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.user-box {
+    height: fit-content;
+    width: 90%;
+    padding: 2vh 0;
+    /* margin: 2vh 0; */
+    margin-bottom: 0vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(12, 250, 178, 0.05);
+    /* border: 0.1em solid whitesmoke; */
+    border-radius: 25px;
+}
+
+.user-image {
+    height: 10em;
+    width: 10em;
+    border-radius: 50%;
+    margin: 2vh 0;
+    /* box-shadow: 0.5em 0.5em 0.5em black; */
+}
+
+.form-group {
+    z-index: 1;
+    /* margin-left: 12vw; */
+    /* margin-top: 3vh; */
+}
+
+.form-group label {
+    font-size: 20px;
+    color: whitesmoke;
+}
+
+.form-control {
+    margin-top: 1vh;
+    width: 75vw;
+    border-radius: 10px;
+}
+
+.form-group input {
+    margin-top: 0.5vh;
+    margin-bottom: 2vh;
+    width: 75vw;
+    border-radius: 10px;
+}
+
+.form-horizontal {
+    /* margin-top: -10vh; */
+    margin-bottom: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.upload {
+    width: 75vw;
+    color: whitesmoke;
+}
+
+.custom-input {
+    /* margin-top: 20%; */
+    /* margin-left: 1.5%; */
+    font-size: 1.25em;
+    width: 22.5rem;
+    height: 2em;
+    margin-top: 1vh;
+    background: transparent;
+    border: 0.1rem solid white;
+    border-radius: 0.5rem;
+}
+.custom-input::-webkit-file-upload-button {
+    visibility: hidden;
+}
+.custom-input::before {
+    display: inline-block;
+    content: 'Upload!';
+    padding: 0 1rem;
+    margin-right: -7rem;
+    outline: none;
+    height: 100%;
+    border-right: 0.15em solid white;
+}
+
+
+.col-12 {
+    /* margin-top: 2vh; */
+    padding-top: 2vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* flex-direction: column; */
+    /* margin-left: 20vw; */
+}
+
+.col-12 > .form-group {
+    padding-left: 0;
+}
+
+.btn02 {
+    max-width: 30vw;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    color: white;
+    background: linear-gradient(45deg, rgb(0,58,125,100%), rgb(17,110,220,100%));
+}

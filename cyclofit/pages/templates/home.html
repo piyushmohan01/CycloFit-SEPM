@@ -1,9 +1,44 @@
 {% extends "nav-02.html" %}
 
 {% block pagecss %}
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/login.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/home.css') }}">
 {% endblock pagecss %}
 
 {% block page %}
-    <h1 style="color: whitesmoke;">Home Page</h1>
+    <div class="home-page">
+        <div class="container" style="background-color: transparent;">
+            <div class="user-box">
+                <img class="user-image" src="{{ image_file }}" alt="">
+                <div class="user-name" style="font-size: 1.5em; padding: 1vh;">@{{ current_user.username }}</div>
+            </div>
+            <div class="user-box small">
+                <div class="small-section">
+                    <a href="{{url_for('account')}}">
+                            <!-- About Us -->
+                        <div class="small-1" style="margin-bottom: 1em">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><path fill="none" d="M0 0h24v24H0z"/><path d="M2 22a8 8 0 1 1 16 0H2zm8-9c-3.315 0-6-2.685-6-6s2.685-6 6-6 6 2.685 6 6-2.685 6-6 6zm10 4h4v2h-4v-2zm-3-5h7v2h-7v-2zm2-5h5v2h-5V7z" fill="rgba(12,250,178,1)"/></svg>
+                            <h3 style="margin-left: 1em; margin-bottom: 0;">Profile</h3>
+                        </div>
+                    </a>
+                    <div class="small-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="34" height="34"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm1-10V7h-2v7h6v-2h-4z" fill="rgba(12,250,178,1)"/></svg>
+                        <h3 style="margin-left: 1em; margin-bottom: 0;">History</h3>
+                    </div>
+                </div>
+                <div class="long-section">
+                    <div class="long-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-bicycle" viewBox="0 0 16 16">
+                            <path d="M4 4.5a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1v.5h4.14l.386-1.158A.5.5 0 0 1 11 4h1a.5.5 0 0 1 0 1h-.64l-.311.935.807 1.29a3 3 0 1 1-.848.53l-.508-.812-2.076 3.322A.5.5 0 0 1 8 10.5H5.959a3 3 0 1 1-1.815-3.274L5 5.856V5h-.5a.5.5 0 0 1-.5-.5zm1.5 2.443-.508.814c.5.444.85 1.054.967 1.743h1.139L5.5 6.943zM8 9.057 9.598 6.5H6.402L8 9.057zM4.937 9.5a1.997 1.997 0 0 0-.487-.877l-.548.877h1.035zM3.603 8.092A2 2 0 1 0 4.937 10.5H3a.5.5 0 0 1-.424-.765l1.027-1.643zm7.947.53a2 2 0 1 0 .848-.53l1.026 1.643a.5.5 0 1 1-.848.53L11.55 8.623z" fill="rgba(12,250,178,1)"/>
+                        </svg>
+                        <h3 style=" margin-top: 0.5em; text-align: center;">Ride</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="user-box">
+                <div class="small-section">
+                    sdiohvaisv
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock page %}
