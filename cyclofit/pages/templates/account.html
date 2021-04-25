@@ -9,71 +9,80 @@
         <div class="container" style="background-color: transparent;">
             <div class="user-box">
                 <img class="user-image" src="{{ image_file }}" alt="">
-                <div class="user-name" style="font-size: 1.5em; padding: 1vh;">@{{ current_user.username }}</div>
+                <div class="text-box">
+                    <div class="user-name" style="font-size: 1.25em;">{{ current_user.username }}</div>
+                    <div class="user-name" style="font-size: 1em;">{{ current_user.email }}</div>
+                </div>
             </div>
-            <div class="user-box" style="background-color: transparent;">
-                <!-- encoding type -->
-            <form class="form-horizontal", role="form", autocomplete="off", method="POST", action="" enctype="multipart/form-data">
-                {{ form.hidden_tag() }}
-                <div class="form-group">
-                    {{ form.email.label(class='form-control-label') }}
-                    {% if form.email.errors %}
-                        {{ form.email(class='form-control form-control-md is-invalid') }}
+            <div class="user-box">
+                <div class="text-box">
+                    <div class="user-name" style="font-size: 1.25em;">{{ current_user.area }}</div>
+                    <div class="user-name" style="font-size: 1em;">{{ current_user.contactno }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock page %}
+
+<!-- 
+    <div class="user-box" style="background-color: transparent;">
+                <form class="form-horizontal", role="form", autocomplete="off", method="POST", action="" enctype="multipart/form-data">
+                    {{ form.hidden_tag() }}
+                    <div class="form-group">
+                        {{ form.email.label(class='form-control-label') }}
+                        {% if form.email.errors %}
+                            {{ form.email(class='form-control form-control-md is-invalid') }}
+                            <div class="invalid-feedback">
+                                {% for error in form.email.errors %}
+                                    <span>
+                                        {{ error }}
+                                    </span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.email(class='form-control form-control-md', placeholder='name@example.com') }}
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.username.label(class='form-control-label') }}
+                            
+                        {% if form.username.errors %}
+                        {{ form.username(class='form-control form-control-md is-invalid') }}
                         <div class="invalid-feedback">
-                            {% for error in form.email.errors %}
+                            {% for error in form.username.errors %}
                                 <span>
                                     {{ error }}
                                 </span>
                             {% endfor %}
                         </div>
-                    {% else %}
-                        {{ form.email(class='form-control form-control-md', placeholder='name@example.com') }}
-                    {% endif %}
-                </div>
-                <div class="form-group">
-                    {{ form.username.label(class='form-control-label') }}
-                        
-                    {% if form.username.errors %}
-                    {{ form.username(class='form-control form-control-md is-invalid') }}
-                    <div class="invalid-feedback">
-                        {% for error in form.username.errors %}
-                            <span>
-                                {{ error }}
-                            </span>
-                        {% endfor %}
+                        {% else %}
+                            {{ form.username(class='form-control form-control-md', placeholder='name123') }}
+                        {% endif %}
                     </div>
-                    {% else %}
-                        {{ form.username(class='form-control form-control-md', placeholder='name123') }}
-                    {% endif %}
-                </div>
-
-                <!-- Picture Upload form-control-file-->
-                <div class="form-group upload">
-                    {{ form.picture.label() }}
-                    {{ form.picture(class="custom-input filebox") }}  
-                    {% if form.picture.errors %}
-                        {% for error in form.picture.errors %}
-                            <span class="text-danger">
-                                {{ error }}
-                            </span>
-                        </br>
-                        {% endfor %}
-                    {% endif %} 
-                </div>
-
-                <div class="col-12">
-                    <div class="form-group">
-                        {{ form.submit(class='btn02 btn-color01 btn-lg') }}
-                    </div>
-                    
-                <small class="text-muted ml-2", id="txt-mute-1">
-                    <!-- Update Info Page to be added -->
-                    <a href="#">Update personal info</a>
-                </small>
-                </div>
     
-            </form>
-            </div>
-        </div>
-    </div>
-{% endblock page %}
+                    <div class="form-group upload">
+                        {{ form.picture.label() }}
+                        {{ form.picture(class="custom-input filebox") }}  
+                        {% if form.picture.errors %}
+                            {% for error in form.picture.errors %}
+                                <span class="text-danger">
+                                    {{ error }}
+                                </span>
+                            </br>
+                            {% endfor %}
+                        {% endif %} 
+                    </div>
+    
+                    <div class="col-12">
+                        <div class="form-group">
+                            {{ form.submit(class='btn02 btn-color01 btn-lg') }}
+                        </div>
+                        
+                    <small class="text-muted ml-2", id="txt-mute-1">
+                        <a href="#">Update personal info</a>
+                    </small>
+                    </div>
+        
+                </form>
+                </div>
+ -->
