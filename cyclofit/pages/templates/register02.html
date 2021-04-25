@@ -7,87 +7,88 @@
 {% block page %}
     <div class="register-page">
         <div class="message">
-            <h1 class="subtext-1 text-left font-weight-light text-white">
-                Complete
-            </h1>
-            <h1 class="subtext-2 text-left font-weight-light text-white">
-                Your Profile!
-            </h1>
-        </div>
-        <form class="form-horizontal", role="form", autocomplete="off", method="POST", action="">
-            {{ form.hidden_tag() }}
-            <div class="form-group" style="margin-top: 34vh;">
-                {{ form.area.label(class='form-control-label') }}
-                {% if form.area.errors %}
-                    {{ form.area(class='form-control form-control-md is-invalid') }}
-                    <div class="invalid-feedback">
-                        {% for error in form.area.errors %}
-                            <span>
-                                {{ error }}
-                            </span>
-                        {% endfor %}
-                    </div>
-                {% else %}
-                    {{ form.area(class='form-control form-control-md', placeholder='Area51') }}
-                {% endif %}
+            <div class="message-box">
+                <h1 class="subtext-1 text-left font-weight-light text-white">
+                    Complete
+                </h1>
+                <h1 class="subtext-2 text-left font-weight-light text-white">
+                    Your Profile!
+                </h1>
             </div>
-            <div class="form-group">
-                {{ form.contactno.label(class='form-control-label') }}
-                    
-                {% if form.contactno.errors %}
-                {{ form.contactno(class='form-control form-control-md is-invalid') }}
-                <div class="invalid-feedback">
-                    {% for error in form.contactno.errors %}
-                        <span>
-                            {{ error }}
-                        </span>
-                    {% endfor %}
+            <form class="form-horizontal", role="form", autocomplete="off", method="POST", action="">
+                {{ form.hidden_tag() }}
+                <div class="form-group">
+                    {{ form.area.label(class='form-control-label') }}
+                    {% if form.area.errors %}
+                        {{ form.area(class='form-control form-control-md is-invalid') }}
+                        <div class="invalid-feedback">
+                            {% for error in form.area.errors %}
+                                <span>
+                                    {{ error }}
+                                </span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.area(class='form-control form-control-md', placeholder='Area51') }}
+                    {% endif %}
                 </div>
-                {% else %}
-                    {{ form.contactno(class='form-control form-control-md', placeholder='Enter Valid Number') }}
-                {% endif %}
-            </div>
-            <div class="form-group">
-                {{ form.dob.label(class='form-control-label') }}
-                    
-                    {% if form.dob.errors %}
-                    {{ form.dob(class='form-control form-control-md is-invalid') }}
+                <div class="form-group">
+                    {{ form.contactno.label(class='form-control-label') }}
+                        
+                    {% if form.contactno.errors %}
+                    {{ form.contactno(class='form-control form-control-md is-invalid') }}
                     <div class="invalid-feedback">
-                        {% for error in form.dob.errors %}
+                        {% for error in form.contactno.errors %}
                             <span>
                                 {{ error }}
                             </span>
                         {% endfor %}
                     </div>
                     {% else %}
-                        {{ form.dob(class='form-control form-control-md', placeholder='01/01/01') }}
+                        {{ form.contactno(class='form-control form-control-md', placeholder='Enter Valid Number') }}
                     {% endif %}
-            </div>
-            <div class="form-group">
-                {{ form.emergencyno.label(class='form-control-label') }}
-                    
-                {% if form.emergencyno.errors %}
-                {{ form.emergencyno(class='form-control form-control-md is-invalid') }}
-                <div class="invalid-feedback">
-                    {% for error in form.emergencyno.errors %}
-                        <span>
-                            {{ error }}
-                        </span>
-                    {% endfor %}
                 </div>
-                {% else %}
-                    {{ form.emergencyno(class='form-control form-control-md', placeholder='Enter Valid Number') }}
-                {% endif %}
-            </div>
-            <div class="col-12">
                 <div class="form-group">
-                    {{ form.submit(class='mt-4 btn02 btn-color01 btn-lg') }}
+                    {{ form.dob.label(class='form-control-label') }}
+                        
+                        {% if form.dob.errors %}
+                        {{ form.dob(class='form-control form-control-md is-invalid') }}
+                        <div class="invalid-feedback">
+                            {% for error in form.dob.errors %}
+                                <span>
+                                    {{ error }}
+                                </span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                            {{ form.dob(class='form-control form-control-md', placeholder='01/01/01') }}
+                        {% endif %}
                 </div>
-            </div>
-
-            <div class="text-bottom">
-                Let's start riding!
-            </div>
-        </form>
+                <div class="form-group">
+                    {{ form.emergencyno.label(class='form-control-label') }}
+                        
+                    {% if form.emergencyno.errors %}
+                    {{ form.emergencyno(class='form-control form-control-md is-invalid') }}
+                    <div class="invalid-feedback">
+                        {% for error in form.emergencyno.errors %}
+                            <span>
+                                {{ error }}
+                            </span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                        {{ form.emergencyno(class='form-control form-control-md', placeholder='Enter Valid Number') }}
+                    {% endif %}
+                </div>
+                <div class="col-12">    
+                    <div class="text-bottom">
+                        Let's start riding!
+                    </div>
+                    <div class="form-group">
+                        {{ form.submit(class='mt-4 btn02 btn-color01 btn-lg') }}
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
 {% endblock page %}

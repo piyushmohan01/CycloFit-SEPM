@@ -1,9 +1,36 @@
 {% extends "nav-02.html" %}
 
 {% block pagecss %}
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/login.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/home.css') }}">
 {% endblock pagecss %}
 
 {% block page %}
-    <h1 style="color: whitesmoke;">Home Page</h1>
+    <div class="home-page">
+        <div class="container" style="background-color: transparent;">
+            <div class="user-box">
+                <img class="user-image" src="{{url_for('static', filename='images/profile-pic-default.jpg')}}" alt="">
+                <div class="user-name" style="font-size: 1.5em; padding: 1vh;">@username</div>
+            </div>
+            <div class="user-box">
+                <div class="small-section">
+                    sdiohvaisv
+                </div>
+            </div>
+            <div class="user-box">
+                <div class="small-section">
+                    sdiohvaisv
+                </div>
+            </div>
+            <div class="user-box">
+                <div class="small-section">
+                    sdiohvaisv
+                </div>
+            </div>
+            <div class="user-box">
+                <div class="small-section">
+                    sdiohvaisv
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock page %}
