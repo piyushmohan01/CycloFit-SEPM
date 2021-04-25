@@ -23,7 +23,6 @@ def register():
                     password=hashed_password)
         db.session.add(user)
         db.session.commit()
-        flash(f'Account Created for { form.username.data }', 'success')
         return redirect(url_for('register02'))
     return render_template('register.html', form=form)
 
@@ -51,5 +50,5 @@ def login():
             login_user(user)
             return redirect(url_for('home'))
         else:
-            flash(f'Login Unsuccessful! Please check credentials!', 'danger')
+            flash(f'Login Unsuccessful! Try again!')
     return render_template('login.html', form=form)

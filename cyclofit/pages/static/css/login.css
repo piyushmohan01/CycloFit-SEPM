@@ -1,23 +1,37 @@
 * {
-    max-width: 100vh;
+    max-width: 100vw;
     overflow: hidden ;
 }
 
+/* body {
+    width: 100vw;
+} */
+
 .register-page {
     z-index: 0;
+    width: 100%;
 }
 
 .message {
     background-color: transparent;
     color: whitesmoke;
-    position: absolute;
-    margin-top: 10vh;
-    margin-left: 10vw;
+    /* position: absolute; */
+    margin-top: 12.5vh;
+    /* margin-left: 10vw; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.message-box {
+    margin-left: -15%;
+    margin-bottom: 7.5%;
 }
 
 .subtext-1,
 .subtext-2 {
-    margin-left: 2vw;
     font-size: 32px;
     font-weight: lighter;
     width: fit-content;
@@ -29,8 +43,8 @@
 
 .form-group {
     z-index: 1;
-    margin-left: 12vw;
-    margin-top: 3vh;
+    /* margin-left: 12vw; */
+    /* margin-top: 3vh; */
 }
 
 .form-group label {
@@ -45,18 +59,32 @@
 }
 
 .form-group input {
-    margin-top: 1vh;
+    margin-top: 0.5vh;
+    margin-bottom: 3vh;
     width: 75vw;
     border-radius: 10px;
 }
 
 .form-horizontal {
-    margin-top: -10vh;
+    /* margin-top: -10vh; */
+    margin-bottom: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .col-12 {
-    margin-top: 2vh;
-    margin-left: 20vw;
+    /* margin-top: 2vh; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* margin-left: 20vw; */
+}
+
+.col-12 > .form-group {
+    padding-left: 0;
 }
 
 .btn02 {
@@ -68,17 +96,17 @@
     background: linear-gradient(45deg, rgb(0,58,125,100%), rgb(17,110,220,100%));
 }
 
-#txt-mute-1 {
+/* #txt-mute-1 {
     margin-left: 14vw;
 }
 
 #txt-mute-2 {
     margin-left: 4vw;
-}
+} */
 
 #line-center {
     color: whitesmoke;
-    margin-left: 4vw;
+    /* margin-left: 4vw; */
 }
 
 .text-muted a {
@@ -87,6 +115,16 @@
 
 .link-section {
     display: flex;
-    position: absolute;
-    margin-top: 6vh;
+    justify-content: space-between;
+    align-items: center;
+    /* position: absolute; */
+    margin-top: 2vh;
+    width: 100%;
+}
+
+.flashes {
+    color: red;
+    /* font-size: smaller; */
+    padding-left: 0;
+    margin-bottom: 0;
 }
