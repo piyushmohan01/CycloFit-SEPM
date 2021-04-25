@@ -31,7 +31,8 @@ def register02():
     if form.validate_on_submit():
         profile = Profile(area=form.area.data, 
                           contact_no=form.contactno.data,
-                          dob=form.dob.data,
+                          age=form.age.data,
+                          gender=form.gender.data,
                           emergency_no=form.emergencyno.data)
         db.session.add(profile)
         db.session.commit()

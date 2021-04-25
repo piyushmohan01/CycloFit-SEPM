@@ -5,13 +5,13 @@
 {% endblock pagecss %}
 
 {% block page %}
-    <div class="home-page">
+    <div class="account-page">
         <div class="container" style="background-color: transparent;">
             <div class="user-box">
                 <img class="user-image" src="{{ image_file }}" alt="">
                 <div class="user-name" style="font-size: 1.5em; padding: 1vh;">@{{ current_user.username }}</div>
             </div>
-            <div class="user-box">
+            <div class="user-box" style="background-color: transparent;">
                 <!-- encoding type -->
             <form class="form-horizontal", role="form", autocomplete="off", method="POST", action="" enctype="multipart/form-data">
                 {{ form.hidden_tag() }}
@@ -47,10 +47,10 @@
                     {% endif %}
                 </div>
 
-                <!-- Picture Upload -->
+                <!-- Picture Upload form-control-file-->
                 <div class="form-group upload">
                     {{ form.picture.label() }}
-                    {{ form.picture(class="form-control-file filebox") }}  
+                    {{ form.picture(class="custom-input filebox") }}  
                     {% if form.picture.errors %}
                         {% for error in form.picture.errors %}
                             <span class="text-danger">
@@ -65,6 +65,11 @@
                     <div class="form-group">
                         {{ form.submit(class='btn02 btn-color01 btn-lg') }}
                     </div>
+                    
+                <small class="text-muted ml-2", id="txt-mute-1">
+                    <!-- Update Info Page to be added -->
+                    <a href="#">Update personal info</a>
+                </small>
                 </div>
     
             </form>

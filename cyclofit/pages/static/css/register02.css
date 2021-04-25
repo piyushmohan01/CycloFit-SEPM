@@ -168,6 +168,44 @@
     flex-direction: column;
 }
 
+.row-box {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* flex-direction: row; */
+}
+
+#gender {
+    display: flex;
+    padding-left: 0;
+    height: 5vh;
+    padding-top: 0.5vh;
+    /* margin-top: -4vh; */
+    /* flex-direction: column; */
+}
+
+/* li > label {
+    margin-top:2vh;
+} */
+
+#flex-field {
+    width: 15vw;
+}
+
+#gender > li {
+    height: fit-content;
+    margin-right: 4vw;
+}
+
+#gender-0,
+#gender-1 {
+    width: 1.5em;
+    height: 1.5em;
+    padding-bottom: 2vh;
+    /* margin-right: 5vw; */
+}
+
 .col-12 {
     /* margin-top: 2vh; */
     padding-top: 2vh;

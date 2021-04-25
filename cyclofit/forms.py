@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, BooleanField, IntegerField
+from wtforms import StringField, PasswordField, SubmitField, BooleanField, IntegerField, RadioField
 from wtforms.validators import DataRequired, Length, EqualTo, Email, InputRequired, NumberRange, ValidationError
 from email_validator import validate_email
 from cyclofit.models import User
@@ -39,8 +39,11 @@ class ProfileForm(FlaskForm):
                 validators=[DataRequired(), 
                 Length(min=2, max=20)])
     contactno = IntegerField('Contact Number', validators=[NumberRange(min=10), DataRequired('Enter valid number with no symbols')])
-    dob = StringField('Date of Birth',
-                validators=[DataRequired(), Length(min=7)])
+    age = StringField('Age',
+                validators=[DataRequired()])
+    # gender = StringField('Gender',
+    #             validators=[DataRequired()])
+    gender = RadioField('Gender', choices=[('Male','Male'),('Female','Female')], validators=[DataRequired()])
     emergencyno = IntegerField('Emergency Number', validators=[NumberRange(min=10), DataRequired('Enter valid number with no symbols')])
     submit = SubmitField('GO')
 
@@ -59,7 +62,7 @@ class UpdateProfileForm(FlaskForm):
     username = StringField('Username', 
                 validators=[DataRequired(), 
                 Length(min=2, max=20)])
-    picture = FileField('Update Picture', validators=[FileAllowed(['jpg', 'png'])])
+    picture = FileField('Profile Picture', validators=[FileAllowed(['jpg', 'png'])])
     submit = SubmitField('Update')
 
     # custom validations 

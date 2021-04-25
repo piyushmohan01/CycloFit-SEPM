@@ -48,21 +48,39 @@
                         {{ form.contactno(class='form-control form-control-md', placeholder='Enter Valid Number') }}
                     {% endif %}
                 </div>
-                <div class="form-group">
-                    {{ form.dob.label(class='form-control-label') }}
-                        
-                        {% if form.dob.errors %}
-                        {{ form.dob(class='form-control form-control-md is-invalid') }}
-                        <div class="invalid-feedback">
-                            {% for error in form.dob.errors %}
-                                <span>
-                                    {{ error }}
-                                </span>
-                            {% endfor %}
-                        </div>
-                        {% else %}
-                            {{ form.dob(class='form-control form-control-md', placeholder='01/01/01') }}
-                        {% endif %}
+                <div class="row-box">
+                    <div class="form-group">
+                        {{ form.age.label(class='form-control-label') }}
+                            
+                            {% if form.age.errors %}
+                            {{ form.age(class='form-control form-control-md is-invalid', id='flex-field') }}
+                            <div class="invalid-feedback">
+                                {% for error in form.age.errors %}
+                                    <span>
+                                        {{ error }}
+                                    </span>
+                                {% endfor %}
+                            </div>
+                            {% else %}
+                                {{ form.age(class='form-control form-control-md', id='flex-field', placeholder='21') }}
+                            {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.gender.label(class='form-check-label') }}
+                            
+                            {% if form.gender.errors %}
+                            {{ form.gender(class='form-check-input form-control-md') }}
+                            <div class="invalid-feedback">
+                                {% for error in form.gender.errors %}
+                                    <span>
+                                        {{ error }}
+                                    </span>
+                                {% endfor %}
+                            </div>
+                            {% else %}
+                                {{ form.gender() }}
+                            {% endif %}
+                    </div>
                 </div>
                 <div class="form-group">
                     {{ form.emergencyno.label(class='form-control-label') }}
