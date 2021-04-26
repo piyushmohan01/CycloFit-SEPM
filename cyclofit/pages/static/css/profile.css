@@ -1,0 +1,96 @@
+body {
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.account-page {
+    background-color: transparent;
+    width: 100%;
+    /* height: fit-content; */
+    z-index: 0;
+    color: whitesmoke;
+    overflow-y: hidden;
+}
+
+a {
+    /* text-decoration: none; */
+    outline: none;
+    text-emphasis: none;
+    margin: 0;
+    color: whitesmoke;
+}
+
+.container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.user-box {
+    height: fit-content;
+    width: 100%;
+    padding: 2vh 0;
+    /* margin: 2vh 0; */
+    margin-top: 2vh;
+    margin-bottom: 0vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(12, 250, 178, 0.05);
+    /* border: 0.1em solid whitesmoke; */
+    border-radius: 25px;
+}
+
+.user-image {
+    height: 7.5em;
+    width: 7.5em;
+    border-radius: 50%;
+    margin: 2vh 0;
+    /* box-shadow: 0.5em 0.5em 0.5em black; */
+}
+
+.text-box {
+    /* margin-left: 7.5vw; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* flex-direction: column; */
+}
+
+h6 {
+    height: 5vh;
+    /* background-color: darkred; */
+    width: fit-content;
+    padding: 1vh 2vw;
+    margin: 1.5vh 0;
+}
+
+.user-name {
+    height: 5vh;
+    width: 100%;
+    padding: 1vh 3vw;
+    margin: 1.5vh 0;
+    color: whitesmoke;
+    background-color: rgba(0, 0, 0, 0.25);
+    /* background-color: #0cfab2; */
+    /* background-image: linear-gradient(90deg, rgb(12,250,178,100%) , rgb(0, 161, 182)); */
+
+    /* color: white;
+    background: linear-gradient(45deg, rgb(0,58,125,100%), rgb(17,110,220,100%)); */
+    border-radius: 10px;
+}
+
+.btn02 {
+    /* background: #0cfab2; */
+    color: white;
+    background: linear-gradient(45deg, rgb(0,58,125,100%), rgb(17,110,220,100%));
+    text-decoration: none;
+    outline: none;
+    border: none;
+    margin-left: 6vw;
+}

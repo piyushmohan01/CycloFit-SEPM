@@ -1,0 +1,71 @@
+.ride-page {
+    z-index: 0;
+    width: 100%;
+}
+
+.message-box {
+    margin: 2em;
+    margin-left: 2.5em;
+}
+
+.subtext-1,
+.subtext-2 {
+    font-size: 32px;
+    font-weight: lighter;
+    width: fit-content;
+    border-bottom: 5px solid #0cfab2;
+}
+.subtext-2 {
+    margin-top: 2vh;
+}
+
+.form-group {
+    z-index: 1;
+    margin: 0.5em;
+    /* margin-left: 12vw; */
+    /* margin-top: 3vh; */
+}
+
+.form-group label {
+    font-size: 20px;
+    color: whitesmoke;
+}
+
+.form-control {
+    margin-top: 1vh;
+    width: 75vw;
+    border-radius: 10px;
+}
+
+.form-group input {
+    margin-top: 0.5vh;
+    /* margin-bottom: 2vh; */
+    width: 75vw;
+    border-radius: 10px;
+}
+
+.form-horizontal {
+    /* margin-top: -10vh; */
+    margin-bottom: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#duration > option {
+    overflow-x: hidden;
+    max-width: fit-content;
+    font-size: 20px;
+    color: black;
+    background-color: coral;
+}
+
+.btn02 {
+    max-width: 30vw;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    color: white;
+    background: linear-gradient(45deg, rgb(0,58,125,100%), rgb(17,110,220,100%));
+}

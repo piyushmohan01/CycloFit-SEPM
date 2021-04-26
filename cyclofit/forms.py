@@ -1,8 +1,9 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, BooleanField, IntegerField, RadioField
+from wtforms import StringField, PasswordField, SubmitField, BooleanField, IntegerField, RadioField, SelectField
 from wtforms.validators import DataRequired, Length, EqualTo, Email, InputRequired, NumberRange, ValidationError
 from email_validator import validate_email
-from cyclofit.models import User
+from cyclofit.models import User, Profile
+# , Ride
 from flask_login import current_user
 from flask_wtf.file import FileField, FileAllowed
 
@@ -80,3 +81,12 @@ class UpdateProfileForm(FlaskForm):
             # if email already present throw validation error
             if user:
                 raise ValidationError('Email already taken! Pick another!')
+    
+class NewRideForm(FlaskForm):
+    # distance and calorie-count
+    duration = SelectField(u'Ride Duration', choices=[('15', '15 min'), ('30', '30 min'), ('45', '45 min'), ('60', '60 min')])
+    avg_speed = SelectField(u'Average Speed', choices=[('10', '10 KMPH'), ('20', '20 KMPH'), ('30', '30 KMPH'), ('40', '40 KMPH')])
+    rider_weight = IntegerField('Rider Weight', validators=[DataRequired('Please enter your weight!')])
+    cycle_type = SelectField(u'Cyclo-Type', choices=[('premium', 'Cyclo-Premium'), ('health', 'Cyclo-Healt'), ('student', 'Cyclo-Student'), ('afford', 'Cyclo-Afford')])
+    ride_rating = IntegerField('Ride Rating', validators=[DataRequired('Please Rate the Ride'), NumberRange(min=1)])
+    submit = SubmitField('Submit')

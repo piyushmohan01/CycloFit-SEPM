@@ -46,18 +46,18 @@ a {
 }
 
 .user-image {
-    height: 5em;
-    width: 5em;
+    height: 10em;
+    width: 10em;
     border-radius: 50%;
     margin: 2vh 0;
     /* box-shadow: 0.5em 0.5em 0.5em black; */
 }
 
-/* .user-name {
+.user-name {
     margin-left: 4vw;
-} */
+}
 
-/* 
+
 .form-group {
     z-index: 1;
 }
@@ -134,4 +134,4 @@ a {
     outline: none;
     color: white;
     background: linear-gradient(45deg, rgb(0,58,125,100%), rgb(17,110,220,100%));
-} */
+}

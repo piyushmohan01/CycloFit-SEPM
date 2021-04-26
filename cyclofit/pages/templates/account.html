@@ -9,23 +9,8 @@
         <div class="container" style="background-color: transparent;">
             <div class="user-box">
                 <img class="user-image" src="{{ image_file }}" alt="">
-                <div class="text-box">
-                    <div class="user-name" style="font-size: 1.25em;">{{ current_user.username }}</div>
-                    <div class="user-name" style="font-size: 1em;">{{ current_user.email }}</div>
-                </div>
             </div>
-            <div class="user-box">
-                <div class="text-box">
-                    <div class="user-name" style="font-size: 1.25em;">{{ current_user.area }}</div>
-                    <div class="user-name" style="font-size: 1em;">{{ current_user.contactno }}</div>
-                </div>
-            </div>
-        </div>
-    </div>
-{% endblock page %}
-
-<!-- 
-    <div class="user-box" style="background-color: transparent;">
+            <div class="user-box" style="background-color: transparent;">
                 <form class="form-horizontal", role="form", autocomplete="off", method="POST", action="" enctype="multipart/form-data">
                     {{ form.hidden_tag() }}
                     <div class="form-group">
@@ -79,10 +64,13 @@
                         </div>
                         
                     <small class="text-muted ml-2", id="txt-mute-1">
-                        <a href="#">Update personal info</a>
+                        <a href="{{url_for('profile')}}">Back to Profile Page</a>
                     </small>
                     </div>
         
                 </form>
-                </div>
- -->
+            </div>
+        </div>
+    </div>
+{% endblock page %}
+

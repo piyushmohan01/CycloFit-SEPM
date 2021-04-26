@@ -1,0 +1,107 @@
+{% extends "nav-01.html" %}
+
+{% block pagecss %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/new_ride.css') }}">
+{% endblock pagecss %}
+
+{% block page %}
+    <div class="container" style="background-color: transparent;">
+    <div class="ride-page">
+        <div class="message-box">
+            <h1 class="subtext-1 text-left font-weight-light text-white">
+                Glad to
+            </h1>
+            <h1 class="subtext-2 text-left font-weight-light text-white">
+                have you here!
+            </h1>
+        </div>
+            <form class="form-horizontal", role="form", autocomplete="off", method="POST", action="">
+                {{ form.hidden_tag() }}
+                <div class="form-group">
+                    {{ form.duration.label(class='form-control-label') }}
+                    {% if form.duration.errors %}
+                        {{ form.duration(class='form-control form-control-md is-invalid') }}
+                        <div class="invalid-feedback">
+                            {% for error in form.duration.errors %}
+                                <span>
+                                    {{ error }}
+                                </span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.duration(class='form-control form-control-md', placeholder='name@example.com') }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.avg_speed.label(class='form-control-label') }}
+                        
+                    {% if form.avg_speed.errors %}
+                    {{ form.avg_speed(class='form-control form-control-md is-invalid') }}
+                    <div class="invalid-feedback">
+                        {% for error in form.avg_speed.errors %}
+                            <span>
+                                {{ error }}
+                            </span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                        {{ form.avg_speed(class='form-control form-control-md', placeholder='name123') }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.rider_weight.label(class='form-control-label') }}
+                        
+                        {% if form.rider_weight.errors %}
+                        {{ form.rider_weight(class='form-control form-control-md is-invalid') }}
+                        <div class="invalid-feedback">
+                            {% for error in form.rider_weight.errors %}
+                                <span>
+                                    {{ error }}
+                                </span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                            {{ form.rider_weight(class='form-control form-control-md', placeholder='Set a strong password!') }}
+                        {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.cycle_type.label(class='form-control-label') }}
+                        
+                    {% if form.cycle_type.errors %}
+                    {{ form.cycle_type(class='form-control form-control-md is-invalid') }}
+                    <div class="invalid-feedback">
+                        {% for error in form.cycle_type.errors %}
+                            <span>
+                                {{ error }}
+                            </span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                        {{ form.cycle_type(class='form-control form-control-md', placeholder='Make sure they match!') }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.ride_rating.label(class='form-control-label') }}
+                        
+                    {% if form.ride_rating.errors %}
+                    {{ form.ride_rating(class='form-control form-control-md is-invalid') }}
+                    <div class="invalid-feedback">
+                        {% for error in form.ride_rating.errors %}
+                            <span>
+                                {{ error }}
+                            </span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                        {{ form.ride_rating(class='form-control form-control-md', placeholder='Make sure they match!') }}
+                    {% endif %}
+                </div>
+                <div class="col-12">
+                    <div class="form-group">
+                        {{ form.submit(class='btn02 btn-color01 btn-lg') }}
+                    </div>
+                </div>
+            </form>
+    </div>      
+    </div>
+{% endblock page %}
