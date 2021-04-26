@@ -87,6 +87,8 @@ class NewRideForm(FlaskForm):
     duration = SelectField(u'Ride Duration', choices=[('15', '15 min'), ('30', '30 min'), ('45', '45 min'), ('60', '60 min')])
     avg_speed = SelectField(u'Average Speed', choices=[('10', '10 KMPH'), ('20', '20 KMPH'), ('30', '30 KMPH'), ('40', '40 KMPH')])
     rider_weight = IntegerField('Rider Weight', validators=[DataRequired('Please enter your weight!')])
-    cycle_type = SelectField(u'Cyclo-Type', choices=[('premium', 'Cyclo-Premium'), ('health', 'Cyclo-Healt'), ('student', 'Cyclo-Student'), ('afford', 'Cyclo-Afford')])
-    ride_rating = IntegerField('Ride Rating', validators=[DataRequired('Please Rate the Ride'), NumberRange(min=1)])
+    cycle_type = SelectField(u'Cyclo-Type', choices=[('premium', 'Cyclo-Premium'), ('health', 'Cyclo-Health'), ('student', 'Cyclo-Student'), ('afford', 'Cyclo-Afford')])
+    ride_rating = RadioField('Ride Rating', choices=[('1','1'),('2','2'),('3','3'),('4','4'),('5','5')])
     submit = SubmitField('Submit')
+
+    # gender = RadioField('Gender', choices=[('Male','Male'),('Female','Female')], validators=[DataRequired()])

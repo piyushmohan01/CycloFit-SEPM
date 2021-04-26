@@ -40,8 +40,16 @@
 .form-group input {
     margin-top: 0.5vh;
     /* margin-bottom: 2vh; */
-    width: 75vw;
+    width: 20vw;
     border-radius: 10px;
+    color: white;
+    /* background-color: transparent; */
+    border-color: white;
+}
+
+::-webkit-input-placeholder {
+    color: white;
+    /* opacity: 1; */
 }
 
 .form-horizontal {
@@ -53,16 +61,80 @@
     flex-direction: column;
 }
 
-#duration > option {
+.row-box {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+
+.select-box {
+    width: 25vw;
+    overflow: hidden;
+}
+
+select {
+    appearance: none;
+    border: none;
+    margin: 0;
+    width: 100%;
+}
+
+select option {
     overflow-x: hidden;
-    max-width: fit-content;
-    font-size: 20px;
+    width: 25vw;
+    font-size: 15px;
     color: black;
-    background-color: coral;
+    /* background-color: coral; */
+}
+
+#duration,
+#avg_speed,
+#cycle_type {
+    width: 100%;
+    color: white;
+    background-color: transparent;
+    border-color: white;
+}
+
+#cycle_type {
+    width: fit-content;
+}
+
+#ride_rating {
+    width: 100%;
+    display: flex;
+    background-color: transparent;
+    border: none;
+}
+
+#ride_rating > li {
+    margin-right: 0;
+    width: fit-content;
+    /* background-color: black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#ride_rating-0,
+#ride_rating-1,
+#ride_rating-2,
+#ride_rating-3,
+#ride_rating-4 {
+    width: 1.5em;
+    height: 1.5em;
+    padding-bottom: 2vh;
+    margin: 0 1em;
+    margin-bottom: 0.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* margin-right: 5vw; */
 }
 
 .btn02 {
-    max-width: 30vw;
+    width: 100%;
     border-radius: 25px;
     border: none;
     outline: none;

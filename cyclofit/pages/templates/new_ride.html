@@ -1,4 +1,4 @@
-{% extends "nav-01.html" %}
+{% extends "nav-02.html" %}
 
 {% block pagecss %}
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/new_ride.css') }}">
@@ -17,10 +17,14 @@
         </div>
             <form class="form-horizontal", role="form", autocomplete="off", method="POST", action="">
                 {{ form.hidden_tag() }}
+                <div class="row-box">
                 <div class="form-group">
                     {{ form.duration.label(class='form-control-label') }}
+
                     {% if form.duration.errors %}
-                        {{ form.duration(class='form-control form-control-md is-invalid') }}
+                        <div class="select-box">
+                            {{ form.duration(class='form-control form-control-md is-invalid') }}
+                        </div>
                         <div class="invalid-feedback">
                             {% for error in form.duration.errors %}
                                 <span>
@@ -29,7 +33,7 @@
                             {% endfor %}
                         </div>
                     {% else %}
-                        {{ form.duration(class='form-control form-control-md', placeholder='name@example.com') }}
+                        {{ form.duration(class='form-control form-control-md') }}
                     {% endif %}
                 </div>
                 <div class="form-group">
@@ -45,14 +49,18 @@
                         {% endfor %}
                     </div>
                     {% else %}
-                        {{ form.avg_speed(class='form-control form-control-md', placeholder='name123') }}
+                        {{ form.avg_speed(class='form-control form-control-md') }}
                     {% endif %}
+                </div>                    
                 </div>
-                <div class="form-group">
-                    {{ form.rider_weight.label(class='form-control-label') }}
+                <div class="form-group" style="width:100%;display: flex;justify-content: center;align-items: center;">
+                    <div class="label-div" style="display: flex;justify-content: center;align-items: center;margin-right: 1em;">
+                        {{ form.rider_weight.label(class='form-control-label') }}
+                        <h6 style="color: white; margin: 1em 0;">[KG]</h6>
+                    </div>
                         
                         {% if form.rider_weight.errors %}
-                        {{ form.rider_weight(class='form-control form-control-md is-invalid') }}
+                        {{ form.rider_weight(class='form-control form-control-md is-invalid', style='color:white;margin-left:-2em;') }}
                         <div class="invalid-feedback">
                             {% for error in form.rider_weight.errors %}
                                 <span>
@@ -61,14 +69,14 @@
                             {% endfor %}
                         </div>
                         {% else %}
-                            {{ form.rider_weight(class='form-control form-control-md', placeholder='Set a strong password!') }}
+                            {{ form.rider_weight(class='form-control form-control-md', style='color:black;margin-left:1em;', placeholder='00') }}
                         {% endif %}
                 </div>
-                <div class="form-group">
-                    {{ form.cycle_type.label(class='form-control-label') }}
+                <div class="form-group" style="width:100%;display: flex;justify-content: center;align-items: center;">
+                    {{ form.cycle_type.label(class='form-control-label',style='width:fit-content;margin-right:1em;') }}
                         
                     {% if form.cycle_type.errors %}
-                    {{ form.cycle_type(class='form-control form-control-md is-invalid') }}
+                    {{ form.cycle_type(class='form-control form-control-md is-invalid',style='width:25%;') }}
                     <div class="invalid-feedback">
                         {% for error in form.cycle_type.errors %}
                             <span>
@@ -80,12 +88,12 @@
                         {{ form.cycle_type(class='form-control form-control-md', placeholder='Make sure they match!') }}
                     {% endif %}
                 </div>
-                <div class="form-group">
+                <div class="form-group" style="display: flex;justify-content: center;align-items: center;flex-direction: column;margin: 1em 0;">
                     {{ form.ride_rating.label(class='form-control-label') }}
                         
                     {% if form.ride_rating.errors %}
                     {{ form.ride_rating(class='form-control form-control-md is-invalid') }}
-                    <div class="invalid-feedback">
+                    <div class="invalid-feedback" style="display: flex;justify-content: center;align-items: center;">
                         {% for error in form.ride_rating.errors %}
                             <span>
                                 {{ error }}
@@ -97,7 +105,7 @@
                     {% endif %}
                 </div>
                 <div class="col-12">
-                    <div class="form-group">
+                    <div class="form-group" style="width:100%;display: flex;justify-content: center;align-items: center;">
                         {{ form.submit(class='btn02 btn-color01 btn-lg') }}
                     </div>
                 </div>
