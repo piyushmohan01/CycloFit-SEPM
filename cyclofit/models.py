@@ -16,6 +16,7 @@ class User(db.Model, UserMixin):
     image_file = db.Column(db.String(20), nullable=False, default='default.jpg')
     password = db.Column(db.String(60), nullable=False)
     profile = db.relationship('Profile', backref='user', uselist=False)
+    # rides = db.relationship('Ride', backref='rider', lazy=True)
     # console-print
     def __repr__(self):
         return f"User('{self.username}', '{self.email}', '{self.password}' '{self.image_file}')"
@@ -35,5 +36,7 @@ class Profile(db.Model):
 
 # class Ride(db.Model):
 #     id = db.Column(db.Integer, primary_key=True)
+#     rider_weight = db.Column(db.Integer, nullable=False)
 #     duration = db.Column(db.Integer, nullable=False)
-#     avg_speed = 
+#     avg_speed = db.Column(db.Integer, nullable=False)
+

@@ -80,3 +80,4 @@ class UpdateProfileForm(FlaskForm):
             # if email already present throw validation error
             if user:
                 raise ValidationError('Email already taken! Pick another!')
+    

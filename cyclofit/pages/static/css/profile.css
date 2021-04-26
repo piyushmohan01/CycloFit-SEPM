@@ -75,9 +75,10 @@ h6 {
     width: 100%;
     padding: 1vh 3vw;
     margin: 1.5vh 0;
-    color: black;
+    color: whitesmoke;
+    background-color: rgba(0, 0, 0, 0.25);
     /* background-color: #0cfab2; */
-        background-image: linear-gradient(90deg, rgb(12,250,178,100%) , rgb(0, 161, 182));
+    /* background-image: linear-gradient(90deg, rgb(12,250,178,100%) , rgb(0, 161, 182)); */
 
     /* color: white;
     background: linear-gradient(45deg, rgb(0,58,125,100%), rgb(17,110,220,100%)); */

@@ -7,7 +7,7 @@
 {% block page %}
     <div class="home-page">
         <div class="container" style="background-color: transparent;">
-            <div class="user-box">
+            <div class="user-box" style="margin-top: 2vh;">
                 <img class="user-image" src="{{ image_file }}" alt="">
                 <div class="user-name" style="font-size: 1.5em; padding: 1vh;">@{{ current_user.username }}</div>
             </div>
@@ -34,11 +34,45 @@
                     </div>
                 </div>
             </div>
-            <div class="user-box">
-                <div class="small-section">
-                    Stats
+            <div class="user-box small">
+                <div class="long-section">
+                    <div class="long-1" style="margin-left: 0;"> 
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="50" height="50"><path fill="none" d="M0 0h24v24H0z"/><path d="M2 13h6v8H2v-8zM9 3h6v18H9V3zm7 5h6v13h-6V8z" fill="rgba(12,250,178,1)"/></svg>
+                        <h3 style=" margin-top: 0.5em; text-align: center;">Stats</h3>
+                    </div>
+                </div>
+                <div class="small-section" style="margin-left: 1em;">
+                    <a href="{{url_for('profile')}}">
+                            <!-- About Us -->
+                        <div class="small-1" style="margin-bottom: 1em">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><path fill="none" d="M0 0h24v24H0z"/><path d="M22 10v10a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V10h20zm0-2H2V4a1 1 0 0 1 1-1h18a1 1 0 0 1 1 1v4zm-7 8v2h4v-2h-4z" fill="rgba(12,250,178,1)"/></svg>
+                            <h3 style="margin-left: 1em; margin-bottom: 0;">Payment</h3>
+                        </div>
+                    </a>
+                    <div class="small-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm5-6l5-4-5-4v3H9v2h8v3z" fill="rgba(12,250,178,1)"/></svg>
+                        <h3 style="margin-left: 1em; margin-bottom: 0;">Sign Out</h3>
+                    </div>
                 </div>
             </div>
+            <!-- <div class="user-box" style="margin-bottom: 1vh;">
+                <div class="wide-section" style="width: 100%;">
+                    <h3>Make Payment</h3>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><path fill="none" d="M0 0h24v24H0z"/><path d="M22 10v10a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V10h20zm0-2H2V4a1 1 0 0 1 1-1h18a1 1 0 0 1 1 1v4zm-7 8v2h4v-2h-4z" fill="rgba(12,250,178,1)"/></svg>
+                </div>
+            </div>
+            <div class="user-box">
+                <div class="wide-section" style="width: 100%;">
+                    <h3>Track Progress</h3>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><path fill="none" d="M0 0h24v24H0z"/><path d="M2 13h6v8H2v-8zM9 3h6v18H9V3zm7 5h6v13h-6V8z" fill="rgba(12,250,178,1)"/></svg>
+                </div>
+            </div>
+            <div class="user-box">
+                <div class="wide-section" style="width: 100%;">
+                    <h3>Track Progress</h3>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><path fill="none" d="M0 0h24v24H0z"/><path d="M2 13h6v8H2v-8zM9 3h6v18H9V3zm7 5h6v13h-6V8z" fill="rgba(12,250,178,1)"/></svg>
+                </div>
+            </div> -->
         </div>
     </div>
 {% endblock page %}
