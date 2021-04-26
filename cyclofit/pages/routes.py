@@ -1,10 +1,10 @@
 import os
 import secrets
 from PIL import Image
-from flask import render_template, url_for, flash, redirect, request
+from flask import render_template, url_for, flash, redirect, request, session
 from cyclofit import app, db, bcrypt
-from cyclofit.forms import RegistrationForm, ProfileForm, LoginForm, UpdateProfileForm
-from cyclofit.models import User, Profile
+from cyclofit.forms import RegistrationForm, ProfileForm, LoginForm, UpdateProfileForm, NewRideForm
+from cyclofit.models import User, Profile, Ride
 from flask_login import login_user, current_user, logout_user, login_required
 
 @app.route('/')
@@ -20,23 +20,36 @@ def register():
         user = User(username=form.username.data, 
                     email=form.email.data,
                     password=hashed_password)
+        # session['user_name'] = user.username
         db.session.add(user)
         db.session.commit()
+        # user_at = User.query.get(user.id)
+        session['user_id'] = user.id
+        print(user.id)
+        # print(user_at)
+        # print(session['user_link'])
         return redirect(url_for('register02'))
     return render_template('register.html', form=form)
 
 @app.route('/register02', methods=['GET', 'POST'])
 def register02():
     form = ProfileForm()
+    # user_get = session.get('user')
+    # user_link = User.query.get(user_get.id)
     if form.validate_on_submit():
-        profile = Profile(area=form.area.data, 
-                          contact_no=form.contactno.data,
-                          age=form.age.data,
-                          gender=form.gender.data,
-                          emergency_no=form.emergencyno.data)
-        db.session.add(profile)
-        db.session.commit()
-        return redirect(url_for('login')) # home changed to login
+        if 'user_id' in session:
+            id = session['user_id']
+            user = User.query.get(id)
+            # user = User.query.filter_by(username=user_get).first()
+            profile = Profile(area=form.area.data, 
+                            contact_no=form.contactno.data,
+                            age=form.age.data,
+                            gender=form.gender.data,
+                            emergency_no=form.emergencyno.data,
+                            user=user)
+            db.session.add(profile)
+            db.session.commit()
+            return redirect(url_for('login')) # home changed to login
     return render_template('register02.html', form=form)
 
 # checking login from database
@@ -120,6 +133,10 @@ def account():
     image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
     return render_template('account.html', image_file=image_file, form=form)
 
-# @app.route('/new/ride')
-# @login_required()
-# def new_ride():
+@app.route('/ride/new', methods=['GET', 'POST'])
+@login_required
+def new_ride():
+    form = NewRideForm()
+    if form.validate_on_submit():
+        print('*******************************************')
+    return render_template('new_ride.html', form=form)
