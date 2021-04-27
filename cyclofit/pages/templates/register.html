@@ -6,14 +6,26 @@
 
 {% block page %}
     <div class="register-page">
+        <div class="container" style="background-color: transparent;">
         <div class="message"> 
+            <div class="top-box">
             <div class="message-box">
-                <h1 class="subtext-1 text-left font-weight-light text-white">
+                <h2 class="subtext-1 text-left font-weight-light text-white">
                     Glad to
-                </h1>
-                <h1 class="subtext-2 text-left font-weight-light text-white">
+                </h2>
+                <h2 class="subtext-1 text-left font-weight-light text-white">
+                    Have you
+                </h2>
+                <h2 class="subtext-1 text-left font-weight-light text-white">
+                    RIDER!
+                </h2>
+                <!-- <h1 class="subtext-2 text-left font-weight-light text-white">
                     have you here!
-                </h1>
+                </h1> -->
+            </div>
+            <div class="illus" style="margin-top: -2em;">
+                <img src="{{url_for('static',filename='images/register-image.png')}}" width="350" alt="">
+            </div>
             </div>
             <form class="form-horizontal", role="form", autocomplete="off", method="POST", action="">
                 {{ form.hidden_tag() }}
@@ -90,6 +102,7 @@
                     <a href="{{ url_for('login') }}">Already have an Account?</a>
                 </small>
             </form>
+        </div>
         </div>
     </div>
 {% endblock page %}

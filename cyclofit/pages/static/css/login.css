@@ -12,11 +12,30 @@
     width: 100%;
 }
 
+.container {
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.illus {
+    width: 85vw;
+    /* background-color: black; */
+    margin: -3em 0;
+}
+
+img {
+    max-width:100%;
+    height:auto;
+}
+
 .message {
     background-color: transparent;
     color: whitesmoke;
     /* position: absolute; */
-    margin-top: 12.5vh;
+    /* margin-top: 12.5vh; */
     /* margin-left: 10vw; */
     width: 100%;
     display: flex;
@@ -26,13 +45,13 @@
 }
 
 .message-box {
-    margin-left: -15%;
-    margin-bottom: 7.5%;
+    /* margin-left: -20%; */
+    margin-bottom: 1em;
 }
 
 .subtext-1,
 .subtext-2 {
-    font-size: 32px;
+    /* font-size: 32px; */
     font-weight: lighter;
     width: fit-content;
     border-bottom: 5px solid #0cfab2;
@@ -48,21 +67,22 @@
 }
 
 .form-group label {
-    font-size: 20px;
+    /* font-size: 20px; */
     color: whitesmoke;
 }
 
 .form-control {
-    margin-top: 1vh;
+    /* margin-top: 1vh; */
     width: 75vw;
     border-radius: 10px;
 }
 
 .form-group input {
-    margin-top: 0.5vh;
-    margin-bottom: 3vh;
+    /* margin-top: 0.5vh; */
+    margin-bottom: 1em;
     width: 75vw;
     border-radius: 10px;
+    /* background-color: #0cfab2; */
 }
 
 .form-horizontal {
