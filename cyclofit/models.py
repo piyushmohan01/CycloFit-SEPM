@@ -24,10 +24,10 @@ class User(db.Model, UserMixin):
 class Profile(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     area = db.Column(db.String(20), nullable=False)
-    contact_no = db.Column(db.Integer, unique=True, nullable=False)
+    contact_no = db.Column(db.Integer, unique=False, nullable=False)
     age = db.Column(db.String(20), nullable=False)
     gender = db.Column(db.String(20), nullable=False)
-    emergency_no = db.Column(db.Integer, unique=True, nullable=False)
+    emergency_no = db.Column(db.Integer, unique=False, nullable=False)
     date_registered = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), unique=True, nullable=False)  
     # , nullable=False)

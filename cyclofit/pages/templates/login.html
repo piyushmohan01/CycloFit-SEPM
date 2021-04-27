@@ -6,11 +6,15 @@
 
 {% block page %}
     <div class="register-page">
+        <div class="container" style="background-color: transparent;">
+        <div class="illus" style="margin-top: -2em;">
+            <img src="{{url_for('static',filename='images/login-image.png')}}" width="350" alt="">
+        </div>
         <div class="message">
             <div class="message-box">
-                <h1 class="subtext-1 text-left font-weight-light text-white">
+                <!-- <h1 class="subtext-1 text-left font-weight-light text-white">
                     Hello there,
-                </h1>
+                </h1> -->
                 <h1 class="subtext-2 text-left font-weight-light text-white">
                     Welcome back!
                 </h1>
@@ -84,6 +88,7 @@
                 </div>
     
             </form>
+        </div>
         </div>
     </div>
 {% endblock page %}

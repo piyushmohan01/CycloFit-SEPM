@@ -24,7 +24,7 @@ a {
 .user-box {
     height: fit-content;
     width: 90%;
-    padding: 2vh 0;
+    padding-top: 2vh;
     /* margin: 2vh 0; */
     /* margin-bottom: 1vh; */
     display: flex;
@@ -69,6 +69,8 @@ a {
     align-items: center;
     /* flex-direction: column; */
     background-color: rgba(12, 250, 178, 0.05);
+    /* background: linear-gradient(45deg, rgb(0,58,125,100%), rgb(17,110,220,100%)); */
+
 }
 
 .long-section {
@@ -87,6 +89,8 @@ a {
     align-items: center;
     flex-direction: column;
     background-color: rgba(12, 250, 178, 0.05);
+        /* background: linear-gradient(45deg, rgb(0,58,125,100%), rgb(17,110,220,100%)); */
+
 }
 
 .wide-section {
