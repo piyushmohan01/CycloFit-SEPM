@@ -15,8 +15,8 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(100), unique=True, nullable=False)
     image_file = db.Column(db.String(20), nullable=False, default='default.jpg')
     password = db.Column(db.String(60), nullable=False)
-    profile = db.relationship('Profile', backref='user', uselist=False)
-    rides = db.relationship('Ride', backref='rider', lazy=True)
+    profile = db.relationship('Profile', backref='user', uselist=False) #one-to-one reltn.
+    rides = db.relationship('Ride', backref='rider', lazy=True) #one-to-many reltn.
     # console-print
     def __repr__(self):
         return f"User('{self.id}',{self.username}', '{self.email}', '{self.password}' '{self.image_file}')"
@@ -29,7 +29,7 @@ class Profile(db.Model):
     gender = db.Column(db.String(20), nullable=False)
     emergency_no = db.Column(db.Integer, unique=True, nullable=False)
     date_registered = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), unique=True, nullable=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), unique=True, nullable=False)  
     # , nullable=False)
     # user = db.relationship('User', back_populates='profile')
     # console-print
