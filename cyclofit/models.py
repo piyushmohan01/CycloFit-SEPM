@@ -16,7 +16,7 @@ class User(db.Model, UserMixin):
     image_file = db.Column(db.String(20), nullable=False, default='default.jpg')
     password = db.Column(db.String(60), nullable=False)
     profile = db.relationship('Profile', backref='user', uselist=False) #one-to-one reltn.
-    rides = db.relationship('Ride', backref='rider', lazy=True) #one-to-many reltn.
+    rides = db.relationship('Ride', backref='user', lazy=True) #one-to-many reltn.
     # console-print
     def __repr__(self):
         return f"User('{self.id}',{self.username}', '{self.email}', '{self.password}' '{self.image_file}')"
@@ -34,7 +34,7 @@ class Profile(db.Model):
     # user = db.relationship('User', back_populates='profile')
     # console-print
     def __repr__(self):
-        return f"User('{self.area}', '{self.contact_no}', '{self.age}', '{self.gender}', '{self.emergency_no}', '{self.date_registered}')"
+        return f"User('{self.id}', '{self.area}', '{self.contact_no}', '{self.age}', '{self.gender}', '{self.emergency_no}', '{self.date_registered}')"
 
 class Ride(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -48,4 +48,4 @@ class Ride(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
     def __repr__(self):
-        return f"User('{self.user_id}', {self.rider_weight}', '{self.duration}')"
+        return f"Ride('{self.id}', '{self.rider_weight}', '{self.duration}', '{self.avg_speed}', '{self.distance}', '{self.calorie_count}', '{self.cycle_type}', '{self.ride_rating}', '{self.user_id}')"

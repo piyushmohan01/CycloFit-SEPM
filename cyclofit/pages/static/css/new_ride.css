@@ -1,11 +1,16 @@
 .ride-page {
     z-index: 0;
     width: 100%;
+    /* background-color: black; */
 }
 
 .message-box {
     margin: 2em;
-    margin-left: 2.5em;
+    /* margin-left: 2.5em; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .subtext-1,

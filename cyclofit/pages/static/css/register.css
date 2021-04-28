@@ -24,12 +24,12 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin: 2em 0;
+    margin: 3em 0;
     margin-bottom: 0;
 }
 
 .illus {
-    width: 65vw;
+    width: 62.5vw;
     height: fit-content;
     /* background-color: black; */
     margin-top: -4em;
@@ -71,6 +71,7 @@ img {
 .subtext-1,
 .subtext-2,
 .subtext-3 {
+    margin-left: -1em;
     text-align: left;
     /* font-size: 32px; */
     font-weight: lighter;
@@ -120,14 +121,14 @@ img {
 input[type=text],
 input[type=password] {
     border: 0.1em solid white;
-    color: white;
+    /* color: white; */
 }
 
 input[type=text]:focus,
 input[type=password]:focus {
     /* background-color: transparent; */
     border-color: #0cfab2;
-    color: white;
+    /* color: white; */
 }
 
 .form-horizontal {

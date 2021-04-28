@@ -46,10 +46,10 @@ a {
 }
 
 .user-image {
-    height: 7.5em;
-    width: 7.5em;
+    height: 6em;
+    width: 6em;
     border-radius: 50%;
-    margin: 2vh 0;
+    margin: 2vh 1vw;
     /* box-shadow: 0.5em 0.5em 0.5em black; */
 }
 
@@ -61,29 +61,49 @@ a {
     align-items: center;
     /* flex-direction: column; */
 }
+.row-box {
+    width: 75%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
 
-h6 {
-    height: 5vh;
+h5 {
+    /* height: 5vh; */
     /* background-color: darkred; */
-    width: fit-content;
-    padding: 1vh 2vw;
-    margin: 1.5vh 0;
+    /* width: fit-content; */
+    /* height: fit-content; */
+    width: 100%;
+    /* text-align: right; */
+    /* padding: 1vh 2vw; */
+    padding-right: 6vw;
+    padding-left: 0;
+    /* margin: 1.5vh 0; */
+    margin: 1vh 2vw;
+    color: #0CFAB2;
 }
 
 .user-name {
-    height: 5vh;
+    /* height: 5vh; */
     width: 100%;
-    padding: 1vh 3vw;
-    margin: 1.5vh 0;
-    color: whitesmoke;
-    background-color: rgba(0, 0, 0, 0.25);
-    /* background-color: #0cfab2; */
+    padding: 0.5vh 3vw;
+    margin: 1vh 0;
+    margin-left: -1vw;
+    margin-top: 0;
+    color: white;
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    background-color: #FF2E93;
+    background: linear-gradient(45deg, rgb(0,58,125,100%), rgb(17,110,220,100%));
+
+    /* background-color: rgba(12, 250, 178, 1); */
     /* background-image: linear-gradient(90deg, rgb(12,250,178,100%) , rgb(0, 161, 182)); */
 
     /* color: white;
     background: linear-gradient(45deg, rgb(0,58,125,100%), rgb(17,110,220,100%)); */
     border-radius: 10px;
 }
+
+
 
 .btn02 {
     /* background: #0cfab2; */
@@ -93,4 +113,54 @@ h6 {
     outline: none;
     border: none;
     margin-left: 6vw;
+}
+
+.card-holder {
+    height: 20vh;
+    width: 90%;
+    /* background-color: black; */
+    display: flex;
+    flex-direction: row;
+}
+
+.profile-card {
+    width: 30vw;
+    padding: 2em 1em;
+    /* width: fit-content; */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    border-radius: 10px;
+    /* background-color: rgb(0, 0, 124); */
+    background-color: #06002a;
+    
+    /* background-color: rgba(12, 250, 178, 0.9) */
+    /* background-color: rgb(255, 255, 255); */
+    /* background-color: #FF2E93; */
+    /* background-color: rgba(255, 46, 147, 0.75); */
+}
+
+.bottom-profile-card,
+.area {
+    width: 100%;
+    display: flex;
+}
+
+.button-card {
+    width: fit-content;
+    margin-top: 0.75em;
+    /* margin: 0.75em 0; */
+    padding: 0.5em 2.5em;
+    border-radius: 15px;
+    /* color: black; */
+    background-color: transparent;
+    border: 0.1em solid #0CFAB2;
+    /* background: linear-gradient(45deg, rgb(0,58,125,100%), rgb(17,110,220,100%)); */
+    /* border: 0.1em solid white; */
+}
+
+h6 {
+    /* color: #0cfab2; */
+    width: fit-content;
 }

@@ -9,10 +9,10 @@
     <div class="ride-page">
         <div class="message-box">
             <h1 class="subtext-1 text-left font-weight-light text-white">
-                Glad to
+                You're in
             </h1>
             <h1 class="subtext-2 text-left font-weight-light text-white">
-                have you here!
+                TRACKER MODE!
             </h1>
         </div>
             <form class="form-horizontal", role="form", autocomplete="off", method="POST", action="">
@@ -69,7 +69,7 @@
                             {% endfor %}
                         </div>
                         {% else %}
-                            {{ form.rider_weight(class='form-control form-control-md', style='color:black;margin-left:1em;', placeholder='00') }}
+                            {{ form.rider_weight(type='text',class='form-control form-control-md', style='color:black;margin-left:1em;', placeholder='00') }}
                         {% endif %}
                 </div>
                 <div class="form-group" style="width:100%;display: flex;justify-content: center;align-items: center;">
@@ -88,7 +88,7 @@
                         {{ form.cycle_type(class='form-control form-control-md', placeholder='Make sure they match!') }}
                     {% endif %}
                 </div>
-                <div class="form-group" style="display: flex;justify-content: center;align-items: center;flex-direction: column;margin: 1em 0;">
+                <div class="form-group" style="display: flex;justify-content: center;align-items: center;flex-direction: column;margin: 2em 0;">
                     {{ form.ride_rating.label(class='form-control-label') }}
                         
                     {% if form.ride_rating.errors %}
