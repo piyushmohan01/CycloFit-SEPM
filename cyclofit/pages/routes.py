@@ -49,6 +49,7 @@ def register02():
                             user=user)
             db.session.add(profile)
             db.session.commit()
+            print(profile)
             return redirect(url_for('login')) # home changed to login
     return render_template('register02.html', form=form)
 
@@ -139,4 +140,21 @@ def new_ride():
     form = NewRideForm()
     if form.validate_on_submit():
         print('*******************************************')
+        user = User.query.get(current_user.id)
+        print(user)
+        print(current_user.id)
+        duration = int(form.duration.data)
+        avg_speed = int(form.avg_speed.data)
+        distance = duration*avg_speed
+        ride = Ride(rider_weight=form.rider_weight.data, 
+                    duration=form.duration.data,
+                    avg_speed=form.avg_speed.data,
+                    distance=int(duration*avg_speed),
+                    calorie_count=int(distance*1.5),
+                    cycle_type=form.cycle_type.data,
+                    ride_rating=form.ride_rating.data,
+                    user=User.query.get(current_user.id))
+        db.session.add(ride)
+        db.session.commit()
+        print(ride)
     return render_template('new_ride.html', form=form)
