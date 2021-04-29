@@ -3,7 +3,7 @@
 Flask-Web Mobile Application for public Bicycle-Sharing and Fitness-Tracking.
 
 ## What's being used :
-gitLibrary Name | Version
+Library Name | Version
 -- | --
 [Flask](https://flask.palletsprojects.com/en/1.1.x/) | (v.1.1.2)
 [Flask-Bcrypt](https://flask-bcrypt.readthedocs.io/en/latest/) | (v.0.7.1)
