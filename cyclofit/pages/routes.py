@@ -3,7 +3,7 @@ import secrets
 from PIL import Image
 from flask import render_template, url_for, flash, redirect, request, session
 from cyclofit import app, db, bcrypt
-from cyclofit.forms import RegistrationForm, ProfileForm, LoginForm, UpdateProfileForm, NewRideForm
+from cyclofit.forms import RegistrationForm, ProfileForm, LoginForm, UpdateGeneralForm, UpdatePersonalForm, NewRideForm
 from cyclofit.models import User, Profile, Ride
 from flask_login import login_user, current_user, logout_user, login_required
 
@@ -116,9 +116,9 @@ def save_picture(form_picture):
     i.save(picture_path)
     return picture_fn
 # update account
-@app.route("/account", methods=['GET', 'POST'])
-def account():
-    form = UpdateProfileForm()
+@app.route("/general-update", methods=['GET', 'POST'])
+def general_update():
+    form = UpdateGeneralForm()
     if form.validate_on_submit():
         if form.picture.data:
             picture_file = save_picture(form.picture.data)
@@ -158,3 +158,41 @@ def new_ride():
         db.session.commit()
         print(ride)
     return render_template('new_ride.html', form=form)
+
+@app.route('/personal-update', methods=['GET', 'POST'])
+def personal_update():
+    form = UpdatePersonalForm()
+    user = Profile.query.get(current_user.id)
+    if form.validate_on_submit():
+        user.area = form.area.data
+        user.contact_no = form.contactno.data
+        user.age = form.age.data
+        user.gender = form.gender.data
+        user.emergency_no = form.emergencyno.data
+        db.session.commit()
+        return redirect(url_for('home'))
+    elif request.method == 'GET':
+        form.area.data = user.area
+        form.contactno.data = user.contact_no
+        form.age.data = user.age
+        form.gender.data = user.gender
+        form.emergencyno.data = user.emergency_no
+    return render_template('account02.html', form=form)
+
+# @app.route("/general-update", methods=['GET', 'POST'])
+# def general_update():
+#     form = UpdateProfileForm().
+#     if form.validate_on_submit():
+#         if form.picture.data:
+#             picture_file = save_picture(form.picture.data)
+#             current_user.image_file = picture_file
+#         current_user.username = form.username.data
+#         current_user.email = form.email.data
+#         db.session.commit()
+#         # flash(f'Account Updated Successfully!')
+#         return redirect(url_for('home'))
+#     elif request.method == 'GET':
+#         form.username.data = current_user.username
+#         form.email.data = current_user.email
+#     image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
+#     return render_template('account.html', image_file=image_file, form=form)

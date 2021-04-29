@@ -11,9 +11,6 @@
                 <div class="top-row" style="width: 100%; display: flex; justify-content: space-evenly; align-items: center;">
                     <img class="user-image" src="{{ image_file }}" alt="">
                     <div class="right-top">
-                        <!-- <div class="button-update">
-                            <a href={{url_for('account')}} class='btn02 btn-color01 btn-lg'>Update</a>
-                        </div> -->
                         <div class="user-name" style="font-size: 1.1em;width: fit-content;">{{ current_user.username }}</div>
                         <div class="user-name" style="font-size: 1.1em;">{{ current_user.email }}</div>
                     </div>
@@ -48,9 +45,9 @@
                         <div class="user-name" style="font-size: 1em;">{{ current_datereg }}</div>
                     </div>
                 </div>
-            <!-- </div>
+            </div>
 
-            <div class="user-box"> -->
+            <div class="user-box">
                 <div class="card-holder">
                     <div class="profile-card" style="width: 55vw;margin-right: 1em;">
                         <!--  </br>{{ current_age }} </br>{{ current_gender }}-->
@@ -61,16 +58,16 @@
                         <div class="user-name" style="font-size: 1em;">{{ current_emergencyno }}</div>
 
                     </div>
-                    <div class="profile-card" style="padding-top:1em;width: 35vw;align-items: center;justify-content: space-between;background-color: transparent;">
-                        <!-- <h6>Update</h6> -->
+                    <div class="profile-card" id="buttons-sec">
+                        <!-- <h6 style="border-bottom: 0.25em solid #0cfab2;">UPDATE</h6> -->
                         <div class="button-card" style="margin-top: -0.5em;">
-                            General
+                            <a href="{{url_for('general_update')}}">General</a>
                         </div>
                         <div class="button-card">
-                            Personal
+                            <a href="{{url_for('personal_update')}}">Personal</a>
                         </div>
                         <div class="button-card">
-                            Home
+                            <a href="{{url_for('home')}}">Home</a>
                         </div>
                     </div>
                 </div>

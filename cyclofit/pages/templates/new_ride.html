@@ -88,7 +88,7 @@
                         {{ form.cycle_type(class='form-control form-control-md', placeholder='Make sure they match!') }}
                     {% endif %}
                 </div>
-                <div class="form-group" style="display: flex;justify-content: center;align-items: center;flex-direction: column;margin: 2em 0;">
+                <div class="form-group" style="display: flex;justify-content: center;align-items: center;flex-direction: column;margin-top: 2em;">
                     {{ form.ride_rating.label(class='form-control-label') }}
                         
                     {% if form.ride_rating.errors %}
@@ -105,9 +105,12 @@
                     {% endif %}
                 </div>
                 <div class="col-12">
-                    <div class="form-group" style="width:100%;display: flex;justify-content: center;align-items: center;">
-                        {{ form.submit(class='btn02 btn-color01 btn-lg') }}
+                    <div class="form-group">
+                        {{ form.submit(class='btn02 btn-color01 btn-lg', style='width:fit-content') }}
                     </div>
+                    <small class="text-muted ml-2", id="txt-mute-1" style="margin-left: 1em;">
+                        <a href="{{url_for('home')}}">Back to Home Page</a>
+                    </small>
                 </div>
             </form>
     </div>      
