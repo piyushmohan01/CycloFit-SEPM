@@ -1,17 +1,30 @@
 .ride-page {
     z-index: 0;
     width: 100%;
-    /* background-color: black; */
 }
 
 .message-box {
-    margin: 2em;
-    /* margin-left: 2.5em; */
+    margin: 2em 0;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    flex-direction: column;
 }
+
+.illus {
+    width: 40vw;
+    height: fit-content;
+}
+
+.text {
+    padding-left: 2em;
+    border-left: 0.1em solid white;
+}
+
+img {
+    max-width:100%;
+    height:auto;
+}
+
 
 .subtext-1,
 .subtext-2 {
@@ -21,14 +34,12 @@
     border-bottom: 5px solid #0cfab2;
 }
 .subtext-2 {
-    margin-top: 2vh;
+    margin-top: 1vh;
 }
 
 .form-group {
     z-index: 1;
     margin: 0.5em;
-    /* margin-left: 12vw; */
-    /* margin-top: 3vh; */
 }
 
 .form-group label {
@@ -44,16 +55,13 @@
 
 .form-group input {
     margin-top: 0.5vh;
-    /* margin-bottom: 2vh; */
     width: 20vw;
     border-radius: 10px;
     color: white;
-    /* background-color: transparent; */
     border-color: white;
 }
 
 .form-horizontal {
-    /* margin-top: -10vh; */
     margin-bottom: 10%;
     display: flex;
     justify-content: center;
@@ -84,7 +92,6 @@ select option {
     width: 25vw;
     font-size: 15px;
     color: black;
-    /* background-color: coral; */
 }
 
 #duration,
@@ -109,12 +116,11 @@ select option {
 
 #ride_rating > li {
     margin-right: 0;
+    margin-left: 0;
     width: fit-content;
-    /* background-color: black; */
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
 }
 #ride_rating-0,
 #ride_rating-1,
@@ -125,42 +131,25 @@ select option {
     height: 1.5em;
     padding-bottom: 2vh;
     margin: 0 1em;
-    /* margin-bottom: 0.5em; */
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    /* margin-right: 5vw; */
 }
 
-/* .btn02 {
-    width: 100%;
-    border-radius: 25px;
-    border: none;
-    outline: none;
-    color: white;
-    background: linear-gradient(45deg, rgb(0,58,125,100%), rgb(17,110,220,100%));
-} */
-
 .col-12 {
-    /* margin-top: 1em; */
     display: flex;
     justify-content: center;
     align-items: center;
-    /* flex-direction: column; */
-    /* margin-left: 20vw; */
 }
 
 .col-12 > .form-group {
     padding-left: 0;
-    /* width: 100%; */
 }
 
 .btn02 {
-    /* max-width: 40vw; */
     width: 100%;
     border-radius: 25px;
-    /* padding: 0.25em 0.5em; */
     border: none;
     outline: none;
     color: white;
@@ -168,7 +157,6 @@ select option {
 }
 
 a {
-    /* text-decoration: none; */
     outline: none;
     text-emphasis: none;
     margin: 0;

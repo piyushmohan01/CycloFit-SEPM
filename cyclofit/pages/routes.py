@@ -20,27 +20,20 @@ def register():
         user = User(username=form.username.data, 
                     email=form.email.data,
                     password=hashed_password)
-        # session['user_name'] = user.username
         db.session.add(user)
         db.session.commit()
-        # user_at = User.query.get(user.id)
         session['user_id'] = user.id
         print(user.id)
-        # print(user_at)
-        # print(session['user_link'])
         return redirect(url_for('register02'))
     return render_template('register.html', form=form)
 
 @app.route('/register02', methods=['GET', 'POST'])
 def register02():
     form = ProfileForm()
-    # user_get = session.get('user')
-    # user_link = User.query.get(user_get.id)
     if form.validate_on_submit():
         if 'user_id' in session:
             id = session['user_id']
             user = User.query.get(id)
-            # user = User.query.filter_by(username=user_get).first()
             profile = Profile(area=form.area.data, 
                             contact_no=form.contactno.data,
                             age=form.age.data,
@@ -178,21 +171,3 @@ def personal_update():
         form.gender.data = user.gender
         form.emergencyno.data = user.emergency_no
     return render_template('account02.html', form=form)
-
-# @app.route("/general-update", methods=['GET', 'POST'])
-# def general_update():
-#     form = UpdateProfileForm().
-#     if form.validate_on_submit():
-#         if form.picture.data:
-#             picture_file = save_picture(form.picture.data)
-#             current_user.image_file = picture_file
-#         current_user.username = form.username.data
-#         current_user.email = form.email.data
-#         db.session.commit()
-#         # flash(f'Account Updated Successfully!')
-#         return redirect(url_for('home'))
-#     elif request.method == 'GET':
-#         form.username.data = current_user.username
-#         form.email.data = current_user.email
-#     image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
-#     return render_template('account.html', image_file=image_file, form=form)

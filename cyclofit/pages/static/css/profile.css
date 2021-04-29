@@ -7,7 +7,6 @@ body {
 .account-page {
     background-color: transparent;
     width: 100%;
-    /* height: fit-content; */
     z-index: 0;
     color: whitesmoke;
     overflow-y: hidden;
@@ -32,8 +31,7 @@ a {
 .user-box {
     height: fit-content;
     width: 100%;
-    padding: 2vh 0;
-    /* margin: 2vh 0; */
+    padding: 3vh 0;
     margin-top: 2vh;
     margin-bottom: 0vh;
     display: flex;
@@ -41,25 +39,22 @@ a {
     align-items: center;
     flex-direction: column;
     background-color: rgba(12, 250, 178, 0.05);
-    /* border: 0.1em solid whitesmoke; */
     border-radius: 25px;
 }
 
 .user-image {
-    height: 6em;
-    width: 6em;
+    height: 6.5em;
+    width: 6.5em;
     border-radius: 50%;
     margin: 2vh 1vw;
-    /* box-shadow: 0.5em 0.5em 0.5em black; */
+    margin-left: 0;
 }
 
 .text-box {
-    /* margin-left: 7.5vw; */
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* flex-direction: column; */
 }
 .row-box {
     width: 75%;
@@ -69,49 +64,27 @@ a {
 }
 
 h5 {
-    /* height: 5vh; */
-    /* background-color: darkred; */
-    /* width: fit-content; */
-    /* height: fit-content; */
     width: 100%;
-    /* text-align: right; */
-    /* padding: 1vh 2vw; */
     padding-right: 6vw;
     padding-left: 0;
-    /* margin: 1.5vh 0; */
     margin: 1vh 2vw;
     color: #0CFAB2;
 }
 
 .user-name {
-    /* height: 5vh; */
     width: 100%;
     padding: 0.5vh 3vw;
     margin: 1vh 0;
     margin-left: -1vw;
     margin-top: 0;
-    /* color: black; */
-    /* border: 0.1em solid #06002a; */
-    /* background-color: #05e6a2; */
-    /* background-color: rgba(12, 250, 178, 0.05); */
-
-    /* background-color: rgba(12, 250, 178, 1); */
-
+    text-align: center;
     background-color: rgba(6, 0, 42, 1);
-    /* background: linear-gradient(45deg, rgb(0,58,125,100%), rgb(17,110,220,100%)); */
-
-    /* background-color: rgba(12, 250, 178, 1); */
-    /* background-image: linear-gradient(90deg, rgb(12,250,178,100%) , rgb(0, 161, 182)); */
-
-    /* color: white;
-    background: linear-gradient(45deg, rgb(0,58,125,100%), rgb(17,110,220,100%)); */
     border-radius: 10px;
 }
 
 
 
 .btn02 {
-    /* background: #0cfab2; */
     color: white;
     background: linear-gradient(45deg, rgb(0,58,125,100%), rgb(17,110,220,100%));
     text-decoration: none;
@@ -123,7 +96,6 @@ h5 {
 .card-holder {
     height: 20vh;
     width: 90%;
-    /* background-color: black; */
     display: flex;
     flex-direction: row;
 }
@@ -131,33 +103,26 @@ h5 {
 .profile-card {
     width: 30vw;
     padding: 2em 1em;
-    /* width: fit-content; */
     display: flex;
     justify-content: center;
     align-items: flex-start;
     flex-direction: column;
     border-radius: 10px;
-    /* background-color: rgb(0, 0, 124); */
-
-
-    /* background-color: #070027;
-    background: linear-gradient(45deg, rgb(0,58,125,100%), rgb(17,110,220,100%));
-    background-image: linear-gradient(-45deg, rgb(12,250,178,100%) , rgb(0,25,48,50%)); */
-
-
-    /* border: 0.1em solid white; */
-
-    /* box-shadow: 0.25em 0.1em 0.25em 0.1em #0CFAB2; */
-
     -moz-box-shadow:    inset 0 0 10px #0cfab2;
     -webkit-box-shadow: inset 0 0 10px #0cfab2;
     box-shadow:         inset 0 0 10px #0cfab2;
+}
 
-
-    /* background-color: rgba(12, 250, 178, 0.9) */
-    /* background-color: rgb(255, 255, 255); */
-    /* background-color: #FF2E93; */
-    /* background-color: rgba(255, 46, 147, 0.75); */
+.right-top {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 1em;
+    border-radius: 10px;
+    -moz-box-shadow:    inset 0 0 10px #0cfab2;
+    -webkit-box-shadow: inset 0 0 10px #0cfab2;
+    box-shadow:         inset 0 0 10px #0cfab2;
 }
 
 
@@ -179,28 +144,16 @@ h5 {
 }
 
 .button-card {
-    /* width: fit-content; */
     width: 35vw;
     margin-top: 0.75em;
-    /* margin: 0.75em 0; */
     padding: 0.5em 2.5em;
     border-radius: 15px;
-    /* color: black; */
-    background-color: transparent;
-    /* border: 0.1em solid #0CFAB2; */
-    /* border: 0.1em solid white; */
-    /* background: linear-gradient(45deg, rgb(0,58,125,100%), rgb(17,110,220,100%)); */
-    /* border: 0.1em solid white; */
+    background: linear-gradient(45deg, rgb(0,58,125,100%), rgb(17,110,220,100%));
     display: flex;
     justify-content: center;
-
-    -moz-box-shadow:    inset 0 0 10px #FF2E93;
-    -webkit-box-shadow: inset 0 0 10px #FF2E93;
-    box-shadow:         inset 0 0 10px #FF2E93;
-
 }
 
 h6 {
-    /* color: #0cfab2; */
+    color: #0cfab2;
     width: fit-content;
 }

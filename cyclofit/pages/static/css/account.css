@@ -32,7 +32,7 @@ a {
 .user-box {
     height: fit-content;
     width: 90%;
-    padding: 2vh 0;
+    padding: 3vh 0;
     /* margin: 2vh 0; */
     margin-top: 2vh;
     margin-bottom: 0vh;
@@ -46,11 +46,20 @@ a {
 }
 
 .user-image {
-    height: 10em;
-    width: 10em;
+    height: 7.5em;
+    width: 7.5em;
     border-radius: 50%;
     margin: 2vh 0;
     /* box-shadow: 0.5em 0.5em 0.5em black; */
+}
+
+.subtext-1,
+.subtext-2 {
+    /* padding-bottom: 0.25em; */
+    width: fit-content;
+    margin-top: 0.5em;
+    /* background-color: black; */
+    border-bottom: 0.15em solid #0cfab2;
 }
 
 .user-name {

@@ -8,12 +8,18 @@
     <div class="container" style="background-color: transparent;">
     <div class="ride-page">
         <div class="message-box">
-            <h1 class="subtext-1 text-left font-weight-light text-white">
-                You're in
-            </h1>
-            <h1 class="subtext-2 text-left font-weight-light text-white">
-                TRACKER MODE!
-            </h1>
+            <img class='illus' src="{{url_for('static', filename='images/tracker-image.png')}}" alt="">
+            <div class="text">
+                <h1 class="subtext-1 text-left font-weight-light text-white">
+                    Enter
+                </h1>
+                <h1 class="subtext-2 text-left font-weight-light text-white">
+                    TRACK
+                </h1>
+                <h1 class="subtext-2 text-left font-weight-light text-white">
+                    Mode!
+                </h1>
+            </div>
         </div>
             <form class="form-horizontal", role="form", autocomplete="off", method="POST", action="">
                 {{ form.hidden_tag() }}
@@ -88,7 +94,7 @@
                         {{ form.cycle_type(class='form-control form-control-md', placeholder='Make sure they match!') }}
                     {% endif %}
                 </div>
-                <div class="form-group" style="display: flex;justify-content: center;align-items: center;flex-direction: column;margin-top: 2em;">
+                <div class="form-group" style="display: flex;justify-content: center;align-items: center;flex-direction: column;">
                     {{ form.ride_rating.label(class='form-control-label') }}
                         
                     {% if form.ride_rating.errors %}

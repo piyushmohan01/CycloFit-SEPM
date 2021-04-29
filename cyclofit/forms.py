@@ -103,5 +103,3 @@ class NewRideForm(FlaskForm):
     cycle_type = SelectField(u'Cyclo-Type', choices=[('premium', 'Cyclo-Premium'), ('health', 'Cyclo-Health'), ('student', 'Cyclo-Student'), ('afford', 'Cyclo-Afford')])
     ride_rating = RadioField('Ride Rating', choices=[('1','1'),('2','2'),('3','3'),('4','4'),('5','5')])
     submit = SubmitField('Submit')
-
-    # gender = RadioField('Gender', choices=[('Male','Male'),('Female','Female')], validators=[DataRequired()])

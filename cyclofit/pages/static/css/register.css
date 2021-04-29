@@ -3,10 +3,6 @@
     overflow: hidden ;
 }
 
-/* body {
-    width: 100vw;
-} */
-
 .register-page {
     z-index: 0;
     width: 100%;
@@ -31,11 +27,7 @@
 .illus {
     width: 62.5vw;
     height: fit-content;
-    /* background-color: black; */
     margin-top: -4em;
-    /* padding-bottom: -4em; */
-    /* margin-right: -2em; */
-    /* margin-top: 10em; */
 }
 
 img {
@@ -46,9 +38,6 @@ img {
 .message {
     background-color: transparent;
     color: whitesmoke;
-    /* position: absolute; */
-    /* margin-top: 12.5vh; */
-    /* margin-left: 10vw; */
     width: 100%;
     display: flex;
     justify-content: center;
@@ -58,7 +47,6 @@ img {
 
 .message-box {
     width: 45%;
-    /* margin-left: 7.5%; */
     margin-bottom: 1em;
     display: flex;
     justify-content: center;
@@ -73,44 +61,29 @@ img {
 .subtext-3 {
     margin-left: -1em;
     text-align: left;
-    /* font-size: 32px; */
     font-weight: lighter;
     width: fit-content;
     border-bottom: 5px solid #0cfab2;
 }
-/* .subtext-1 {
-    top: 17.5%;
-    left: 10%;
-}
-.subtext-2 {
-    top: 22.5%;
-    left: 10%;
-} */
 
 .form-group {
     z-index: 1;
-    /* margin-left: 12vw; */
-    /* margin-top: 3vh; */
 }
 
 .form-group label {
-    /* font-size: 20px; */
     color: whitesmoke;
 }
 
 .form-control {
-    /* margin-top: 1vh; */
     width: 75vw;
     border-radius: 10px;
 }
 
 .form-group input {
-    /* margin-top: 0.5vh; */
     height: fit-content;
     margin-bottom: 1em;
     width: 75vw;
     border-radius: 10px;
-    /* background-color: transparent; */
     border: none;
 }
 
@@ -126,9 +99,7 @@ input[type=password] {
 
 input[type=text]:focus,
 input[type=password]:focus {
-    /* background-color: transparent; */
     border-color: #0cfab2;
-    /* color: white; */
 }
 
 .form-horizontal {
@@ -146,7 +117,6 @@ input[type=password]:focus {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    /* margin-left: 20vw; */
 }
 
 .col-12 > .form-group {
@@ -162,17 +132,8 @@ input[type=password]:focus {
     background: linear-gradient(45deg, rgb(0,58,125,100%), rgb(17,110,220,100%));
 }
 
-/* #txt-mute-1 {
-    margin-left: 14vw;
-}
-
-#txt-mute-2 {
-    margin-left: 4vw;
-} */
-
 #line-center {
     color: whitesmoke;
-    /* margin-left: 4vw; */
 }
 
 .text-muted a {
@@ -183,14 +144,12 @@ input[type=password]:focus {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* position: absolute; */
     margin-top: 2vh;
     width: 100%;
 }
 
 .flashes {
     color: red;
-    /* font-size: smaller; */
     padding-left: 0;
     margin-bottom: 0;
 }
