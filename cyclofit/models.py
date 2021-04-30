@@ -44,6 +44,6 @@ class Ride(db.Model):
     cycle_type = db.Column(db.String(20), nullable=False)
     ride_rating = db.Column(db.Integer)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-
+    #console-print
     def __repr__(self):
         return f"Ride('{self.id}', '{self.rider_weight}', '{self.duration}', '{self.avg_speed}', '{self.distance}', '{self.calorie_count}', '{self.cycle_type}', '{self.ride_rating}', '{self.user_id}')"
