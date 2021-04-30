@@ -92,10 +92,10 @@
     color: whitesmoke;
 } */
 
-* {
+/* * {
     max-width: 100vw;
     overflow: hidden ;
-}
+} */
 
 /* body {
     width: 100vw;
@@ -142,7 +142,7 @@
 }
 
 .form-group label {
-    font-size: 20px;
+    font-size: 5vw;
     color: whitesmoke;
 }
 
@@ -153,6 +153,7 @@
 }
 
 .form-group input {
+    font-size: 4vw;
     margin-top: 0.5vh;
     margin-bottom: 2vh;
     width: 75vw;
@@ -200,15 +201,20 @@
 
 #gender-0,
 #gender-1 {
-    width: 1.5em;
-    height: 1.5em;
-    padding-bottom: 2vh;
-    /* margin-right: 5vw; */
+    width: 5vw;
+    height: 5vw;
+    /* padding-bottom: 2vh; */
+    margin-bottom: 0vw;
+}
+
+ul {
+    list-style-type: none;
 }
 
 .col-12 {
     /* margin-top: 2vh; */
     padding-top: 2vh;
+    padding-bottom: 2vh;
     display: flex;
     justify-content: space-around;
     align-items: center;

@@ -1,11 +1,14 @@
 * {
     max-width: 100vw;
-    overflow: hidden ;
+    /* overflow: hidden ; */
 }
 
 .register-page {
     z-index: 0;
     width: 100%;
+    height: fit-content;
+    padding-bottom: 1em;
+    margin-bottom: -6em;
 }
 
 .container {
@@ -71,6 +74,7 @@ img {
 }
 
 .form-group label {
+    font-size: 4.5vw;
     color: whitesmoke;
 }
 
@@ -80,6 +84,7 @@ img {
 }
 
 .form-group input {
+    font-size: 4vw;
     height: fit-content;
     margin-bottom: 1em;
     width: 75vw;
