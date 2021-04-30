@@ -30,8 +30,6 @@ class Profile(db.Model):
     emergency_no = db.Column(db.Integer, unique=False, nullable=False)
     date_registered = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), unique=True, nullable=False)  
-    # , nullable=False)
-    # user = db.relationship('User', back_populates='profile')
     # console-print
     def __repr__(self):
         return f"User('{self.id}', '{self.area}', '{self.contact_no}', '{self.age}', '{self.gender}', '{self.emergency_no}', '{self.date_registered}')"
@@ -46,6 +44,6 @@ class Ride(db.Model):
     cycle_type = db.Column(db.String(20), nullable=False)
     ride_rating = db.Column(db.Integer)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-
+    #console-print
     def __repr__(self):
         return f"Ride('{self.id}', '{self.rider_weight}', '{self.duration}', '{self.avg_speed}', '{self.distance}', '{self.calorie_count}', '{self.cycle_type}', '{self.ride_rating}', '{self.user_id}')"

@@ -3,7 +3,7 @@ import secrets
 from PIL import Image
 from flask import render_template, url_for, flash, redirect, request, session
 from cyclofit import app, db, bcrypt
-from cyclofit.forms import RegistrationForm, ProfileForm, LoginForm, UpdateProfileForm, NewRideForm
+from cyclofit.forms import RegistrationForm, ProfileForm, LoginForm, UpdateGeneralForm, UpdatePersonalForm, NewRideForm
 from cyclofit.models import User, Profile, Ride
 from flask_login import login_user, current_user, logout_user, login_required
 
@@ -20,27 +20,20 @@ def register():
         user = User(username=form.username.data, 
                     email=form.email.data,
                     password=hashed_password)
-        # session['user_name'] = user.username
         db.session.add(user)
         db.session.commit()
-        # user_at = User.query.get(user.id)
         session['user_id'] = user.id
         print(user.id)
-        # print(user_at)
-        # print(session['user_link'])
         return redirect(url_for('register02'))
     return render_template('register.html', form=form)
 
 @app.route('/register02', methods=['GET', 'POST'])
 def register02():
     form = ProfileForm()
-    # user_get = session.get('user')
-    # user_link = User.query.get(user_get.id)
     if form.validate_on_submit():
         if 'user_id' in session:
             id = session['user_id']
             user = User.query.get(id)
-            # user = User.query.filter_by(username=user_get).first()
             profile = Profile(area=form.area.data, 
                             contact_no=form.contactno.data,
                             age=form.age.data,
@@ -116,9 +109,9 @@ def save_picture(form_picture):
     i.save(picture_path)
     return picture_fn
 # update account
-@app.route("/account", methods=['GET', 'POST'])
-def account():
-    form = UpdateProfileForm()
+@app.route("/general-update", methods=['GET', 'POST'])
+def general_update():
+    form = UpdateGeneralForm()
     if form.validate_on_submit():
         if form.picture.data:
             picture_file = save_picture(form.picture.data)
@@ -158,3 +151,23 @@ def new_ride():
         db.session.commit()
         print(ride)
     return render_template('new_ride.html', form=form)
+
+@app.route('/personal-update', methods=['GET', 'POST'])
+def personal_update():
+    form = UpdatePersonalForm()
+    user = Profile.query.get(current_user.id)
+    if form.validate_on_submit():
+        user.area = form.area.data
+        user.contact_no = form.contactno.data
+        user.age = form.age.data
+        user.gender = form.gender.data
+        user.emergency_no = form.emergencyno.data
+        db.session.commit()
+        return redirect(url_for('home'))
+    elif request.method == 'GET':
+        form.area.data = user.area
+        form.contactno.data = user.contact_no
+        form.age.data = user.age
+        form.gender.data = user.gender
+        form.emergencyno.data = user.emergency_no
+    return render_template('account02.html', form=form)

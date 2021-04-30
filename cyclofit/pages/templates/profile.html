@@ -11,99 +11,49 @@
                 <div class="top-row" style="width: 100%; display: flex; justify-content: space-evenly; align-items: center;">
                     <img class="user-image" src="{{ image_file }}" alt="">
                     <div class="right-top">
-                        <!-- <div class="button-update">
-                            <a href={{url_for('account')}} class='btn02 btn-color01 btn-lg'>Update</a>
-                        </div> -->
                         <div class="user-name" style="font-size: 1.1em;width: fit-content;">{{ current_user.username }}</div>
                         <div class="user-name" style="font-size: 1.1em;">{{ current_user.email }}</div>
                     </div>
                 </div>
-                <!-- <div class="text-box" style="display: flex;">
-                    <div class="left-top" style="width: fit-content;display: flex;justify-content: center;flex-direction: column;">
-                        <h4 style="width: fit-content;">Username : </h4>
-                        <h4>Email ID : </h4>
-                    </div>
-                    <div class="info-top">
-                        <div class="user-name" style="font-size: 1.25em;">{{ current_user.username }}</div>
-                        <div class="user-name" style="font-size: 1.25em;">{{ current_user.email }}</div>
-                    </div>
-                </div> -->
             </div>
-
-
             <div class="user-box">
-                <div class="card-holder" style="margin-bottom: 1em;">
+                <div class="card-holder">
                     <div class="profile-card">
-                        <!--  </br>{{ current_age }} </br>{{ current_gender }}-->
                         <h6>Age :</h6>
                         <div class="user-name" style="font-size: 1em;">{{ current_age}}</div>
                         <h6>Gender :</h6>
                         <div class="user-name" style="font-size: 1em;">{{ current_gender}}</div>
                     </div>
                     <div class="profile-card" style="width: 50vw;margin-left: 1em;">
-                        <!--  </br>{{ current_age }} </br>{{ current_gender }}-->
                         <h6>Area :</h6>
                         <div class="user-name" style="font-size: 1em;">{{ current_area }}</div>
                         <h6>Date Joined :</h6>
                         <div class="user-name" style="font-size: 1em;">{{ current_datereg }}</div>
                     </div>
                 </div>
-            <!-- </div>
-
-            <div class="user-box"> -->
+            </div>
+            <div class="user-box">
                 <div class="card-holder">
                     <div class="profile-card" style="width: 55vw;margin-right: 1em;">
-                        <!--  </br>{{ current_age }} </br>{{ current_gender }}-->
-
                         <h6>Contact No :</h6>
                         <div class="user-name" style="font-size: 1em;">{{ current_contactno }}</div>
                         <h6>Emergency No :</h6>
                         <div class="user-name" style="font-size: 1em;">{{ current_emergencyno }}</div>
-
                     </div>
-                    <div class="profile-card" style="padding-top:1em;width: 35vw;align-items: center;justify-content: space-between;background-color: transparent;">
-                        <!-- <h6>Update</h6> -->
+                    <div class="profile-card" id="buttons-sec">
+                        <!-- <h6 style="border-bottom: 0.25em solid #0cfab2;">UPDATE</h6> -->
                         <div class="button-card" style="margin-top: -0.5em;">
-                            General
+                            <a href="{{url_for('general_update')}}">General</a>
                         </div>
                         <div class="button-card">
-                            Personal
+                            <a href="{{url_for('personal_update')}}">Personal</a>
                         </div>
                         <div class="button-card">
-                            Home
+                            <a href="{{url_for('home')}}">Home</a>
                         </div>
                     </div>
                 </div>
             </div>
-
-
-
-            <!-- <div class="user-box">
-                <div class="row-box">
-                    <h5>Age </h5>
-                    <div class="user-name" style="font-size: 1em;">{{ current_age}}</div>
-                    <h5>Gender </h5>
-                    <div class="user-name" style="font-size: 1em;">{{ current_gender }}</div>
-                </div>
-                <div class="text-box" style="display: flex;">
-                    <div class="left-top" style="width: fit-content; height: fit-content;">
-                        <h5>Age </h5>
-                        <h5>Gender </h5>
-                        <h5>Area </h5>
-                        <h5>Contact No </h5>
-                        <h5>Emergency No </h5>
-                        <h5>Date Joined </h5>
-                    </div>
-                    <div class="info-bottom">
-                        <div class="user-name" style="font-size: 1em;">{{ current_age}}</div>
-                        <div class="user-name" style="font-size: 1em;">{{ current_gender }}</div>
-                        <div class="user-name" style="font-size: 1em;">{{ current_area }}</div>
-                        <div class="user-name" style="font-size: 1em;">{{ current_contactno }}</div>
-                        <div class="user-name" style="font-size: 1em;">{{ current_emergencyno }}</div>
-                        <div class="user-name" style="font-size: 1em;">{{ current_datereg }}</div>
-                    </div>
-                </div>
-            </div> -->
         </div>
     </div>
 {% endblock page %}

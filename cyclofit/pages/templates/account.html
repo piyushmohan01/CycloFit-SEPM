@@ -7,8 +7,16 @@
 {% block page %}
     <div class="account-page">
         <div class="container" style="background-color: transparent;">
-            <div class="user-box">
+            <div class="user-box" style="flex-direction: row;">
                 <img class="user-image" src="{{ image_file }}" alt="">
+                <div class="message-box">
+                    <h1 class="subtext-1 text-left font-weight-light text-white">
+                        Update
+                    </h1>
+                    <h1 class="subtext-2 text-left font-weight-light text-white">
+                        Your Profile!
+                    </h1>
+                </div>
             </div>
             <div class="user-box" style="background-color: transparent;">
                 <form class="form-horizontal", role="form", autocomplete="off", method="POST", action="" enctype="multipart/form-data">
@@ -73,4 +81,3 @@
         </div>
     </div>
 {% endblock page %}
-

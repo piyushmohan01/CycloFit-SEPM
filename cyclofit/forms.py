@@ -2,8 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, BooleanField, IntegerField, RadioField, SelectField
 from wtforms.validators import DataRequired, Length, EqualTo, Email, InputRequired, NumberRange, ValidationError
 from email_validator import validate_email
-from cyclofit.models import User, Profile
-# , Ride
+from cyclofit.models import User, Profile, Ride
 from flask_login import current_user
 from flask_wtf.file import FileField, FileAllowed
 
@@ -42,8 +41,6 @@ class ProfileForm(FlaskForm):
     contactno = IntegerField('Contact Number', validators=[NumberRange(min=10), DataRequired('Enter valid number with no symbols')])
     age = StringField('Age',
                 validators=[DataRequired()])
-    # gender = StringField('Gender',
-    #             validators=[DataRequired()])
     gender = RadioField('Gender', choices=[('Male','Male'),('Female','Female')], validators=[DataRequired()])
     emergencyno = IntegerField('Emergency Number', validators=[NumberRange(min=10), DataRequired('Enter valid number with no symbols')])
     submit = SubmitField('GO')
@@ -56,7 +53,7 @@ class LoginForm(FlaskForm):
     remember = BooleanField('Remember Me')
     submit = SubmitField('Sign In')
 
-class UpdateProfileForm(FlaskForm):
+class UpdateGeneralForm(FlaskForm):
     email = StringField('Email',
                 validators=[InputRequired("Please enter your email address."), 
                 Email("Enter valid email address")])
@@ -81,6 +78,17 @@ class UpdateProfileForm(FlaskForm):
             # if email already present throw validation error
             if user:
                 raise ValidationError('Email already taken! Pick another!')
+            
+class UpdatePersonalForm(FlaskForm):
+    area = StringField('Area', 
+                validators=[DataRequired(), 
+                Length(min=2, max=20)])
+    contactno = IntegerField('Contact Number', validators=[NumberRange(min=10), DataRequired('Enter valid number with no symbols')])
+    age = StringField('Age',
+                validators=[DataRequired()])
+    gender = RadioField('Gender', choices=[('Male','Male'),('Female','Female')], validators=[DataRequired()])
+    emergencyno = IntegerField('Emergency Number', validators=[NumberRange(min=10), DataRequired('Enter valid number with no symbols')])
+    submit = SubmitField('Update')
     
 class NewRideForm(FlaskForm):
     # distance and calorie-count
@@ -90,5 +98,3 @@ class NewRideForm(FlaskForm):
     cycle_type = SelectField(u'Cyclo-Type', choices=[('premium', 'Cyclo-Premium'), ('health', 'Cyclo-Health'), ('student', 'Cyclo-Student'), ('afford', 'Cyclo-Afford')])
     ride_rating = RadioField('Ride Rating', choices=[('1','1'),('2','2'),('3','3'),('4','4'),('5','5')])
     submit = SubmitField('Submit')
-
-    # gender = RadioField('Gender', choices=[('Male','Male'),('Female','Female')], validators=[DataRequired()])
