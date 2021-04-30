@@ -18,8 +18,8 @@
 }
 
 .logo-circle {
-    height: 15em;
-    width: 15em;
+    height: 55vw;
+    width: 55vw;
     border-radius: 100%;
     background-color: white;
     position: absolute;
@@ -38,19 +38,27 @@
 .text-main {
     height: max-content;
     margin-top: -15vh;
-    font-size: 42px;
+    font-size: 10vw;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .subtext-1,
 .subtext-2 {
     margin-left: 5vw;
     margin-top: 14vh;
-    font-size: 32px;
+    font-size: 6vw;
     width: fit-content;
     border-bottom: 5px solid #0cfab2;
 }
 
 .subtext-1 {
+    font-size: 7.5vw;
     margin-top: 14vh;
 }
 
@@ -58,17 +66,24 @@
     margin-top: 2vh;
 }
 
+.row {
+    justify-content: space-evenly;
+}
+
 .btn01, 
 .btn02 {
-    width: 140px;
-    border-radius: 25px;
+    width: 35vw;
+    font-size: 5vw;
+    border-radius: 10px;
     border: none;
     outline: none;
 }
 
 .btn01 {
-    color: black;
-    background-color: white;
+    color: white;
+    /* background-color: white; */
+    background-color: transparent;
+    border: 0.1em solid white;
 }
 
 .btn02 {

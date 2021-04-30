@@ -5,6 +5,7 @@
 
 .message-box {
     margin: 2em 0;
+    margin-top: 3em;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -43,7 +44,7 @@ img {
 }
 
 .form-group label {
-    font-size: 20px;
+    font-size: 5vw;
     color: whitesmoke;
 }
 
@@ -54,6 +55,7 @@ img {
 }
 
 .form-group input {
+    font-size: 4.5vw;
     margin-top: 0.5vh;
     width: 20vw;
     border-radius: 10px;
@@ -127,14 +129,18 @@ select option {
 #ride_rating-2,
 #ride_rating-3,
 #ride_rating-4 {
-    width: 1.5em;
-    height: 1.5em;
+    width: 5vw;
+    height: 5vw;
     padding-bottom: 2vh;
     margin: 0 1em;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+#ride_rating-0 {
+    margin-left: 0;
 }
 
 .col-12 {
