@@ -3,6 +3,7 @@
     padding: 0;
     font-family: 'Poppins', sans-serif;
     background-color: #06002a;
+    overflow-x: hidden;
 }
 
 .bg {
@@ -12,7 +13,7 @@
 }
 .bg {
     background-color: transparent;
-    overflow-y: hidden;
+    /* overflow-y: hidden; */
 }
 
 .shape-main {
@@ -31,15 +32,22 @@
     transition-timing-function: ease-in-out;
 }
 
-.col-4,
+.col-6,
+.col-3,
 .row {
+    height: fit-content;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: transparent;
 }
-.col-4 {
+.col-6,
+.col-3 {
     margin-top: 4vh;
+}
+.col-6 {
+    margin-bottom: 0;
+    height: fit-content;
 }
 
 .logo-circle {
@@ -56,7 +64,7 @@
 }
 
 .text-main {
-    height: max-content;
+    height: fit-content;
     font-size: 8vw;
     background-color: transparent;
 } 

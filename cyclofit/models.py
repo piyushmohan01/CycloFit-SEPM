@@ -1,6 +1,7 @@
-from cyclofit import db, login_manager
+from cyclofit import db, login_manager, app
 from datetime import datetime
 from flask_login import UserMixin
+from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 
 # use same naming conventions
 # pass user_id from the User Model
@@ -17,6 +18,23 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(60), nullable=False)
     profile = db.relationship('Profile', backref='user', uselist=False) #one-to-one reltn.
     rides = db.relationship('Ride', backref='user', lazy=True) #one-to-many reltn.
+    
+    # setting token with secret key and expiration
+    def get_reset_token(self, expires_sec=1800):
+        s = Serializer(app.config['SECRET_KEY'], expires_sec)
+        return s.dumps({'user_id':self.id}).decode('utf-8')
+
+    # static python method
+    # verifying the reset token
+    @staticmethod
+    def verify_reset_token(token):
+        s = Serializer(app.config['SECRET_KEY'])
+        try:
+            user_id = s.loads(token)['user_id']
+        except:
+            return None
+        return User.query.get(user_id)
+
     # console-print
     def __repr__(self):
         return f"User('{self.id}',{self.username}', '{self.email}', '{self.password}' '{self.image_file}')"
@@ -29,7 +47,7 @@ class Profile(db.Model):
     gender = db.Column(db.String(20), nullable=False)
     emergency_no = db.Column(db.Integer, unique=False, nullable=False)
     # now = 
-    date_registered = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    date_registered = db.Column(db.DateTime, nullable=False, default=datetime.today)
     # time_registered = db.Column(db.DateTime, nullable=False, default=datetime.utcnow.strftime("%H:%M"))
     # day_registered = db.Column(db.DateTime, nullable=False, default=datetime.utcnow.strftime('%A'))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), unique=True, nullable=False)  
@@ -39,7 +57,7 @@ class Profile(db.Model):
 
 class Ride(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    ride_date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    ride_date = db.Column(db.DateTime, nullable=False, default=datetime.today)
     # ride_time = db.Column(db.DateTime, nullable=False, default=datetime.utcnow.strftime("%H:%M"))
     # ride_day = db.Column(db.DateTime, nullable=False, default=datetime.utcnow.strftime('%A'))
     rider_weight = db.Column(db.Integer, nullable=False)

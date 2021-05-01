@@ -3,7 +3,14 @@ import secrets
 from PIL import Image
 from flask import render_template, url_for, flash, redirect, request, session
 from cyclofit import app, db, bcrypt
-from cyclofit.forms import RegistrationForm, ProfileForm, LoginForm, UpdateGeneralForm, UpdatePersonalForm, NewRideForm
+from cyclofit.forms import (RegistrationForm, 
+                            ProfileForm, 
+                            LoginForm, 
+                            UpdateGeneralForm, 
+                            UpdatePersonalForm, 
+                            NewRideForm, 
+                            RequestResetForm, 
+                            ResetPasswordForm)
 from cyclofit.models import User, Profile, Ride
 from flask_login import login_user, current_user, logout_user, login_required
 
@@ -177,5 +184,34 @@ def personal_update():
 
 @app.route('/ride-history')
 def history():
-    rides = Ride.query.filter_by(user_id=current_user.id)
+    page = request.args.get('page', 1, type=int)
+    rides = Ride.query.filter_by(user_id=current_user.id)\
+                .order_by(Ride.ride_date.desc())\
+                .paginate(per_page=7,page=page)
     return render_template('history.html', rides=rides)
+
+# def send_reset_email(user):
+
+
+@app.route('/reset_password', methods=['GET', 'POST'])
+def reset_request():
+    if current_user.is_authenticated:
+        return redirect(url_for('home'))
+    form = RequestResetForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(email=form.email.com).first()
+        send_reset_email(user)
+        flash(f'Email for Password Reset is Sent!')
+        return redirect(url_for('login'))
+    return render_template('reset_req.html', form=form)
+
+@app.route('/reset_password/<token>', methods=['GET', 'POST'])
+def reset_token(token):
+    if current_user.is_authenticated:
+        return redirect(url_for('home'))
+    user = User.verify_reset_token(token)
+    if user is None:
+        flash(f'Invalid/Expired Token')
+        return redirect(url_for('reset_request'))
+    form = ResetPasswordForm()
+    return render_template('reset_tok.html', form=form)

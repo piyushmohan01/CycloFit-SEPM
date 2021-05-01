@@ -94,6 +94,7 @@ select option {
     width: 25vw;
     font-size: 15px;
     color: black;
+    background-color: #0cfab2;
 }
 
 #duration,

@@ -7,37 +7,60 @@
 {% block page %}
     <div class="history-page">
         <div class="container">
-        {% for ride in rides %}
+            <div class="header">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm1-10V7h-2v7h6v-2h-4z" fill="rgba(12,250,178,1)"/></svg>
+                <h2>Your Rides</h2>
+            </div>
+        {% for ride in rides.items %}
             <article class="media content-section">
-                <div class="row-box">
-                    <div class="c1">
-                        {{ ride.id }}
+                <div class="row-bg">
+                <div class="row row-box">
+                    <div class="col c1">
+                        {{ ride.ride_date.strftime('%a')}}
+                    </br>
+                        {{ ride.ride_date.strftime('%d/%m') }}
                     </div>
-                    <div class="c2">
-                        {{ ride.duration }}
+                    <div class="col c2">
+                        {{ ride.duration }}min
+                    </br>
+                        {{ ride.avg_speed }}mph
                     </div>
-                    <div class="c3">
+                    <div class="col c3">
                         {{ ride.calorie_count }}
+                    </br>
+                        KCal
                     </div>
-                    <div class="c4">
-                        {{ ride.ride_date.strftime('%Y-%m-%d') }}
+                    <div class="col c4">
+                        Cyclo
+                    </br>
+                        {{ ride.cycle_type.capitalize() }}
                     </div>
-                    <div class="c5">
-                        {{ ride.ride_date.strftime('%Y-%m-%d')}}
-                    </div>
-                    <!-- <img class="rounded-circle" src="{{ url_for('static', filename='profile_pics/' + ride.user.image_file) }}" alt=""> -->
                 </div>
-            <!-- <img class="rounded-circle article-img" src="{{ url_for('static', filename='profile_pics/' + ride.user.image_file) }}">
-            <div class="media-body">
-                <div class="article-metadata">
-                <a class="mr-2" href="#">{{ ride.user.username }}</a>
-                <small class="text-muted">{{ ride.ride_date.strftime('%Y-%m-%d') }}</small>
-                </div>
-                <h2><a class="article-title" href="{{ url_for('home') }}">{{ ride.cyclo_type }}</a></h2>
-                <p class="article-content">{{ ride.duration }}</p>
-            </div> -->
+            </div>
             </article>
         {% endfor %}
+    <div class="pagelink">
+        <a href="{{url_for('home')}}">
+            <button class="btn02">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><path fill="none" d="M0 0h24v24H0z"/><path d="M21 20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.49a1 1 0 0 1 .386-.79l8-6.222a1 1 0 0 1 1.228 0l8 6.222a1 1 0 0 1 .386.79V20z" fill="rgba(0,0,0,1)"/></svg>
+            </button>
+        </a>
+        {% for page_num in rides.iter_pages(left_current=1, right_current=2) %}
+            {% if page_num %}
+                {% if rides.page == page_num %}
+                    <a class="btn btn-current" href="{{url_for('history',page=page_num)}}">
+                        {{page_num}}
+                    </a>
+                {% else %}
+                    <a class="btn btn-outline-info mr-1" href="{{url_for('history',page=page_num)}}">
+                        {{page_num}}
+                    </a>
+                {% endif %}
+            {% else %}
+                ...
+            {% endif %}
+        {% endfor %}
+    </div>
         </div>
     </div>
 {% endblock page %}

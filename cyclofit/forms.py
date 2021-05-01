@@ -98,3 +98,22 @@ class NewRideForm(FlaskForm):
     cycle_type = SelectField(u'Cyclo-Type', choices=[('premium', 'Cyclo-Premium'), ('health', 'Cyclo-Health'), ('student', 'Cyclo-Student'), ('afford', 'Cyclo-Afford')])
     ride_rating = RadioField('Ride Rating', choices=[('1','1'),('2','2'),('3','3'),('4','4'),('5','5')])
     submit = SubmitField('Submit')
+
+class RequestResetForm(FlaskForm):
+    email = StringField('Email',
+                validators=[InputRequired("Please enter your email address."), 
+                Email("Enter valid email address")])
+    submit = SubmitField('Request Password Reset')
+
+    def validate_email(self, email):
+        user = User.query.filter_by(email=email.data).first()
+        if user is None:
+            raise ValidationError('No Account found!')
+
+class ResetPasswordForm(FlaskForm):
+    password = PasswordField('Password',
+                validators=[DataRequired()])
+    confirm_password = PasswordField('Confirm Password',
+                validators=[DataRequired(), 
+                EqualTo('password')])
+    submit = SubmitField('Reset Password')
