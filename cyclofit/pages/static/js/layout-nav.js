@@ -1,5 +1,6 @@
 $(document).ready(function(){
     $(".menu-icon").click(function(){
+      $('.bg').toggleClass("is-active");
       $('#shape-main').toggleClass("is-active");
       $('.nav-1').toggleClass("is-active");
       $('.menu-icon').toggleClass("is-active");

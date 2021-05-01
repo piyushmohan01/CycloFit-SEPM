@@ -7,9 +7,12 @@
 
 .bg {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background-color: #06002a;
-    /* z-index: 10; */
+}
+.bg {
+    background-color: transparent;
+    overflow-y: hidden;
 }
 
 .shape-main {
@@ -28,16 +31,22 @@
     transition-timing-function: ease-in-out;
 }
 
+.col-4,
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+}
+.col-4 {
+    margin-top: 4vh;
+}
+
 .logo-circle {
-    height: 2em;
-    width: 2em;
+    height: 9vw;
+    width: 9vw;
     border-radius: 100%;
     background-color: white;
-    position: absolute;
-    left: 14%;
-    right: 50%;
-    -webkit-transform: translate(-50%, 100%);
-    transform: translate(-50%, 100%);
 }
 
 .logo-welcome {
@@ -48,18 +57,14 @@
 
 .text-main {
     height: max-content;
-    font-size: 28px;
-    position: absolute;
-    left: 50%;
-    right: 0%;
+    font-size: 8vw;
     background-color: transparent;
-    -webkit-transform: translate(-100%, 0%);
-    transform: translate(-50%, 100%);
 } 
 
 .menu-icon {
     position: absolute;
-    left: 75%;
+    right: 10vw;
+    top: 4vh;
     z-index: 3;
     background-color: transparent;
     transition-duration: 0.5s;
@@ -75,8 +80,8 @@
 
 .menu-close {
     position: absolute;
-    left: 82.5%;
-    top: 3.75%;
+    right: 10vw;
+    top: 4vh;
     opacity: 0;
     transition-duration: 0.5s;
     transition-timing-function: ease-in-out;
@@ -94,12 +99,10 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    /* margin-top: 4vh; */
 }
 
 .nav-1 {
     position: absolute;
-    margin-top: 10vh;
     background-color: transparent;
     opacity: 0;
     transition-duration: 0.2s;
@@ -117,22 +120,20 @@
 
 .links {
     width: 100vw;
-    height: 80vh;
     list-style: none;
     background-color: transparent;
 }
 
 .nav-link {
     color: whitesmoke;
-    font-size: 7.5vw;
+    font-size: 8vw;
     padding: 6vh 0 0 0;
     width: fit-content;
-    position: relative;
     margin: auto;
     border-bottom: 2px solid whitesmoke;
     background-color: transparent;
 }
 .nav-link:hover {
-    color: darkblue;
-    border-bottom: 2px solid darkblue;
+    color: #06002a;
+    border-bottom: 2px solid #06002a;
 }

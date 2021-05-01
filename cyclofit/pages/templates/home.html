@@ -20,10 +20,12 @@
                             <h3 style="margin-left: 1em; margin-bottom: 0;">Profile</h3>
                         </div>
                     </a>
-                    <div class="small-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="34" height="34"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm1-10V7h-2v7h6v-2h-4z" fill="rgba(12,250,178,1)"/></svg>
-                        <h3 style="margin-left: 1em; margin-bottom: 0;">History</h3>
-                    </div>
+                    <a href="{{url_for('history')}}">
+                        <div class="small-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="34" height="34"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm1-10V7h-2v7h6v-2h-4z" fill="rgba(12,250,178,1)"/></svg>
+                            <h3 style="margin-left: 1em; margin-bottom: 0;">History</h3>
+                        </div>
+                    </a>
                 </div>
                 <div class="long-section">
                     <a href="{{url_for('new_ride')}}">
