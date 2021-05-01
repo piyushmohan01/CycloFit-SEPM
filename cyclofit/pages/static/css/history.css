@@ -1,0 +1,18 @@
+.row-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rounded-circle {
+    height: 5em;
+    width: 5em;
+}
+
+.c1,
+.c2,
+.c3,
+.c4,
+.c5 {
+    color: white;
+}

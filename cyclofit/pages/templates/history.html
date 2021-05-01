@@ -1,0 +1,43 @@
+{% extends "nav-02.html" %}
+
+{% block pagecss %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/history.css') }}">
+{% endblock pagecss %}
+
+{% block page %}
+    <div class="history-page">
+        <div class="container">
+        {% for ride in rides %}
+            <article class="media content-section">
+                <div class="row-box">
+                    <div class="c1">
+                        {{ ride.id }}
+                    </div>
+                    <div class="c2">
+                        {{ ride.duration }}
+                    </div>
+                    <div class="c3">
+                        {{ ride.calorie_count }}
+                    </div>
+                    <div class="c4">
+                        {{ ride.ride_date.strftime('%Y-%m-%d') }}
+                    </div>
+                    <div class="c5">
+                        {{ ride.ride_date.strftime('%Y-%m-%d')}}
+                    </div>
+                    <!-- <img class="rounded-circle" src="{{ url_for('static', filename='profile_pics/' + ride.user.image_file) }}" alt=""> -->
+                </div>
+            <!-- <img class="rounded-circle article-img" src="{{ url_for('static', filename='profile_pics/' + ride.user.image_file) }}">
+            <div class="media-body">
+                <div class="article-metadata">
+                <a class="mr-2" href="#">{{ ride.user.username }}</a>
+                <small class="text-muted">{{ ride.ride_date.strftime('%Y-%m-%d') }}</small>
+                </div>
+                <h2><a class="article-title" href="{{ url_for('home') }}">{{ ride.cyclo_type }}</a></h2>
+                <p class="article-content">{{ ride.duration }}</p>
+            </div> -->
+            </article>
+        {% endfor %}
+        </div>
+    </div>
+{% endblock page %}

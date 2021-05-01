@@ -53,13 +53,16 @@ def login():
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
         # if email exists and passwords match
-        if user and bcrypt.check_password_hash(user.password, form.password.data):
-            login_user(user)
-            # if the user tries to access home page when logged out
-            next_page = request.args.get('next')
-            return redirect(next_page) if next_page else redirect(url_for('home'))
+        if user:
+            if user and bcrypt.check_password_hash(user.password, form.password.data):
+                login_user(user)
+                # if the user tries to access home page when logged out
+                next_page = request.args.get('next')
+                return redirect(next_page) if next_page else redirect(url_for('home'))
+            else:
+                flash(f'Login Unsuccessful! Try again!')
         else:
-            flash(f'Login Unsuccessful! Try again!')
+            flash(f'No Account Found!')
     return render_template('login.html', form=form)
 
 @app.route('/home')
@@ -171,3 +174,8 @@ def personal_update():
         form.gender.data = user.gender
         form.emergencyno.data = user.emergency_no
     return render_template('account02.html', form=form)
+
+@app.route('/ride-history')
+def history():
+    rides = Ride.query.filter_by(user_id=current_user.id)
+    return render_template('history.html', rides=rides)
