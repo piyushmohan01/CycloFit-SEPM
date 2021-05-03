@@ -6,7 +6,6 @@
 .header {
     width: 100%;
     padding: 1em 0;
-    /* padding-bottom: 1em; */
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -15,14 +14,12 @@
 h2 {
     margin: 0;
     margin-left: -22.5vw;
-    /* border-bottom: 0.25em solid #0cfab2; */
 }
 
 .row-box {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin: 0.5em 0;
     border-radius: 10px;
 }
 
@@ -99,8 +96,8 @@ button {
 }
 
 .pagelink {
-    margin-top: 1em;
-    /* width: fit-content; */
+    margin: 1em 0;
+    padding-bottom: 1em;
     width: 100%;
     display: flex;
     justify-content: space-evenly;

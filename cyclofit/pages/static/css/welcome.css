@@ -12,21 +12,21 @@
 
 .shape-main {
     background-image: linear-gradient(0deg, rgb(12,250,178,100%) , rgb(0,25,48,28%));
-    height: 60vh;
+    height: 55vh;
     width: 100%;
     border-radius: 0 0 50px 50px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
 }
 
 .logo-circle {
+    margin-top: 4em;
     height: 55vw;
     width: 55vw;
     border-radius: 100%;
     background-color: white;
-    position: absolute;
-    left: 50%;
-    right: 50%;
-    -webkit-transform: translate(-50%, 40%);
-    transform: translate(-50%, 40%);
 }
 
 .logo-welcome {
@@ -36,12 +36,12 @@
 }
 
 .text-main {
-    height: max-content;
-    margin-top: -15vh;
     font-size: 10vw;
 }
 
 .container {
+    padding: 3em 0;
+    padding-bottom: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -50,8 +50,6 @@
 
 .subtext-1,
 .subtext-2 {
-    margin-left: 5vw;
-    margin-top: 14vh;
     font-size: 6vw;
     width: fit-content;
     border-bottom: 5px solid #0cfab2;
@@ -59,7 +57,6 @@
 
 .subtext-1 {
     font-size: 7.5vw;
-    margin-top: 14vh;
 }
 
 .subtext-2 {
@@ -67,7 +64,10 @@
 }
 
 .row {
+    width: 100%;
     justify-content: space-evenly;
+    padding: 0;
+    padding-left: 0;
 }
 
 .btn01, 
@@ -81,7 +81,6 @@
 
 .btn01 {
     color: white;
-    /* background-color: white; */
     background-color: transparent;
     border: 0.1em solid white;
 }

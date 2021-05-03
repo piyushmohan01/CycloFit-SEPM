@@ -1,9 +1,15 @@
-
+.col,
+.nav-item,
+.text-stat,
+.header,
 .container {
-    width: fit-content;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.container {
+    width: fit-content;
     flex-direction: column;
     overflow: hidden;
 }
@@ -13,9 +19,6 @@
     height: fit-content;
     padding: 1em 0;
     margin-top: 1em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 h2 {
     margin: 0;
@@ -47,14 +50,25 @@ h6 {
     border: 0;
 }
 
+h5 {
+    width: 100%;
+    margin: 0;
+    background-color: transparent;
+}
+.row {
+    padding: 0;
+}
+
 .text-stat {
-    height: fit-content;
+    width: fit-content;
+    color: whitesmoke;
+    background-color: black;
+    padding: 0;
+    margin: 0;
+    justify-content: space-evenly;
 }
 
 .nav-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     text-decoration: none;
     color: whitesmoke;
     background-color: transparent;

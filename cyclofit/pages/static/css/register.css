@@ -141,6 +141,9 @@ input[type=password]:focus {
     color: whitesmoke;
 }
 
+.text-muted {
+    margin-top: 1em;
+}
 .text-muted a {
     color: whitesmoke;
 }

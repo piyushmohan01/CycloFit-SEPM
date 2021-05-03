@@ -22,7 +22,7 @@
                     {{ form.email.label(class='form-control-label') }}
                     {% if form.email.errors %}
                         {{ form.email.label(class='form-control-label') }}
-                        {{ form.email(class='form-control form-control-md is-invalid') }}
+                        {{ form.email(class='form-control form-control-md is-invalid', autocapitalize=off) }}
                         <div class="invalid-feedback">
                             {% for error in form.email.errors %}
                                 <span>

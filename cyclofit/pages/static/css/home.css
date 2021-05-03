@@ -1,15 +1,21 @@
 .home-page {
     background-color: transparent;
-    width: 100%;
+    width: 100vw;
     z-index: 0;
     color: whitesmoke;
 }
 
-.container {
-    height: 100%;
+.container,
+.user-box,
+.small-1,
+.lonh-1 {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.container {
+    height: 100%;
     flex-direction: column;
 }
 
@@ -29,14 +35,8 @@ svg {
     height: fit-content;
     width: 90%;
     padding-top: 2vh;
-    /* margin: 2vh 0; */
-    /* margin-bottom: 1vh; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
     background-color: rgba(12, 250, 178, 0.05);
-    /* border: 0.1em solid whitesmoke; */
     border-radius: 25px;
 }
 
@@ -45,7 +45,6 @@ svg {
     width: 10em;
     border-radius: 50%;
     margin: 2vh 0;
-    /* box-shadow: 0.5em 0.5em 0.5em black; */
 }
 
 .user-name,
@@ -55,7 +54,6 @@ h3 {
 }
 
 .small {
-    /* width: 100%; */
     justify-content: flex-start;
     flex-direction: row;
     background-color: transparent;
@@ -63,23 +61,14 @@ h3 {
 
 .small-section {
     width: 60%;
-    /* background-color: black; */
-    /* margin-left: 5vw; */
 }
 
 .small-1 {
     height: 7.5vh;
     width: 100%;
-    /* border: 0.1em solid whitesmoke; */
-    /* margin-bottom: 1em; */
     border-radius: 15px;
     margin-top: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* flex-direction: column; */
     background-color: rgba(12, 250, 178, 0.05);
-    /* background: linear-gradient(45deg, rgb(0,58,125,100%), rgb(17,110,220,100%)); */
 
 }
 
@@ -89,18 +78,10 @@ h3 {
 
 .long-1 {
     height: 17vh;
-    width: 100%;
-    /* background-color: black; */
     margin-left: 1em;
-    /* border: 0.1em solid whitesmoke; */
     border-radius: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
     background-color: rgba(12, 250, 178, 0.05);
-        /* background: linear-gradient(45deg, rgb(0,58,125,100%), rgb(17,110,220,100%)); */
-
 }
 
 .wide-section {
