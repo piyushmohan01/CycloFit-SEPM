@@ -1,12 +1,7 @@
-/* body {
-    height: 100vh;
-    width: 100%;
-    overflow: hidden;
-} */
-
 .account-page {
     background-color: transparent;
     width: 100%;
+    height: fit-content;
     z-index: 0;
     color: whitesmoke;
     overflow-y: hidden;
@@ -22,11 +17,16 @@ a {
     font-size: 3.45vw;
 }
 
-.container {
-    height: 100%;
+.container,
+.user-box,
+.text-box {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.container {
+    height: 100%;
     flex-direction: column;
 }
 
@@ -36,9 +36,6 @@ a {
     padding: 3vh 0;
     margin-top: 2vh;
     margin-bottom: 0vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
     background-color: rgba(12, 250, 178, 0.05);
     border-radius: 25px;
@@ -58,9 +55,6 @@ a {
 
 .text-box {
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 .row-box {
     width: 75%;
@@ -152,7 +146,7 @@ h5 {
 
 .button-card {
     width: 35vw;
-    margin-top: 0.75em;
+    margin-top: 0.75em; 
     padding: 0.5em 2.5em;
     border-radius: 15px;
     background: linear-gradient(45deg, rgb(0,58,125,100%), rgb(17,110,220,100%));
