@@ -13,3 +13,4 @@ Flask-Web Mobile Application for public Bicycle-Sharing and Fitness-Tracking.
 6 | [Email-Validator](https://pypi.org/project/email-validator/) | (v.1.1.2)
 7 | [Pillow](https://pillow.readthedocs.io/en/stable/) | (v.8.2.0)
 8 | [Flask-Mail](https://pythonhosted.org/Flask-Mail/) | (v.0.9.1)
+9 | [Charts JS](https://www.chartjs.org/docs/latest/) | (v.3.2.1)
