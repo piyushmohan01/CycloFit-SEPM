@@ -12,9 +12,6 @@
         </div>
         <div class="message">
             <div class="message-box">
-                <!-- <h1 class="subtext-1 text-left font-weight-light text-white">
-                    Hello there,
-                </h1> -->
                 <h1 class="subtext-2 text-left font-weight-light text-white">
                     Welcome back!
                 </h1>
@@ -54,8 +51,6 @@
                         {% else %}
                             {{ form.password(class='form-control form-control-md', placeholder='Enter your password') }}
                         {% endif %}
-                  <!-- <label for="password-field">Set Password</label>
-                  <input type="password" class="form-control" id="password-field" placeholder="Pick a strong password"> -->
                 </div>
     
                 <div class="col-12">
@@ -75,7 +70,7 @@
                 
                 <div class="link-section">
                     <small class="text-muted ml-2", id="txt-mute-1">
-                        <a href="#">Forgot Password</a>
+                        <a href="{{ url_for('reset_request') }}">Forgot Password</a>
                     </small>
         
                     <div id="line-center">

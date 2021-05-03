@@ -40,10 +40,12 @@
             </div>
             <div class="user-box small">
                 <div class="long-section">
-                    <div class="long-1" style="margin-left: 0;"> 
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="50" height="50"><path fill="none" d="M0 0h24v24H0z"/><path d="M2 13h6v8H2v-8zM9 3h6v18H9V3zm7 5h6v13h-6V8z" fill="rgba(12,250,178,1)"/></svg>
-                        <h3 style=" margin-top: 0.5em; text-align: center;">Stats</h3>
-                    </div>
+                    <a href="{{url_for('stats')}}">
+                        <div class="long-1" style="margin-left: 0;"> 
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="50" height="50"><path fill="none" d="M0 0h24v24H0z"/><path d="M2 13h6v8H2v-8zM9 3h6v18H9V3zm7 5h6v13h-6V8z" fill="rgba(12,250,178,1)"/></svg>
+                            <h3 style=" margin-top: 0.5em; text-align: center;">Stats</h3>
+                        </div>
+                    </a>
                 </div>
                 <div class="small-section" style="margin-left: 1em;">
                             <!-- About Us -->
@@ -57,24 +59,6 @@
                     </div>
                 </div>
             </div>
-            <!-- <div class="user-box" style="margin-bottom: 1vh;">
-                <div class="wide-section" style="width: 100%;">
-                    <h3>Make Payment</h3>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><path fill="none" d="M0 0h24v24H0z"/><path d="M22 10v10a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V10h20zm0-2H2V4a1 1 0 0 1 1-1h18a1 1 0 0 1 1 1v4zm-7 8v2h4v-2h-4z" fill="rgba(12,250,178,1)"/></svg>
-                </div>
-            </div>
-            <div class="user-box">
-                <div class="wide-section" style="width: 100%;">
-                    <h3>Track Progress</h3>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><path fill="none" d="M0 0h24v24H0z"/><path d="M2 13h6v8H2v-8zM9 3h6v18H9V3zm7 5h6v13h-6V8z" fill="rgba(12,250,178,1)"/></svg>
-                </div>
-            </div>
-            <div class="user-box">
-                <div class="wide-section" style="width: 100%;">
-                    <h3>Track Progress</h3>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><path fill="none" d="M0 0h24v24H0z"/><path d="M2 13h6v8H2v-8zM9 3h6v18H9V3zm7 5h6v13h-6V8z" fill="rgba(12,250,178,1)"/></svg>
-                </div>
-            </div> -->
         </div>
     </div>
 {% endblock page %}

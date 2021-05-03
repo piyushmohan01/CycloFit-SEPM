@@ -1,0 +1,252 @@
+{% extends "nav-02.html" %}
+
+{% block pagecss %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/stats.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+    <!-- <script src="https://cdnjs.com/libraries/Chart.js"></script> -->
+{% endblock pagecss %}
+
+{% block page %}
+    <div class="stats-page">
+        <div class="container">
+            <div class="header">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm1-10V7h-2v7h6v-2h-4z" fill="rgba(12,250,178,1)"/></svg>
+                <h2>Ride Statistics</h2>
+            </div>
+            <nav>
+                <div class="nav nav-tab" id="nav-tab" role="tablist">
+                    <a class="nav-item active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">
+                        <h6>
+                            One
+                        </h6>
+                    </a>
+                    <a class="nav-item" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">
+                        <h6>
+                            Two
+                        </h6>
+                    </a>
+                    <a class="nav-item" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">
+                        <h6>
+                            Three
+                        </h6>
+                    </a>
+                    <a class="nav-item" id="nav-about-tab" data-toggle="tab" href="#nav-about" role="tab" aria-controls="nav-about" aria-selected="false">
+                        <h6>
+                            Four
+                        </h6>
+                    </a>
+                </div>
+            </nav>
+            <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <canvas id="dur-spd-line" width="300" height="250">
+                    </canvas>
+                    <canvas id="dis-cal-line" width="300" height="250">
+                    </canvas>
+                </div>
+                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                    <div class="text-stat">
+                        <h3>Total Rides : {{ total_rides-1 }}</h3>
+                        <h3>Total Duration : {{ total_duration }}mins</h3>
+                        <h3>Total Distance : {{ total_distance }}m</h3>
+                    </div>        
+                </div>
+                <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                    <canvas id="type-pie" width="300" height="250">
+                    </canvas>
+                    <canvas id="ratings-bar" width="300" height="250">
+                    </canvas>
+                </div>
+                <div class="tab-pane fade" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
+                    Section 4
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS -->
+    <script type="text/javascript">
+
+        // Global Options
+        Chart.defaults.global.defaultFontFamily = 'sans-serif';
+        Chart.defaults.global.defaultFontColor = 'whitesmoke';
+        Chart.defaults.global.defaultFontSize = 16;
+        
+        // Duration-Speed-Line
+        var ctx = document.getElementById("dur-spd-line").getContext("2d");
+        var lineChart = new Chart(ctx, {
+            type:'line',
+            data: {
+                labels: {{ ride_ids | safe }},
+                datasets: [
+                    {
+                        label: 'Duration',
+                        data: {{ durations | safe }},
+                        backgroundColor: '#0cfab2',
+                        fill: false,
+                        borderColor: "#0cfab2",
+                        hoverBorderColor: '#0cfab2',
+                        lineTension: 0.1,
+                    },
+                    {
+                        label: 'AvgSpeed',
+                        data: {{ avg_speeds | safe }},
+                        backgroundColor: "#e0006c",
+                        fill: false,
+                        borderColor: '#FF2E93',
+                        lineTension: 0.1,
+                    }
+                ],
+            },
+            options: {
+                fill: false,
+                responsive: false,
+                title: {
+                    display: true,
+                    text: 'Duration & AvgSpeed',
+                    fontSize: 18,
+                },
+                legend: {
+                    display: true,
+                    position: 'bottom',
+                    fontSize: 12,
+                },
+                tooltips: {
+                    enabled: true,
+                }
+            }
+        });
+
+
+        // Distance-Calorie-Line
+        var ctx = document.getElementById("dis-cal-line").getContext("2d");
+        var lineChart = new Chart(ctx, {
+            type:'line',
+            data: {
+                labels: {{ ride_ids | safe }},
+                datasets: [
+                    {
+                        label: 'Distance',
+                        data: {{ distances | safe }},
+                        backgroundColor: '#0cfab2',
+                        fill: false,
+                        borderColor: "#0cfab2",
+                        hoverBorderColor: '#0cfab2',
+                        lineTension: 0.1,
+                    },
+                    {
+                        label: 'Calories',
+                        data: {{ calories | safe }},
+                        backgroundColor: "#e0006c",
+                        fill: false,
+                        borderColor: '#FF2E93',
+                        lineTension: 0.1,
+                    }
+                ],
+            },
+            options: {
+                fill: false,
+                responsive: false,
+                title: {
+                    display: true,
+                    text: 'Distance & Calories',
+                    fontSize: 18,
+                },
+                legend: {
+                    display: true,
+                    position: 'bottom',
+                    fontSize: 12,
+                },
+                tooltips: {
+                    enabled: true,
+                }
+            }
+        });
+
+        // Cycle-Type-Pie
+        var ctx = document.getElementById("type-pie").getContext("2d");
+        var lineChart = new Chart(ctx, {
+            type:'doughnut',
+            data: {
+                labels: {{ cycle_types | safe }},
+                datasets: [
+                    {
+                        label: 'Distance',
+                        // data : ['100', '200', '500', '400'],
+                        data: {{ cycle_types_count | safe }},
+                        backgroundColor: [
+                            'whitesmoke',
+                            '#0cfab2',
+                            '#FF2E93',
+                            'blue',
+                        ],
+                        fill: false,
+                        borderColor: "black",
+                        hoverBorderColor: '#0cfab2',
+                        lineTension: 0.1,
+                    },
+                ],
+            },
+            options: {
+                fill: false,
+                responsive: false,
+                title: {
+                    display: true,
+                    text: 'Cycle-Type Preference',
+                    fontSize: 18,
+                },
+                legend: {
+                    display: true,
+                    position: 'bottom',
+                    fontSize: 12,
+                },
+                tooltips: {
+                    enabled: true,
+                }
+            }
+        });
+
+        // Ratings-Bar
+        var ctx = document.getElementById("ratings-bar").getContext("2d");
+        var lineChart = new Chart(ctx, {
+            type:'bar',
+            data: {
+                labels: {{ ride_dates | safe }},
+                datasets: [
+                    {
+                        label: 'Distance',
+                        // data : ['100', '200', '500', '400'],
+                        data: {{ day_dist_count | safe }},
+                        backgroundColor: [
+                            'whitesmoke',
+                            '#0cfab2',
+                            '#FF2E93',
+                            'blue',
+                        ],
+                        fill: false,
+                        borderColor: "black",
+                        hoverBorderColor: '#0cfab2',
+                        lineTension: 0.1,
+                    },
+                ],
+            },
+            options: {
+                fill: false,
+                responsive: false,
+                title: {
+                    display: true,
+                    text: 'Day Preference',
+                    fontSize: 18,
+                },
+                legend: {
+                    display: true,
+                    position: 'bottom',
+                    fontSize: 12,
+                },
+                tooltips: {
+                    enabled: true,
+                }
+            }
+        });
+    </script>
+{% endblock page %}
