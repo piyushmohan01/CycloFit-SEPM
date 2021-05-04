@@ -1,6 +1,10 @@
 import os
 import secrets
 import json
+import math
+
+from datetime import datetime
+
 from PIL import Image
 from flask import render_template, url_for, flash, redirect, request, session
 from cyclofit import app, db, bcrypt, mail
@@ -160,6 +164,15 @@ def personal_update():
         form.emergencyno.data = user.emergency_no
     return render_template('account02.html', form=form)
 
+def find_met(speed):
+    met = 0
+    if speed == 15: met = 4
+    elif speed == 20: met = 6
+    elif speed == 25: met = 10
+    elif speed == 30: met = 13
+    elif speed == 35: met = 16
+    return met
+
 @app.route('/ride/new', methods=['GET', 'POST'])
 @login_required
 def new_ride():
@@ -167,16 +180,28 @@ def new_ride():
     if form.validate_on_submit():
         print('*******************************************')
         user = User.query.get(current_user.id)
-        print(user)
-        print(current_user.id)
-        duration = int(form.duration.data)
+        # print(user)
+        # print(current_user.id)
+        duration = round(int((form.duration.data))/60,2)
         avg_speed = int(form.avg_speed.data)
-        distance = duration*avg_speed
-        ride = Ride(rider_weight=form.rider_weight.data, 
-                    duration=form.duration.data,
+        distance = math.ceil(duration*avg_speed)
+        met = find_met(avg_speed)
+        weight = int(form.rider_weight.data)
+        calorie_count = int((duration*60*met*3.5*weight)/200)
+        weight_loss = round((calorie_count/7700),2)
+        print(duration)
+        print(distance)
+        print(met)
+        print(calorie_count)
+        print(weight_loss)
+        print(datetime.now())
+        ride = Ride(duration=duration,
                     avg_speed=form.avg_speed.data,
-                    distance=int(duration*avg_speed),
+                    distance=distance,
+                    met=met,
+                    rider_weight=form.rider_weight.data,
                     calorie_count=int(distance*1.5),
+                    weight_loss=weight_loss,
                     cycle_type=form.cycle_type.data,
                     ride_rating=form.ride_rating.data,
                     user=User.query.get(current_user.id))
@@ -267,6 +292,13 @@ def stats():
         'student': 0,
     }
 
+    cycle_cal_dict = {
+        'afford': 0,
+        'health': 0,
+        'premium': 0,
+        'student': 0,
+    }
+
     day_dist_dict = {
         'Sat': 0,
         'Sun': 0,
@@ -295,10 +327,18 @@ def stats():
 
         cycle_types.append(row.cycle_type.capitalize())
 
-        if row.cycle_type == 'afford': cycle_types_dict['afford'] += 1
-        elif row.cycle_type == 'health': cycle_types_dict['health'] += 1
-        elif row.cycle_type == 'premium': cycle_types_dict['premium'] += 1
-        elif row.cycle_type == 'student': cycle_types_dict['student'] += 1
+        if row.cycle_type == 'afford': 
+            cycle_types_dict['afford'] += 1
+            cycle_cal_dict['afford'] += row.calorie_count
+        elif row.cycle_type == 'health': 
+            cycle_types_dict['health'] += 1
+            cycle_cal_dict['health'] += row.calorie_count
+        elif row.cycle_type == 'premium': 
+            cycle_types_dict['premium'] += 1
+            cycle_cal_dict['premium'] += row.calorie_count
+        elif row.cycle_type == 'student': 
+            cycle_types_dict['student'] += 1
+            cycle_cal_dict['student'] += row.calorie_count
 
         if row.ride_date.strftime('%a') == 'Sat': day_dist_dict['Sat'] += row.distance
         elif row.ride_date.strftime('%a') == 'Sun': day_dist_dict['Sun'] += row.distance
@@ -312,13 +352,15 @@ def stats():
 
     cycle_types = sorted((list(set((cycle_types)))))
     cycle_types_count = list(cycle_types_dict.values())
+    cycle_cal_count = list(cycle_cal_dict.values())
     ride_dates = sorted((list(set((ride_dates)))))
     day_dist_count = list(day_dist_dict.values())
     print(cycle_types)
-    print(cycle_types_count)
+    # print(cycle_types_count)
+    print(cycle_cal_count)
     # print(ratings_count)
-    print(ride_dates)
-    print(type(ride_dates))
+    # print(ride_dates)
+    # print(type(ride_dates))
 
     return render_template('stats.html',
                             total_rides=total_rides,
@@ -334,5 +376,6 @@ def stats():
                             calories=json.dumps(calories),
                             cycle_types=json.dumps(cycle_types),
                             cycle_types_count=json.dumps(cycle_types_count),
+                            cycle_cal_count=json.dumps(cycle_cal_count),
                             ride_ratings=json.dumps(ride_ratings),
                             day_dist_count=day_dist_count)

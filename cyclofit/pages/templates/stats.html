@@ -68,6 +68,12 @@
                     </div>   
                     <canvas id="bub-line" width="300" height="250">
                     </canvas>
+                    <div class="bottom-info">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm-1-11v6h2v-6h-2zm0-4v2h2V7h-2z" fill="rgba(255,255,255,1)"/></svg>
+                        <small>
+                            Tap on the labels/charts for information
+                        </small>
+                    </div>
                 </div>
                 <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">     
                     <canvas id="dur-spd-line" width="300" height="250">
@@ -82,7 +88,8 @@
                     </canvas>
                 </div>
                 <div class="tab-pane fade" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
-                    Section 4
+                    <canvas id="cal-type-pie" width="300" height="250">
+                    </canvas>
                 </div>
             </div>
         </div>
@@ -140,11 +147,6 @@
                 }
             }
         });
-
-        // Global Options
-        Chart.defaults.global.defaultFontFamily = 'sans-serif';
-        Chart.defaults.global.defaultFontColor = 'whitesmoke';
-        Chart.defaults.global.defaultFontSize = 16;
         
         // Duration-Speed-Line
         var ctx = document.getElementById("dur-spd-line").getContext("2d");
@@ -310,6 +312,50 @@
                 title: {
                     display: true,
                     text: 'Day Preference',
+                    fontSize: 18,
+                },
+                legend: {
+                    display: true,
+                    position: 'bottom',
+                    fontSize: 12,
+                },
+                tooltips: {
+                    enabled: true,
+                }
+            }
+        });
+
+        // Cycle-Type-Pie
+        var ctx = document.getElementById("cal-type-pie").getContext("2d");
+        var lineChart = new Chart(ctx, {
+            type:'bar',
+            data: {
+                labels: {{ cycle_types | safe }},
+                datasets: [
+                    {
+                        label: 'Distance',
+                        // data : ['100', '200', '500', '400'],
+                        data: {{ cycle_cal_count | safe }},
+                        backgroundColor: [
+                            'whitesmoke',
+                            '#0cfab2',
+                            '#FF2E93',
+                            'blue',
+                        ],
+                        fill: false,
+                        borderColor: "whitesmoke",
+                        hoverBorderColor: 'black',
+                        lineTension: 0.1,
+                    },
+                ],
+            },
+            options: {
+                fill: false,
+                responsive: false,
+                indexAxis: 'y',
+                title: {
+                    display: true,
+                    text: 'Cycle-Type Preference',
                     fontSize: 18,
                 },
                 legend: {
