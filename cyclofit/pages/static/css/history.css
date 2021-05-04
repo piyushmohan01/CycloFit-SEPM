@@ -3,12 +3,21 @@
     color: whitesmoke;
 }
 
+.pagelink,
+.btn,
+button,
+.link-section,
+.row-box,
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .header {
     width: 100%;
     padding: 1em 0;
-    display: flex;
     justify-content: space-evenly;
-    align-items: center;
     border-bottom: 0.25em solid #0cfab2;
 }
 h2 {
@@ -17,10 +26,12 @@ h2 {
 }
 
 .row-box {
-    display: flex;
     justify-content: space-around;
-    align-items: center;
     border-radius: 10px;
+}
+
+.row-bg {
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .rounded-circle {
@@ -59,13 +70,14 @@ article {
 .c2 {
     color: #0cfab2;
 }
+.c1 {
+    padding-left: 1.5em;
+}
 
 .link-section {
     width: 60%;
     padding: 1em 0;
-    display: flex;
     justify-content: space-evenly;
-    align-items: center;
 }
 
 a {
@@ -77,9 +89,6 @@ svg {
 
 .btn,
 button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 12vw;
     width: 12vw;
     border-radius: 50%;
@@ -99,7 +108,5 @@ button {
     margin: 1em 0;
     padding-bottom: 1em;
     width: 100%;
-    display: flex;
     justify-content: space-evenly;
-    align-items: center;
 }

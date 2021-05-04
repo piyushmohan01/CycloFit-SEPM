@@ -46,10 +46,7 @@ class Profile(db.Model):
     age = db.Column(db.String(20), nullable=False)
     gender = db.Column(db.String(20), nullable=False)
     emergency_no = db.Column(db.Integer, unique=False, nullable=False)
-    # now = 
     date_registered = db.Column(db.DateTime, nullable=False, default=datetime.today)
-    # time_registered = db.Column(db.DateTime, nullable=False, default=datetime.utcnow.strftime("%H:%M"))
-    # day_registered = db.Column(db.DateTime, nullable=False, default=datetime.utcnow.strftime('%A'))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), unique=True, nullable=False)  
     # console-print '{self.time_registered}', '{self.day_registered}'
     def __repr__(self):
@@ -57,17 +54,17 @@ class Profile(db.Model):
 
 class Ride(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    ride_date = db.Column(db.DateTime, nullable=False, default=datetime.today)
-    # ride_time = db.Column(db.DateTime, nullable=False, default=datetime.utcnow.strftime("%H:%M"))
-    # ride_day = db.Column(db.DateTime, nullable=False, default=datetime.utcnow.strftime('%A'))
-    rider_weight = db.Column(db.Integer, nullable=False)
+    ride_date = db.Column(db.DateTime, nullable=False, default=datetime.now)
     duration = db.Column(db.Integer, nullable=False)
     avg_speed = db.Column(db.Integer, nullable=False)
-    distance = db.Column(db.Integer, nullable=False)
+    distance = db.Column(db.Float, nullable=False)
+    met = db.Column(db.Integer, nullable=False)
+    rider_weight = db.Column(db.Integer, nullable=False)
     calorie_count = db.Column(db.Integer, nullable=False)
+    weight_loss = db.Column(db.Float, nullable=False)
     cycle_type = db.Column(db.String(20), nullable=False)
-    ride_rating = db.Column(db.Integer)
+    ride_rating = db.Column(db.Integer, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     #console-print  '{self.ride_time}', '{self.ride_day}',
     def __repr__(self):
-        return f"Ride('{self.id}', '{self.ride_date}', {self.rider_weight}', '{self.duration}', '{self.avg_speed}', '{self.distance}', '{self.calorie_count}', '{self.cycle_type}', '{self.ride_rating}', '{self.user_id}')"
+        return f"Ride('{self.id}', '{self.ride_date}', '{self.duration}', '{self.avg_speed}', '{self.distance}', {self.met}', {self.rider_weight}', '{self.calorie_count}', {self.weight_loss}', '{self.cycle_type}', '{self.ride_rating}', '{self.user_id}')"

@@ -23,7 +23,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin: 3em 0;
+    margin: 2em 0;
     margin-bottom: 0;
 }
 
@@ -108,7 +108,7 @@ input[type=password]:focus {
 }
 
 .form-horizontal {
-    margin-top: -1em;
+    /* margin-top: -1em; */
     margin-bottom: 10%;
     display: flex;
     justify-content: center;
@@ -117,7 +117,7 @@ input[type=password]:focus {
 }
 
 .col-12 {
-    margin-top: 1em;
+    margin-top: 2em;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -140,7 +140,7 @@ input[type=password]:focus {
 #line-center {
     color: whitesmoke;
 }
-
+ 
 .text-muted {
     margin-top: 1em;
 }
