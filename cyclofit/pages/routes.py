@@ -183,6 +183,8 @@ def new_ride():
         db.session.add(ride)
         db.session.commit()
         print(ride)
+        # flash('Ride Added Successfully!')
+        return redirect(url_for('home'))
     return render_template('new_ride.html', form=form)
 
 
@@ -247,6 +249,7 @@ def stats():
     total_rides = rides.count()+1
     total_duration = 0
     total_distance = 0
+    total_calories = 0
     ride_ids = []
     ride_dates = []
     rider_weights = []
@@ -288,6 +291,7 @@ def stats():
         total_distance += row.distance
 
         calories.append(row.calorie_count)
+        total_calories += row.calorie_count
 
         cycle_types.append(row.cycle_type.capitalize())
 
@@ -320,6 +324,7 @@ def stats():
                             total_rides=total_rides,
                             total_distance=total_distance,
                             total_duration=total_duration,
+                            total_calories=total_calories,
                             ride_ids=json.dumps(ride_ids),
                             ride_dates=json.dumps(ride_dates),
                             rider_weights=json.dumps(rider_weights),

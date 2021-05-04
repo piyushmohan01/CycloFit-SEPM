@@ -10,7 +10,7 @@
     <div class="stats-page">
         <div class="container">
             <div class="header">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm1-10V7h-2v7h6v-2h-4z" fill="rgba(12,250,178,1)"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="45" height="45"><path fill="none" d="M0 0h24v24H0z"/><path d="M2 13h6v8H2v-8zM9 3h6v18H9V3zm7 5h6v13h-6V8z" fill="rgba(12,250,178,1)"/></svg>
                 <h2>Ride Statistics</h2>
             </div>
             <nav>
@@ -40,11 +40,34 @@
             <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                     <div class="row text-stat">
-                        <div class="col">Rides</div>
-                        <div class="col">Duration</div>
-                        <div class="col">Distance</div>
-                        <div class="col">Calories</div>
+                        <div class="col" id='left-stat'>
+                            <h1>{{ total_rides-1 }}</h1>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-bicycle" viewBox="0 0 16 16">
+                                <path d="M4 4.5a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1v.5h4.14l.386-1.158A.5.5 0 0 1 11 4h1a.5.5 0 0 1 0 1h-.64l-.311.935.807 1.29a3 3 0 1 1-.848.53l-.508-.812-2.076 3.322A.5.5 0 0 1 8 10.5H5.959a3 3 0 1 1-1.815-3.274L5 5.856V5h-.5a.5.5 0 0 1-.5-.5zm1.5 2.443-.508.814c.5.444.85 1.054.967 1.743h1.139L5.5 6.943zM8 9.057 9.598 6.5H6.402L8 9.057zM4.937 9.5a1.997 1.997 0 0 0-.487-.877l-.548.877h1.035zM3.603 8.092A2 2 0 1 0 4.937 10.5H3a.5.5 0 0 1-.424-.765l1.027-1.643zm7.947.53a2 2 0 1 0 .848-.53l1.026 1.643a.5.5 0 1 1-.848.53L11.55 8.623z" fill="rgba(12,250,178,1)"/>
+                            </svg>
+                        </div>
+                        <div class="col" id='right-stat'>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm1-10V7h-2v7h6v-2h-4z" fill="rgba(12,250,178,1)"/>
+                            </svg>
+                            <h1>{{ total_duration }}</h1>
+                        </div>
                     </div>   
+                    <div class="row text-stat" id="bottom-stat">
+                        <div class="col" style="padding-right: 0;">
+                            <h2>{{ total_distance }}</h2>
+                        </div>
+                        <div class="col" style="padding-left: 0;">
+                            <h2>Km</h2>
+                        </div>
+                        <div class="col" style="padding-right: 0;">
+                            <h2>{{ total_calories }}</h2>
+                        </div>
+                        <div class="col" style="padding-left: 0;">
+                            <h2>KCal</h2>
+                        </div>
+                    </div>   
+                    <canvas id="bub-line" width="300" height="250">
+                    </canvas>
                 </div>
                 <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">     
                     <canvas id="dur-spd-line" width="300" height="250">
@@ -67,6 +90,56 @@
 
     <!-- JS -->
     <script type="text/javascript">
+
+        // Global Options
+        Chart.defaults.global.defaultFontFamily = 'sans-serif';
+        Chart.defaults.global.defaultFontColor = 'whitesmoke';
+        Chart.defaults.global.defaultFontSize = 16;
+        
+        // Duration-Speed-Line
+        var ctx = document.getElementById("bub-line").getContext("2d");
+        var lineChart = new Chart(ctx, {
+            type:'bar',
+            data: {
+                labels: {{ ride_ids | safe }},
+                datasets: [
+                    {
+                        label: 'Duration',
+                        data: {{ durations | safe }},
+                        backgroundColor: '#0cfab2',
+                        fill: false,
+                        borderColor: "#0cfab2",
+                        hoverBorderColor: '#0cfab2',
+                        lineTension: 0.1,
+                    },
+                    {
+                        label: 'AvgSpeed',
+                        data: {{ avg_speeds | safe }},
+                        backgroundColor: "#e0006c",
+                        fill: false,
+                        borderColor: '#FF2E93',
+                        lineTension: 0.1,
+                    }
+                ],
+            },
+            options: {
+                fill: false,
+                responsive: false,
+                title: {
+                    display: true,
+                    text: 'Duration & AvgSpeed',
+                    fontSize: 18,
+                },
+                legend: {
+                    display: true,
+                    position: 'bottom',
+                    fontSize: 12,
+                },
+                tooltips: {
+                    enabled: true,
+                }
+            }
+        });
 
         // Global Options
         Chart.defaults.global.defaultFontFamily = 'sans-serif';

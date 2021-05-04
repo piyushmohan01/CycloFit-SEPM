@@ -50,6 +50,10 @@ h6 {
     border: 0;
 }
 
+canvas {
+    margin-top: 1em;
+}
+
 h5 {
     width: 100%;
     margin: 0;
@@ -57,15 +61,46 @@ h5 {
 }
 .row {
     padding: 0;
+    margin: 0;
+}
+
+h1 {
+    font-size: 9vw;
+    padding-right: 0.25em;
+    padding-left: 0.15em;
+    padding-top: 0.1em;
+}
+#left-stat {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    border-right: 0.25em solid whitesmoke;
+}
+#right-stat {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+#bottom-stat {
+    margin-top: 0;
+    border-top: 0.1em solid whitesmoke;
+    border-bottom: 0.1em solid whitesmoke;
 }
 
 .text-stat {
-    width: fit-content;
+    width: 100%;
     color: whitesmoke;
     background-color: black;
     padding: 0;
     margin: 0;
+    margin-top: 1em;
     justify-content: space-evenly;
+}
+
+.col {
+    flex-direction: column;
 }
 
 .nav-item {
@@ -78,11 +113,10 @@ h5 {
 }
 
 .active {
-    color: black;
-    background-color: #0cfab2;
+    color: #0cfab2; 
 }
 
-.nav-item-active,
+.nav-item .active,
 .nav-item:hover {
-    color: whitesmoke;
+    color: #0cfab2;
 }
