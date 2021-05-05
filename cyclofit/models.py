@@ -18,7 +18,7 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(60), nullable=False)
     profile = db.relationship('Profile', backref='user', uselist=False) #one-to-one reltn.
     rides = db.relationship('Ride', backref='user', lazy=True) #one-to-many reltn.
-    
+    rewards = db.relationship('Reward', backref='user', uselist=False)
     # setting token with secret key and expiration
     def get_reset_token(self, expires_sec=1800):
         s = Serializer(app.config['SECRET_KEY'], expires_sec)
@@ -37,7 +37,7 @@ class User(db.Model, UserMixin):
 
     # console-print
     def __repr__(self):
-        return f"User('{self.id}',{self.username}', '{self.email}', '{self.password}' '{self.image_file}')"
+        return f"User('{self.id}',{self.username}', '{self.email}', '{self.image_file}')"
 
 class Profile(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -48,16 +48,16 @@ class Profile(db.Model):
     emergency_no = db.Column(db.Integer, unique=False, nullable=False)
     date_registered = db.Column(db.DateTime, nullable=False, default=datetime.today)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), unique=True, nullable=False)  
-    # console-print '{self.time_registered}', '{self.day_registered}'
+    # console-print
     def __repr__(self):
         return f"User('{self.id}', '{self.area}', '{self.contact_no}', '{self.age}', '{self.gender}', '{self.emergency_no}', '{self.date_registered}', '{self.user_id}')"
 
 class Ride(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    ride_date = db.Column(db.DateTime, nullable=False, default=datetime.now)
-    duration = db.Column(db.Integer, nullable=False)
+    ride_date = db.Column(db.DateTime, nullable=False, default=datetime.now())
+    duration = db.Column(db.Float, nullable=False)
     avg_speed = db.Column(db.Integer, nullable=False)
-    distance = db.Column(db.Float, nullable=False)
+    distance = db.Column(db.Integer, nullable=False)
     met = db.Column(db.Integer, nullable=False)
     rider_weight = db.Column(db.Integer, nullable=False)
     calorie_count = db.Column(db.Integer, nullable=False)
@@ -65,6 +65,16 @@ class Ride(db.Model):
     cycle_type = db.Column(db.String(20), nullable=False)
     ride_rating = db.Column(db.Integer, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-    #console-print  '{self.ride_time}', '{self.ride_day}',
+    #console-print
     def __repr__(self):
         return f"Ride('{self.id}', '{self.ride_date}', '{self.duration}', '{self.avg_speed}', '{self.distance}', {self.met}', {self.rider_weight}', '{self.calorie_count}', {self.weight_loss}', '{self.cycle_type}', '{self.ride_rating}', '{self.user_id}')"
+
+class Reward(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    day_streak = db.Column(db.Integer, nullable=False, default=0)
+    cal_dur_ratio = db.Column(db.Integer, nullable=False, default=0)
+    reward_points = db.Column(db.Integer, nullable=False, default=0)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), unique=True, nullable=False)  
+    # console-print
+    def __repr__(self):
+        return f"Reward('{self.id}', '{self.day_streak}', '{self.cal_dur_ratio}', '{self.reward_points}', '{self.user_id}')"

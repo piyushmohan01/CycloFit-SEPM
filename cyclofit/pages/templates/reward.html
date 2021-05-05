@@ -1,0 +1,31 @@
+{% extends "nav-02.html" %}
+
+{% block pagecss %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/history.css') }}">
+{% endblock pagecss %}
+
+{% block page %}
+    <div class="history-page">
+        <div class="container">
+            <div class="header">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm1-10V7h-2v7h6v-2h-4z" fill="rgba(12,250,178,1)"/></svg>
+                <h2>Your Rides</h2>
+            </div>
+            <article class="media content-section">
+                <div class="row-bg">
+                <div class="row row-box">
+                    <div class="col c1">
+                        Streak : {{streak}}
+                        
+                        Ratio : {{ratio}}
+                        
+                        Reward Points : {{reward_points}}
+                        
+                    </div>
+                </div>
+            </div>
+            </article>
+        
+        </div>
+    </div>
+{% endblock page %}
