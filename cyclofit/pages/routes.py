@@ -417,6 +417,25 @@ def reward_points():
                             reward_points=three)
 
 
+def history():
+    page = request.args.get('page', 1, type=int)
+    rides = Ride.query.filter_by(user_id=current_user.id)\
+                .order_by(Ride.ride_date.desc())\
+                .paginate(per_page=7,page=page)
+    return render_template('history.html', rides=rides)
+
+@app.route('/Leaderboard')
+def leaderboard():
+    page = request.args.get('page', 1, type=int)
+    rewards = Reward.query.filter()\
+        .order_by(Reward.reward_points.desc())\
+        .limit(10)
+    users = User.query.all()
+    user_count = len(users)
+    # image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
+    return render_template('leaderboard.html', rewards=rewards, users=users, user_count=user_count)
+    # , image_file=image_file)
+
 def updateRewardRow(rides):
     user = User.query.get(current_user.id)
     current = Reward.query.get(current_user.id)

@@ -1,0 +1,23 @@
+* {
+    color: whitesmoke;
+}
+
+.user-image {
+    height: 4em;
+    width: 4em;
+    border-radius: 50%;
+    margin: 2vh 1vw;
+    margin-left: 0;
+}
+
+.col,
+.pagelink,
+.btn,
+button,
+.link-section,
+.row-box,
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
