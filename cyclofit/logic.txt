@@ -13,7 +13,7 @@
     - DayStreak : Integer * 0.25
         - Find from RideDayList
         - Make Streak:1 on first ride
+        - Add one if successive days exist
     - CalorieDurationRatioRange :
         - Either Total values or Individual
         - Range : 0.25 : 0.50 : 0.75
-    - Weight Loss : ?
