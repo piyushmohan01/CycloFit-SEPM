@@ -430,6 +430,8 @@ def leaderboard():
     rewards = Reward.query.filter()\
         .order_by(Reward.reward_points.desc())\
         .limit(10)
+    if len(list(Ride.query.filter_by(user_id=current_user.id))) == 0:
+        return redirect(url_for('new_ride'))
     users = User.query.all()
     user_count = len(users)
     # image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
