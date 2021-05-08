@@ -14,14 +14,14 @@ menuBtn.addEventListener('click', () => {
     }
 });
 
-$(document).ready(function(){
-    $(".menu-btn").click(function(){
-        $('.text').toggleClass("is-active");
+// $(document).ready(function(){
+//     $(".menu-btn").click(function(){
+//         $('.text').toggleClass("is-active");
     //   $('.bg').toggleClass("is-active");
     //   $('#shape-main').toggleClass("is-active");
     //   $('.nav-1').toggleClass("is-active");
     //   $('.menu-icon').toggleClass("is-active");
     //   $('.menu-close').toggleClass("is-active");
       // $('.register-page').toggleClass("is-active");
-    });
-});
+//     });
+// });
