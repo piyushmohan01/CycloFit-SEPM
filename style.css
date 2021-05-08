@@ -49,6 +49,7 @@ body {
     height: 6px;
     background: #fff;
     border-radius: 5px;
+    margin-left: 15px;
     transition: all .5s ease-in-out;
 }
 
@@ -77,16 +78,17 @@ body {
 } */
 
 .menu-btn.open .menu-btn_burger {
+    width: 0;
     transform: translateX(-50px);
     background: transparent;
 }
 
 .menu-btn.open .menu-btn_burger::before {
     width: 50px;
-    transform: rotate(45deg) translate(35px, -35px);
+    transform: rotate(45deg) translate(10px, -10px);
 }
 
 .menu-btn.open .menu-btn_burger::after {
     width: 50px;
-    transform: rotate(-45deg) translate(35px, 35px);
+    transform: rotate(-45deg) translate(10px, 10px);
 }

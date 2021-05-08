@@ -337,7 +337,10 @@ def find_next_day(a):
     days = ['Sat','Sun','Mon','Tue','Wed','Thu','Fri']
     for i in range(len(days)):
         if a == days[i]:
-            return days[i+1]
+            if a == 'Fri':
+                return days[0]
+            else:
+                return days[i+1]
 
 def findStreak(li):
     streak = 0

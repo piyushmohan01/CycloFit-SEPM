@@ -3,7 +3,6 @@
     padding: 0;
     font-family: 'Poppins', sans-serif;
     background-color: #06002a;
-    /* overflow-x: hidden; */
 }
 
 .bg {
@@ -11,9 +10,8 @@
     height: 100vh;
     background-color: #06002a;
 }
-.bg {
-    background-color: transparent;
-    /* overflow-y: hidden; */
+.bg.is-active {
+    overflow-y: hidden;
 }
 
 .shape-main {
@@ -32,6 +30,7 @@
     transition-timing-function: ease-in-out;
 }
 
+.menu-btn,
 .col,
 .col-6,
 .col-3,
@@ -42,10 +41,6 @@
     align-items: center;
     background-color: transparent;
 }
-/* .col-6,
-.col-3 {
-    margin-top: 4vh;
-} */
 .col-6 {
     margin-bottom: 0;
     height: fit-content;
@@ -56,6 +51,7 @@ h1 {
 }
 
 .row {
+    margin: 0;
     height: 10vh;
     justify-content: center;
     align-items: center;
@@ -80,37 +76,59 @@ h1 {
     background-color: transparent;
 } 
 
-.menu-icon {
-    position: absolute;
-    right: 10vw;
-    top: 2.5vh;
-    z-index: 3;
-    background-color: transparent;
-    transition-duration: 0.5s;
-    transition-timing-function: ease-in-out;
-}
-.menu-icon.is-active {
-    opacity: 0;
-    z-index: 2;
-    background-color: transparent;
-    transition-duration: 0.5s;
-    transition-timing-function: ease-in-out;
+.toggle-col {
+    margin: 0;
+    text-align: left;
 }
 
-.menu-close {
+/* -----TOGGLE_ICON----- */
+
+.menu-btn {
+    margin: 0;
+    outline: none;
+    height: 2em;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+    -webkit-tap-highlight-color: transparent;
+}
+.menu-btn_burger {
+    width: 1.5em;
+    height: 0.25em;
+    background: #fff;
+    border-radius: 10em;
+    transition: all .5s ease-in-out;
+}
+.menu-btn_burger::before,
+.menu-btn_burger::after {
+    content: ' ';
     position: absolute;
-    right: 10vw;
-    top: 2.5vh;
-    opacity: 0;
-    transition-duration: 0.5s;
-    transition-timing-function: ease-in-out;
+    width: 1.5em;
+    height: 0.25em;
+    background: #fff;
+    border-radius: 10em;
+    transition: all .5s ease-in-out;
 }
-.menu-close.is-active {
-    opacity: 1;
-    z-index: 0;
-    transition-duration: 0.5s;
-    transition-timing-function: ease-in-out;
+.menu-btn_burger::before {
+    transform: translateY(-0.5em);
 }
+.menu-btn_burger::after {
+    transform: translateY(0.5em);
+}
+.menu-btn.open .menu-btn_burger {
+    width: 0;
+    transform: translateX(-1.5em);
+    background: transparent;
+}
+.menu-btn.open .menu-btn_burger::before {
+    width: 1.75em;
+    transform: rotate(45deg) translate(0.25em, -0.25em);
+}
+.menu-btn.open .menu-btn_burger::after {
+    width: 1.75em;
+    transform: rotate(-45deg) translate(0.25em, 0.25em);
+}
+
+/* -----TOGGLE_ICON----- */
 
 .container {
     background-color: transparent;
