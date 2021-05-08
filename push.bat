@@ -1,5 +1,6 @@
 git add .
 git status
-git commit -m %1%
+set commit=%~1
+git commit -m "%commit%"
 git pull origin main
 git push origin main
