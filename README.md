@@ -1,9 +1,18 @@
 # CycloFit-SEPM
 
-Flask-Web Mobile Application for public Bicycle-Sharing and Fitness-Tracking.
+- Mobile web application made with the Flask framework.
+- An app that allows users to track their cycling progress.
+
+
+## Features :
+  - Create new rides and view previous ones.
+  - Intuitive visualizations and statistics.
+  - Reward system and Leaderboard with set of factors.
+  - Login/register system with Customizable user profile.
+  - Password hashing and password reset via mail.
 
 ## What's being used :
-... | Library Name | Version
+Index | Library/Package Name | Version Info
 -- | -- | --
 1 | [Flask](https://flask.palletsprojects.com/en/1.1.x/) | (v.1.1.2)
 2 | [Flask-Bcrypt](https://flask-bcrypt.readthedocs.io/en/latest/) | (v.0.7.1)
