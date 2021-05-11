@@ -1,7 +1,7 @@
 {% extends "nav-02.html" %}
 
 {% block pagecss %}
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/history.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/reward.css') }}">
 {% endblock pagecss %}
 
 {% block page %}
@@ -9,32 +9,51 @@
         <div class="container">
             <div class="header">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 7a8 8 0 1 1 0 16 8 8 0 0 1 0-16zm0 3.5l-1.323 2.68-2.957.43 2.14 2.085-.505 2.946L12 17.25l2.645 1.39-.505-2.945 2.14-2.086-2.957-.43L12 10.5zm1-8.501L18 2v3l-1.363 1.138A9.935 9.935 0 0 0 13 5.049L13 2zm-2 0v3.05a9.935 9.935 0 0 0-3.636 1.088L6 5V2l5-.001z" fill="rgba(12,250,178,1)"/></svg>
-                <h2>Your Rewards</h2>
+                <h2 class="header-text">Your Rewards</h2>
             </div>
-            <article class="media content-section">
-                <div class="row-bg">
-                <div class="row row-box">
-                    <div class="col c1" style="flex-direction: column;">
-                        <div class="streak">
+            <article class="holder">
+                <div class="box streak">
+                    <div class="inner-box">
+                        <div class="stat-box">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><path fill="none" d="M0 0h24v24H0z"/><path d="M6.382 5.968A8.962 8.962 0 0 1 12 4c2.125 0 4.078.736 5.618 1.968l1.453-1.453 1.414 1.414-1.453 1.453a9 9 0 1 1-14.064 0L3.515 5.93l1.414-1.414 1.453 1.453zM13 12V7.495L8 14h3v4.5l5-6.5h-3zM8 1h8v2H8V1z" fill="rgba(12,250,178,1)"/></svg>
-                            Streak : {{streak}}
-                        <!-- </div>
-                        <div class="ratio"> -->
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36"><path fill="none" d="M0 0h24v24H0z"/><path d="M17.5 21a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7zm-11-11a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7zm12.571-6.485l1.414 1.414L4.93 20.485l-1.414-1.414L19.07 3.515z" fill="rgba(12,250,178,1)"/></svg>
-                            Ratio : {{ratio}}
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><path fill="none" d="M0 0H24V24H0z"/><path d="M12.001 4.529c2.349-2.109 5.979-2.039 8.242.228 2.262 2.268 2.34 5.88.236 8.236l-8.48 8.492-8.478-8.492c-2.104-2.356-2.025-5.974.236-8.236 2.265-2.264 5.888-2.34 8.244-.228z" fill="rgba(12,250,178,1)"/></svg>
-                            Reward Points : {{reward_points}}
+                            <h2>Streak</br>: {{streak}}</h2>
                         </div>
-                        
+                    <p>Your current streak of consecutive days of riding with us. Keep an eye on this because day streaks can get you more points than the Calorie ratio!</p>
                     </div>
                 </div>
-            </div>
+                <div class="box ratio_">
+                    <div class="inner-box">
+                        <p class="middle">The ratio of total calories burnt to total duration of all rides taken. A key to getting better at this is to look at it as "burn more in less time!"</p>
+                        <div class="stat-box middle">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36"><path fill="none" d="M0 0h24v24H0z"/><path d="M17.5 21a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7zm-11-11a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7zm12.571-6.485l1.414 1.414L4.93 20.485l-1.414-1.414L19.07 3.515z" fill="rgba(12,250,178,1)"/></svg>
+                            <h2>Ratio</br>: {{ratio}}</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="box reward">
+                    <div class="inner-box">
+                        <div class="stat-box">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><path fill="none" d="M0 0H24V24H0z"/><path d="M12.001 4.529c2.349-2.109 5.979-2.039 8.242.228 2.262 2.268 2.34 5.88.236 8.236l-8.48 8.492-8.478-8.492c-2.104-2.356-2.025-5.974.236-8.236 2.265-2.264 5.888-2.34 8.244-.228z" fill="rgba(12,250,178,1)"/></svg>
+                            <h2>Points</br>: {{reward_points}}</h2>
+                        </div>
+                    <p>Your current reward score earned with the factors shown above. The leaderboard updates after every ride, so hop on and keep riding!</p>
+                    </div>
+                </div>
             </article>
         
-                                <!-- url_for('leaderboard') -->
-                                <a href="{{url_for('leaderboard')}}">
-                                    View leaderboard
-                                </a>
+            <div class="pagelink">
+                <a href="{{url_for('home')}}">
+                    <div class="pagelink">
+                        <button class="btn02">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><path fill="none" d="M0 0h24v24H0z"/><path d="M21 20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.49a1 1 0 0 1 .386-.79l8-6.222a1 1 0 0 1 1.228 0l8 6.222a1 1 0 0 1 .386.79V20z" fill="rgba(12,250,178,1)"/></svg>
+                        </button>
+                    </div>
+                </a>
+                <!-- url_for('leaderboard') -->
+                <a href="{{url_for('leaderboard')}}">
+                    View leaderboard
+                </a>
+            </div>
         </div>
     </div>
 {% endblock page %}

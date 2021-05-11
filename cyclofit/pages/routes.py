@@ -233,22 +233,24 @@ def stats():
     durations = []
     avg_speeds = []
     distances = []
+    met = []
     calories = []
+    weight_loss = []
     cycle_types = []
     ride_ratings = []
 
     cycle_types_dict = {
-        'afford': 0,
-        'health': 0,
-        'premium': 0,
-        'student': 0,
+        'Afford': 0,
+        'Health': 0,
+        'Premium': 0,
+        'Student': 0,
     }
 
     cycle_cal_dict = {
-        'afford': 0,
-        'health': 0,
-        'premium': 0,
-        'student': 0,
+        'Afford': 0,
+        'Health': 0,
+        'Premium': 0,
+        'Student': 0,
     }
 
     day_dist_dict = {
@@ -261,12 +263,20 @@ def stats():
         'Fri': 0,
     }
 
+    ride_rating_dict = {
+        '1':0,
+        '2':0,
+        '3':0,
+        '4':0,
+        '5':0,
+    }
+
     for num in range(1,total_rides):ride_ids.append(num)
     for row in rides:
         ride_dates.append(row.ride_date.strftime('%a'))
         rider_weights.append(row.rider_weight)
 
-        durations.append(row.duration)
+        durations.append(row.duration*60)
         total_duration += row.duration
 
         avg_speeds.append(row.avg_speed)
@@ -274,23 +284,27 @@ def stats():
         distances.append(row.distance)
         total_distance += row.distance
 
+        met.append(row.met)
+
         calories.append(row.calorie_count)
         total_calories += row.calorie_count
 
+        weight_loss.append(row.weight_loss)
+
         cycle_types.append(row.cycle_type.capitalize())
 
-        if row.cycle_type == 'afford': 
-            cycle_types_dict['afford'] += 1
-            cycle_cal_dict['afford'] += row.calorie_count
-        elif row.cycle_type == 'health': 
-            cycle_types_dict['health'] += 1
-            cycle_cal_dict['health'] += row.calorie_count
-        elif row.cycle_type == 'premium': 
-            cycle_types_dict['premium'] += 1
-            cycle_cal_dict['premium'] += row.calorie_count
-        elif row.cycle_type == 'student': 
-            cycle_types_dict['student'] += 1
-            cycle_cal_dict['student'] += row.calorie_count
+        if row.cycle_type == 'Afford': 
+            cycle_types_dict['Afford'] += 1
+            cycle_cal_dict['Afford'] += row.calorie_count
+        elif row.cycle_type == 'Health': 
+            cycle_types_dict['Health'] += 1
+            cycle_cal_dict['Health'] += row.calorie_count
+        elif row.cycle_type == 'Premium': 
+            cycle_types_dict['Premium'] += 1
+            cycle_cal_dict['Premium'] += row.calorie_count
+        elif row.cycle_type == 'Student': 
+            cycle_types_dict['Student'] += 1
+            cycle_cal_dict['Student'] += row.calorie_count
 
         if row.ride_date.strftime('%a') == 'Sat': day_dist_dict['Sat'] += row.distance
         elif row.ride_date.strftime('%a') == 'Sun': day_dist_dict['Sun'] += row.distance
@@ -300,11 +314,17 @@ def stats():
         elif row.ride_date.strftime('%a') == 'Thu': day_dist_dict['Thu'] += row.distance
         elif row.ride_date.strftime('%a') == 'Fri': day_dist_dict['Fri'] += row.distance
 
-        ride_ratings.append(row.ride_rating)
+        if row.ride_rating == 1: ride_rating_dict['1'] += 1
+        if row.ride_rating == 2: ride_rating_dict['2'] += 1
+        if row.ride_rating == 3: ride_rating_dict['3'] += 1
+        if row.ride_rating == 4: ride_rating_dict['4'] += 1
+        if row.ride_rating == 5: ride_rating_dict['5'] += 1
+        # ride_ratings.append(row.ride_rating)
 
     cycle_types = sorted((list(set((cycle_types)))))
     cycle_types_count = list(cycle_types_dict.values())
     cycle_cal_count = list(cycle_cal_dict.values())
+    ride_ratings_count = list(ride_rating_dict.values())
     ride_dates = sorted((list(set((ride_dates)))))
     day_dist_count = list(day_dist_dict.values())
     print(cycle_types)
@@ -325,11 +345,14 @@ def stats():
                             durations=json.dumps(durations),
                             avg_speeds=json.dumps(avg_speeds),
                             distances=json.dumps(distances),
+                            met=json.dumps(met),
                             calories=json.dumps(calories),
+                            weight_loss=json.dumps(weight_loss),
                             cycle_types=json.dumps(cycle_types),
                             cycle_types_count=json.dumps(cycle_types_count),
                             cycle_cal_count=json.dumps(cycle_cal_count),
                             ride_ratings=json.dumps(ride_ratings),
+                            ride_ratings_count=json.dumps(ride_ratings_count),
                             day_dist_count=day_dist_count)
 
 
@@ -344,15 +367,16 @@ def find_next_day(a):
 
 def findStreak(li):
     streak = 0
-    for i in range(len(li)-1):
-        if li[i] != li[i+1]:
-            next_day = find_next_day(li[i])
-            if li[i+1] == next_day:
-                streak += 1
-            else:
-                return -1
-        else:
-            streak += 0
+    last_day = li[-1:][0]
+    second_last_day = li[-2:][0]
+    if last_day != second_last_day:
+        next_day= find_next_day(second_last_day)
+        if last_day == next_day:
+            streak += 1
+        elif last_day != next_day:
+            return -1
+    elif last_day == second_last_day:
+        streak += 0
     return streak
 
 def findReward(rides):
@@ -370,7 +394,9 @@ def findReward(rides):
         days.append(row.ride_date.strftime("%a"))
         pass_dict['calories'] += row.calorie_count
         pass_dict['duration'] += row.duration
+    print(days)
     streakCount = findStreak(days)
+    print(streakCount)
     if streakCount < 0:
         print('Your daily streak is broken!')
         pass_dict['streak'] = streakCount
@@ -432,14 +458,12 @@ def leaderboard():
     page = request.args.get('page', 1, type=int)
     rewards = Reward.query.filter()\
         .order_by(Reward.reward_points.desc())\
-        .limit(10)
+        .limit(7)
     if len(list(Ride.query.filter_by(user_id=current_user.id))) == 0:
         return redirect(url_for('new_ride'))
     users = User.query.all()
-    user_count = len(users)
-    # image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
+    user_count = len(list(rewards))
     return render_template('leaderboard.html', rewards=rewards, users=users, user_count=user_count)
-    # , image_file=image_file)
 
 def updateRewardRow(rides):
     user = User.query.get(current_user.id)
