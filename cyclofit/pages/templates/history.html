@@ -11,7 +11,8 @@
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm1-10V7h-2v7h6v-2h-4z" fill="rgba(12,250,178,1)"/></svg>
                 <h2>Your Rides</h2>
             </div>
-        {% for ride in rides.items %}
+            <div class="holder">
+                {% for ride in rides.items %}
             <article class="media content-section">
                 <div class="row-bg">
                 <div class="row row-box">
@@ -21,7 +22,7 @@
                         {{ ride.ride_date.strftime('%d/%m') }}
                     </div>
                     <div class="col c2">
-                        {{ ride.duration }}min
+                        {{ ride.duration*60 }}min
                     </br>
                         {{ ride.avg_speed }}mph
                     </div>
@@ -39,6 +40,8 @@
             </div>
             </article>
         {% endfor %}
+        
+    </div>
     <div class="pagelink">
         <a href="{{url_for('home')}}">
             <button class="btn02">
@@ -60,7 +63,7 @@
                 ...
             {% endif %}
         {% endfor %}
-    </div>
+            </div>
         </div>
     </div>
 {% endblock page %}
