@@ -13,14 +13,14 @@
             </div>
             <div class="user-box small">
                 <div class="small-section">
-                    <a href="{{url_for('profile')}}">
+                    <a href="{{url_for('users.profile')}}">
                             <!-- About Us -->
                         <div class="small-1" style="margin-bottom: 1em">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><path fill="none" d="M0 0h24v24H0z"/><path d="M2 22a8 8 0 1 1 16 0H2zm8-9c-3.315 0-6-2.685-6-6s2.685-6 6-6 6 2.685 6 6-2.685 6-6 6zm10 4h4v2h-4v-2zm-3-5h7v2h-7v-2zm2-5h5v2h-5V7z" fill="rgba(12,250,178,1)"/></svg>
                             <h3 style="margin-left: 1em; margin-bottom: 0;">Profile</h3>
                         </div>
                     </a>
-                    <a href="{{url_for('history')}}">
+                    <a href="{{url_for('users.history')}}">
                         <div class="small-1">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="34" height="34"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm1-10V7h-2v7h6v-2h-4z" fill="rgba(12,250,178,1)"/></svg>
                             <h3 style="margin-left: 1em; margin-bottom: 0;">History</h3>
@@ -28,7 +28,7 @@
                     </a>
                 </div>
                 <div class="long-section">
-                    <a href="{{url_for('new_ride')}}">
+                    <a href="{{url_for('rides.new_ride')}}">
                     <div class="long-1">
                         <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-bicycle" viewBox="0 0 16 16">
                             <path d="M4 4.5a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1v.5h4.14l.386-1.158A.5.5 0 0 1 11 4h1a.5.5 0 0 1 0 1h-.64l-.311.935.807 1.29a3 3 0 1 1-.848.53l-.508-.812-2.076 3.322A.5.5 0 0 1 8 10.5H5.959a3 3 0 1 1-1.815-3.274L5 5.856V5h-.5a.5.5 0 0 1-.5-.5zm1.5 2.443-.508.814c.5.444.85 1.054.967 1.743h1.139L5.5 6.943zM8 9.057 9.598 6.5H6.402L8 9.057zM4.937 9.5a1.997 1.997 0 0 0-.487-.877l-.548.877h1.035zM3.603 8.092A2 2 0 1 0 4.937 10.5H3a.5.5 0 0 1-.424-.765l1.027-1.643zm7.947.53a2 2 0 1 0 .848-.53l1.026 1.643a.5.5 0 1 1-.848.53L11.55 8.623z" fill="rgba(12,250,178,1)"/>
@@ -40,7 +40,7 @@
             </div>
             <div class="user-box small">
                 <div class="long-section">
-                    <a href="{{url_for('stats')}}">
+                    <a href="{{url_for('users.stats')}}">
                         <div class="long-1" style="margin-left: 0;"> 
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="50" height="50"><path fill="none" d="M0 0h24v24H0z"/><path d="M2 13h6v8H2v-8zM9 3h6v18H9V3zm7 5h6v13h-6V8z" fill="rgba(12,250,178,1)"/></svg>
                             <h3 style=" margin-top: 0.5em; text-align: center;">Stats</h3>
@@ -49,14 +49,14 @@
                 </div>
                 <div class="small-section" style="margin-left: 1em;">
                             <!-- About Us -->
-                        <a href="{{url_for('reward_points')}}">
+                        <a href="{{url_for('rides.reward_points')}}">
                             <div class="small-1" style="margin-bottom: 1em">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 7a8 8 0 1 1 0 16 8 8 0 0 1 0-16zm0 3.5l-1.323 2.68-2.957.43 2.14 2.085-.505 2.946L12 17.25l2.645 1.39-.505-2.945 2.14-2.086-2.957-.43L12 10.5zm1-8.501L18 2v3l-1.363 1.138A9.935 9.935 0 0 0 13 5.049L13 2zm-2 0v3.05a9.935 9.935 0 0 0-3.636 1.088L6 5V2l5-.001z" fill="rgba(12,250,178,1)"/></svg>
                                 <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><path fill="none" d="M0 0h24v24H0z"/><path d="M22 10v10a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V10h20zm0-2H2V4a1 1 0 0 1 1-1h18a1 1 0 0 1 1 1v4zm-7 8v2h4v-2h-4z" fill="rgba(12,250,178,1)"/></svg> -->
                                 <h3 style="margin-left: 0.75em; margin-bottom: 0;">Rewards</h3>
                             </div>
                         </a>
-                    <a href="{{ url_for('logout') }}">
+                    <a href="{{ url_for('users.logout') }}">
                     <div class="small-1">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm5-6l5-4-5-4v3H9v2h8v3z" fill="rgba(12,250,178,1)"/></svg>
                         <h3 style="margin-left: 1em; margin-bottom: 0;">Sign Out</h3>
