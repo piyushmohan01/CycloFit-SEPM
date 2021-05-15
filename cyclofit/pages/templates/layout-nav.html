@@ -39,6 +39,33 @@
                 {% block pagecontent %}
                 {% endblock pagecontent %}
             </div>
+            <div class="size_error">
+                <div class="container">
+                    <div class="flex_box">
+                        <div class="app-name">
+                            <h1 class="app-txt">
+                                CYCLOFIT
+                            </h1>
+                        </div>
+                        <div class="mock-img">
+                            <img src="{{url_for('static', filename='images/mockup.png')}}" alt="" width="300">
+                        </div>
+                        <div class="mock-txt">
+                            <h1 class="mock-head">
+                                Sooooo...
+                            </h1>
+                            <p class="mock-para">
+                                The app currently does not work on wide screens, i.e, your laptops/desktops/tablets and... you get it. The reason to why this has not made responsive is that it's an app for cyclists to track their rides... idk about you but I think they'd rather have phones in their pockets and stands than the one you're currently viewing this in. The responsiveness might be added later in the future but currently, the app works on all mobile devices of all sizes. Here's a mockup of the app on phones and this button would take you to the github repository explaining the other stuff. Thanks for visiting :)
+                            </p>
+                            <a href="https://github.com/piyushmohan01/CycloFit-SEPM" target="_blank">
+                            <button class="mock-btn">
+                                View Project repository
+                            </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 <script src="{{ url_for('static', filename='js/layout-nav.js') }}"></script>
 {% endblock content %}

@@ -9,7 +9,8 @@
 }
 
 .container {
-    width: fit-content;
+    /* width: fit-content; */
+    padding-bottom: 2em;
     flex-direction: column;
     overflow: hidden;
 }
@@ -18,7 +19,7 @@
     width: 100%;
     height: fit-content;
     padding: 1em 0;
-    margin-top: 1em;
+    margin-top: 1.5em;
 }
 h2 {
     margin: 0;
@@ -55,7 +56,7 @@ canvas {
 }
 
 #bub-line {
-    margin-bottom: 2em;
+    margin: 2em 0;
     margin-left: 1em;
     width: 100%;
 }
@@ -125,4 +126,9 @@ h1 {
 .nav-item .active,
 .nav-item:hover {
     color: #0cfab2;
+}
+
+.bottom-info {
+    width: fit-content;
+    margin-left: 1em;
 }

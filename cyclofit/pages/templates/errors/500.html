@@ -1,0 +1,13 @@
+{% extends 'errors/eRR.html' %}
+
+{% block err_head %}
+    <h1>Error[500]</h1>
+{% endblock err_head %}
+
+{% block err_img %}
+    <img src="{{url_for('static', filename='images/500.png')}}" alt="" width="450">
+{% endblock err_img %}
+
+{% block err_txt %}
+    <p>Error[500] : Something went wrong! There must have been an issue from our end. Please try again in a while!</p>
+{% endblock err_txt %}
