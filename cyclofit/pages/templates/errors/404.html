@@ -1,0 +1,13 @@
+{% extends 'errors/eRR.html' %}
+
+{% block err_head %}
+    <h1>Error[404]</h1>
+{% endblock err_head %}
+
+{% block err_img %}
+    <img src="{{url_for('static', filename='images/404.png')}}" alt="" width="450">
+{% endblock err_img %}
+
+{% block err_txt %}
+    <p>Error[404] : The page you're trying to reach cannot be found! Please navigate to the right page or check the url for the spelling errors (if any).</p>
+{% endblock err_txt %}
