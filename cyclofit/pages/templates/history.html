@@ -43,7 +43,7 @@
         
     </div>
     <div class="pagelink">
-        <a href="{{url_for('home')}}">
+        <a href="{{url_for('users.home')}}">
             <button class="btn02">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><path fill="none" d="M0 0h24v24H0z"/><path d="M21 20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.49a1 1 0 0 1 .386-.79l8-6.222a1 1 0 0 1 1.228 0l8 6.222a1 1 0 0 1 .386.79V20z" fill="rgba(0,0,0,1)"/></svg>
             </button>
@@ -51,11 +51,11 @@
         {% for page_num in rides.iter_pages(left_current=1, right_current=2) %}
             {% if page_num %}
                 {% if rides.page == page_num %}
-                    <a class="btn btn-current" href="{{url_for('history',page=page_num)}}">
+                    <a class="btn btn-current" href="{{url_for('users.history',page=page_num)}}">
                         {{page_num}}
                     </a>
                 {% else %}
-                    <a class="btn btn-outline-info mr-1" href="{{url_for('history',page=page_num)}}">
+                    <a class="btn btn-outline-info mr-1" href="{{url_for('users.history',page=page_num)}}">
                         {{page_num}}
                     </a> 
                 {% endif %}

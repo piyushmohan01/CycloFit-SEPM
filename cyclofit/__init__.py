@@ -22,4 +22,13 @@ app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USERNAME'] = os.environ.get('MAIL_USERNAME')
 app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD')
 mail = Mail(app)
-from cyclofit.pages import routes
+
+# from cyclofit.pages import routes
+
+from cyclofit.users.routes import users
+from cyclofit.rides.routes import rides
+from cyclofit.main.routes import main
+
+app.register_blueprint(users)
+app.register_blueprint(rides)
+app.register_blueprint(main)
