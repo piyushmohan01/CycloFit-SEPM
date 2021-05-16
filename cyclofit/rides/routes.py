@@ -1,11 +1,11 @@
-from flask import (render_template, url_for,
-                   redirect, Blueprint)
-from flask_login import current_user, login_required
-from cyclofit import db
-from cyclofit.models import User, Ride, Reward
-from cyclofit.rides.forms import NewRideForm        
+import datetime
+import math
 
-import math, datetime
+from cyclofit import db
+from cyclofit.models import Reward, Ride, User
+from cyclofit.rides.forms import NewRideForm
+from flask import Blueprint, redirect, render_template, url_for
+from flask_login import current_user, login_required
 
 rides = Blueprint('rides', __name__)
 

@@ -1,17 +1,14 @@
-from flask import render_template, url_for, flash, redirect, Blueprint, request, session
-from flask_login import login_user, logout_user, login_required, current_user
-from cyclofit import db, bcrypt
-from cyclofit.models import User, Profile, Ride, Reward
-from cyclofit.users.forms import (RegistrationForm, 
-                                  LoginForm,
-                                  ProfileForm,
-                                  UpdateGeneralForm,
-                                  UpdatePersonalForm,
-                                  RequestResetForm,
-                                  ResetPasswordForm)
-from cyclofit.users.utils import save_picture, send_reset_email                                  
-
 import json
+
+from cyclofit import bcrypt, db
+from cyclofit.models import Profile, Reward, Ride, User
+from cyclofit.users.forms import (LoginForm, ProfileForm, RegistrationForm,
+                                  RequestResetForm, ResetPasswordForm,
+                                  UpdateGeneralForm, UpdatePersonalForm)
+from cyclofit.users.utils import save_picture, send_reset_email
+from flask import (Blueprint, flash, redirect, render_template, request,
+                   session, url_for)
+from flask_login import current_user, login_required, login_user, logout_user
 
 users = Blueprint('users', __name__)
 

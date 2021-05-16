@@ -1,10 +1,13 @@
-from flask_wtf import FlaskForm
-from flask_wtf.file import FileField, FileAllowed
-from wtforms import StringField, PasswordField, SubmitField, BooleanField, IntegerField, RadioField, SelectField
-from wtforms.validators import DataRequired, Length, EqualTo, Email, InputRequired, NumberRange, ValidationError
+from cyclofit.models import User
 from email_validator import validate_email
 from flask_login import current_user
-from cyclofit.models import User
+from flask_wtf import FlaskForm
+from flask_wtf.file import FileAllowed, FileField
+from wtforms import (BooleanField, IntegerField, PasswordField, RadioField,
+                     SelectField, StringField, SubmitField)
+from wtforms.validators import (DataRequired, Email, EqualTo, InputRequired,
+                                Length, NumberRange, ValidationError)
+
 
 class RegistrationForm(FlaskForm):
     email = StringField('Email',

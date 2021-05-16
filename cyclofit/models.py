@@ -1,8 +1,11 @@
-from cyclofit import db, login_manager
-from flask import current_app
 from datetime import datetime
+
+from flask import current_app
 from flask_login import UserMixin
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
+
+from cyclofit import db, login_manager
+
 
 # use same naming conventions
 # pass user_id from the User Model

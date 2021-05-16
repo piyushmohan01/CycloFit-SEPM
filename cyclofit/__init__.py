@@ -1,9 +1,11 @@
 import os
+
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
-from flask_mail import Mail 
+from flask_mail import Mail
+from flask_sqlalchemy import SQLAlchemy
+
 from cyclofit.config import Config
 
 db = SQLAlchemy()
@@ -28,10 +30,10 @@ def create_app(config_class=Config):
     login_manager.init_app(app)
     mail.init_app(app)
 
-    from cyclofit.users.routes import users
-    from cyclofit.rides.routes import rides
-    from cyclofit.main.routes import main
     from cyclofit.errors.handlers import errors
+    from cyclofit.main.routes import main
+    from cyclofit.rides.routes import rides
+    from cyclofit.users.routes import users
 
     app.register_blueprint(users)
     app.register_blueprint(rides)
