@@ -6,3 +6,4 @@ Flask-Mail==0.9.1
 Flask-SQLAlchemy==2.5.1
 Flask-WTF==0.14.3
 Pillow==8.2.0
+python-dotenv==0.17.1
