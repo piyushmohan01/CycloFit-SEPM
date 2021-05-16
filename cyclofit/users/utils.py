@@ -30,7 +30,7 @@ def send_reset_email(user):
 
 To RESET your PASSWORD visit the Link provided and enter your NEW PASSWORD:
 
-{url_for('reset_token', token=token, _external=True)}
+{url_for('users.reset_token', token=token, _external=True)}
 
 Ignore if you did not make the change-request!
 '''

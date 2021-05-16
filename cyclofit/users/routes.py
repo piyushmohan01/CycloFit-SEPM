@@ -165,7 +165,7 @@ def reset_token(token):
         db.session.commit()
         flash(f'Password has been updated successfully!')
         return redirect(url_for('users.login'))
-    return render_template('reset_tok.html', form=form)
+    return render_template('users.reset_token.html', form=form)
 
 @users.route('/ride-history')
 @login_required
