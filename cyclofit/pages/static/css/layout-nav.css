@@ -38,11 +38,13 @@
 
 .app-txt {
     font-size: 6vw;
+    height: fit-content;
+    margin: 0;
 }
 
 .mock-img {
     margin: 0 3vw;
-    margin-left: 0;
+    margin-left: -4vw;
 }
 
 .mock-txt {
@@ -230,13 +232,11 @@ h1 {
     border-bottom: 2px solid #06002a;
 }
 
-@media only screen and (min-width: 512px) {
+@media only screen and (min-width: 600px) {
     .bg * {
         display: none;
     }
     .size_error {
         display: block;
-        /* margin-top: -50vh;
-        background-color: blanchedalmond; */
     }
   }
