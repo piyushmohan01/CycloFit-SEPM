@@ -19,7 +19,7 @@ Index | Library/Package Name | Version Info | Description
 -- | -- | -- | --
 1 | [Flask](https://flask.palletsprojects.com/en/1.1.x/) | (v.1.1.2) | Python Micro-framework for developing Web Applications
 2 | [Flask-Bcrypt](https://flask-bcrypt.readthedocs.io/en/latest/) | (v.0.7.1) | Flask extension that provides hashing support for security
-3 | [FLask-SQLAlchemy](https://flask-sqlalchemy.palletsprojects.com/en/2.x/) | (v.2.5.1) | Flask extension that integrates SQLAlchemy with the Flask app
+3 | [FLask-SQLAlchemy](https://flask-sqlalchemy.palletsprojects.com/en/2.x/) | (v.2.5.1) | Flask extension that integrates SQLAlchemy with Flask
 4 | [FLask-WTForms](https://flask-wtf.readthedocs.io/en/stable/) | (v.0.14.3) | Flask extension that provides secure customizable forms 
 5 | [FLask-Login](https://flask-login.readthedocs.io/en/latest/) | (v.0.5.0) | Flask extension that provides session management support 
 6 | [Email-Validator](https://pypi.org/project/email-validator/) | (v.1.1.2) | Module that validates emails and provides feedbacks
