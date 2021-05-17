@@ -20,12 +20,12 @@ Index | Library/Package Name | Version Info | Description
 1 | [Flask](https://flask.palletsprojects.com/en/1.1.x/) | (v.1.1.2) | Python Micro-framework for developing Web Applications
 2 | [Flask-Bcrypt](https://flask-bcrypt.readthedocs.io/en/latest/) | (v.0.7.1) | Flask extension that provides hashing support for security
 3 | [FLask-SQLAlchemy](https://flask-sqlalchemy.palletsprojects.com/en/2.x/) | (v.2.5.1) | Flask extension that integrates SQLAlchemy with the Flask app
-4 | [FLask-WTForms](https://flask-wtf.readthedocs.io/en/stable/) | (v.0.14.3) | Flask extension that allows us to make secure customizable forms 
+4 | [FLask-WTForms](https://flask-wtf.readthedocs.io/en/stable/) | (v.0.14.3) | Flask extension that provides secure customizable forms 
 5 | [FLask-Login](https://flask-login.readthedocs.io/en/latest/) | (v.0.5.0) | Flask extension that provides session management support 
-6 | [Email-Validator](https://pypi.org/project/email-validator/) | (v.1.1.2) | Module that validates the emails (syntax/domain) with feedbacks
-7 | [Pillow](https://pillow.readthedocs.io/en/stable/) | (v.8.2.0) | Short for Python Imaging Library, allows us to work with image files
-8 | [Flask-Mail](https://pythonhosted.org/Flask-Mail/) | (v.0.9.1) | Flask extension that provides the support of secure mail systems
-9 | [Charts JS](https://www.chartjs.org/docs/latest/) | (v.3.2.1) | Javascript Library for visualizing with intuitive graphs, charts, etc.
+6 | [Email-Validator](https://pypi.org/project/email-validator/) | (v.1.1.2) | Module that validates emails and provides feedbacks
+7 | [Pillow](https://pillow.readthedocs.io/en/stable/) | (v.8.2.0) | Short for Python Imaging Library, allows us to work with images
+8 | [Flask-Mail](https://pythonhosted.org/Flask-Mail/) | (v.0.9.1) | Flask extension that provides the support of secure mails
+9 | [Charts JS](https://www.chartjs.org/docs/latest/) | (v.3.2.1) | Javascript Library for visualizing with graphs, charts, etc.
 
 ## Installation :
 - Fork the Repository (top-right) or clone it with :
