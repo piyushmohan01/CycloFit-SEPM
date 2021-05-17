@@ -23,7 +23,7 @@ Index | Library/Package Name | Version Info | Description
 4 | [FLask-WTForms](https://flask-wtf.readthedocs.io/en/stable/) | (v.0.14.3) | Flask extension that provides secure customizable forms 
 5 | [FLask-Login](https://flask-login.readthedocs.io/en/latest/) | (v.0.5.0) | Flask extension that provides session management support 
 6 | [Email-Validator](https://pypi.org/project/email-validator/) | (v.1.1.2) | Module that validates emails and provides feedbacks
-7 | [Pillow](https://pillow.readthedocs.io/en/stable/) | (v.8.2.0) | Short for Python Imaging Library, allows us to work with images
+7 | [Pillow](https://pillow.readthedocs.io/en/stable/) | (v.8.2.0) | Short for Python Imaging Library, used to work with images
 8 | [Flask-Mail](https://pythonhosted.org/Flask-Mail/) | (v.0.9.1) | Flask extension that provides the support of secure mails
 9 | [Charts JS](https://www.chartjs.org/docs/latest/) | (v.3.2.1) | Javascript Library for visualizing with graphs, charts, etc.
 
