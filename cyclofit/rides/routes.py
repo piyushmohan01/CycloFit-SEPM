@@ -20,16 +20,20 @@ def find_next_day(a):
 
 def findStreak(li):
     streak = 0
-    last_day = li[-1:][0]
-    second_last_day = li[-2:][0]
-    if last_day != second_last_day:
-        next_day= find_next_day(second_last_day)
-        if last_day == next_day:
-            streak += 1
-        elif last_day != next_day:
-            return -1
-    elif last_day == second_last_day:
-        streak += 0
+    if len(li) != 0:
+        last_day = li[-1:][0]
+        if len(li)>1:
+            second_last_day = li[-2:][0]
+        else:
+            second_last_day = last_day
+        if last_day != second_last_day:
+            next_day= find_next_day(second_last_day)
+            if last_day == next_day:
+                streak += 1
+            elif last_day != next_day:
+                return -1
+        elif last_day == second_last_day:
+            streak += 0
     return streak
 
 def findReward(rides):
