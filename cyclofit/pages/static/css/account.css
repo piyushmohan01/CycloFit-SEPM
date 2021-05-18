@@ -29,6 +29,11 @@ a {
     flex-direction: column;
 }
 
+.holder {
+    margin-top: 6vh;
+    margin-bottom: 2vh;
+}
+
 .user-box {
     height: fit-content;
     width: 90%;
@@ -99,7 +104,7 @@ h2 {
 }
 
 .form-horizontal {
-    margin-bottom: 10%;
+    /* margin-bottom: 10%; */
     display: flex;
     justify-content: center;
     align-items: center;

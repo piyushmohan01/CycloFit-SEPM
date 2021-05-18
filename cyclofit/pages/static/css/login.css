@@ -119,3 +119,23 @@ img {
     padding-left: 0;
     margin-bottom: 0;
 }
+
+.reset-holder {
+    margin-top: 4vh;
+}
+
+.reset-illus {
+    margin-bottom: -2vh;
+}
+
+.reset-subtext {
+    margin-bottom: 2vh;
+}
+
+.para {
+    margin-top: 1vh;
+    width: 85vw;
+    text-align: left;
+    font-size: 3.5vw;
+    margin-bottom: -2vh;
+}
