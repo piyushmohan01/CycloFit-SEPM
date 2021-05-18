@@ -32,12 +32,12 @@
     transform: rotate(-90deg);
     width: fit-content;
     height: fit-content;
-    margin-right: -7.5em;
+    margin-right: -5em;
     color: whitesmoke;
 }
 
 .app-txt {
-    font-size: 6vw;
+    font-size: 5em;
     height: fit-content;
     margin: 0;
 }
