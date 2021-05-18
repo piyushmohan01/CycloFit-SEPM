@@ -9,7 +9,6 @@ class Config:
     if SECRET_KEY == None:
         SECRET_KEY = secrets.token_hex(16)
     SQLALCHEMY_DATABASE_URI = 'sqlite:///../CycloFit-SEPM/cyclofit/database/main.db'
-    print(SQLALCHEMY_DATABASE_URI)
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     MAIL_SERVER = 'smtp.googlemail.com'
     MAIL_PORT = 587

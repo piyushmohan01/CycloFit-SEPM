@@ -10,9 +10,13 @@
 
 .container {
     /* width: fit-content; */
-    padding-bottom: 2em;
+    padding-bottom: 2em; 
     flex-direction: column;
     overflow: hidden;
+}
+
+.head {
+    margin-left: 2vw;
 }
 
 .header {
@@ -23,7 +27,6 @@
 }
 h2 {
     margin: 0;
-    /* margin-left: -2vw; */
     color: whitesmoke;
 }
 
@@ -83,6 +86,7 @@ h1 {
     align-items: center;
     flex-direction: row;
     border-right: 0.25em solid whitesmoke;
+    padding-right: 0;
 }
 #right-stat {
     width: 100%;
@@ -94,6 +98,11 @@ h1 {
     margin-top: 0;
     border-top: 0.1em solid whitesmoke;
     border-bottom: 0.1em solid whitesmoke;
+}
+
+.line {
+    border-right: 0.25em solid whitesmoke;
+    padding-right: 0;
 }
 
 .text-stat {

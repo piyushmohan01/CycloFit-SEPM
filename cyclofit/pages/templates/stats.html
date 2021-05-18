@@ -1,6 +1,6 @@
 {% extends "nav-02.html" %}
 
-{% block pagecss %}
+{% block pagecss %} 
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/stats.css') }}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
     <!-- <script src="https://cdnjs.com/libraries/Chart.js"></script> -->
@@ -11,7 +11,7 @@
         <div class="container">
             <div class="header">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="45" height="45"><path fill="none" d="M0 0h24v24H0z"/><path d="M2 13h6v8H2v-8zM9 3h6v18H9V3zm7 5h6v13h-6V8z" fill="rgba(12,250,178,1)"/></svg>
-                <h2>Ride Statistics</h2>
+                <h2 class='head'>Ride Statistics</h2>
             </div>
             <nav>
                 <div class="nav nav-tab" id="nav-tab" role="tablist">
@@ -58,7 +58,7 @@
                         <div class="col" style="width: fit-content; padding-right: 0;">
                             <h2>{{ total_distance }}</h2>
                         </div>
-                        <div class="col" style="padding-left: 0; align-items: flex-start;">
+                        <div class="col line" style="padding-left: 0; align-items: flex-start;">
                             <h2>Km</h2>
                         </div>
                         <div class="col" style="padding-right: 0;">
