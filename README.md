@@ -32,7 +32,7 @@ Index | Library/Package Name | Version Info | Description
 ```
 $ git clone https://github.com/piyushmohan01/CycloFit-SEPM.git
 ```
-- Navigate into the Project folder (CycloFit-SEPM) :
+- From cmd navigate into the Project folder (CycloFit-SEPM) :
 ```
 $ cd CycloFit-SEPM
 ```
@@ -44,9 +44,12 @@ $ cd CycloFit-SEPM
 $ pip install virtualenv
 $ virtualenv env
 $ env\Scripts\activate
-$ pip install -r requirements.txt
 ```
 - Use `source env/bin/activate` for Linux/Mac OS
+- Once, env is activated install the requirements with :
+```
+$ pip install -r requirements.txt
+```
 - Once all the packages are installed, run the app using :
 ```python
 $ run.py
@@ -59,6 +62,7 @@ $ run.py
   1. It would be something like `192.x.x.x:5000` (Make sure you're connected to the internet)
  
 - The app should now be working on your mobile device and you can ofcourse, use it now!
+- In order to let the app send password reset mails, turn on the permissions for less secure apps from your google account
 
 ## License : [MIT](https://github.com/piyushmohan01/CycloFit-SEPM/blob/master/LICENSE)
 > Permission is hereby granted, free of charge, to any person obtaining a copy
