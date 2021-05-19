@@ -54,7 +54,7 @@ $ pip install -r requirements.txt
 ```python
 $ run.py
 ```
-- The app launches on your devices local ipv4 address 
+- The app launches on your device's local ipv4 address
 - Since, the app is MOBILE-ONLY currently, you'd have to do the following :
 
   1. Connect your phone to the same Wifi network as your wide screen device
