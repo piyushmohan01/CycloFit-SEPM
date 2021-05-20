@@ -2,7 +2,7 @@ import datetime
 import math
 
 from cyclofit import db
-from cyclofit.models import Reward, Ride, User
+from cyclofit.models import Reward, Ride, User, Profile
 from cyclofit.rides.forms import NewRideForm
 from flask import Blueprint, redirect, render_template, url_for
 from flask_login import current_user, login_required
@@ -20,20 +20,28 @@ def find_next_day(a):
 
 def findStreak(li):
     streak = 0
+    print('LENGTH OF DAYS : {0}'.format(len(li)))
     if len(li) != 0:
         last_day = li[-1:][0]
+        print('LAST DAY OF RIDE :', last_day)
         if len(li)>1:
             second_last_day = li[-2:][0]
         else:
             second_last_day = last_day
+        print('SECOND LAST DAY :', second_last_day)
         if last_day != second_last_day:
+            print('LAST TWO DAYS NOT EQUAL')
             next_day= find_next_day(second_last_day)
             if last_day == next_day:
+                print('LAST TWO DAYS SUCCESSIVE')
                 streak += 1
             elif last_day != next_day:
+                print('LAST TWO DAYS NOT SUCCESSIVE')
                 return -1
         elif last_day == second_last_day:
+            print('LAST TWO DAYS EQUAL')
             streak += 0
+    print('FINAL STREAK :', streak)
     return streak
 
 def findReward(rides):
@@ -104,9 +112,15 @@ def reward_points():
 
 def updateRewardRow(rides):
     user = User.query.get(current_user.id)
-    current = Reward.query.get(current_user.id)
+    all_rides = Reward.query.all()
+    all_users = User.query.all()
+    print('************', all_rides)
+    print('************', current_user.id)
+    current = Reward.query.filter_by(user_id=current_user.id).first()
+    print('********d8wvhq8hvqpw*', current)
+    # print('************', current.user_id)
     print('Reward Row before Update : ', end=' ')
-    print(current)
+    print('******** {0}'.format(current.day_streak))
     print('-------------------------')
     pass_dict = findReward(rides)
     if pass_dict['streak'] < 0:
@@ -135,6 +149,7 @@ def updateRewardRow(rides):
     print('Reward Row After Update : ', end=' ')
     print(current)
     print('-------------------------')
+    print('******** {0}'.format(current.day_streak))
 
 def createRewardRow(rides): 
     user = User.query.get(current_user.id)
@@ -228,6 +243,8 @@ def new_ride():
         else: 
             print('------------------------------')
             print('NOT FIRST RIDE | UPDATE REWARD')
+            print('****************ai7cg8iaogwohwvp')
+            print(updated_rides)
             updateRewardRow(updated_rides)
         return redirect(url_for('users.home'))
     return render_template('new_ride.html', form=form)
