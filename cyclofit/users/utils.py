@@ -6,9 +6,6 @@ from flask import current_app, url_for
 from flask_mail import Message
 from PIL import Image
 
-
-# To update with uploaded pic
-# using _ when not needed
 def save_picture(form_picture):
     random_hex = secrets.token_hex(8)
     _, f_ext = os.path.splitext(form_picture.filename)

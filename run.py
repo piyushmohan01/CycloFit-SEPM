@@ -9,4 +9,4 @@ if __name__ == '__main__':
     print(' * Running on :', hostname)
     ip_address = socket.gethostbyname(hostname)
 
-    app.run(debug=False, host=ip_address)
+    app.run(debug=True, host=ip_address)
