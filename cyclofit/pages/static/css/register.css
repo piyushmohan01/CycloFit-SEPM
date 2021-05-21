@@ -1,6 +1,5 @@
 * {
     max-width: 100vw;
-    /* overflow: hidden ; */
 }
 
 .register-page {
@@ -108,7 +107,6 @@ input[type=password]:focus {
 }
 
 .form-horizontal {
-    /* margin-top: -1em; */
     margin-bottom: 10%;
     display: flex;
     justify-content: center;

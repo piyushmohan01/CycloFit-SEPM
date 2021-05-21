@@ -1,20 +1,12 @@
-/* body {
-    height: 100vh;
-    width: 100%;
-    overflow: hidden;
-} */
-
 .account-page {
     background-color: transparent;
     width: 100%;
-    /* height: fit-content; */
     z-index: 0;
     color: whitesmoke;
     overflow-y: hidden;
 }
 
 a {
-    /* text-decoration: none; */
     outline: none;
     text-emphasis: none;
     margin: 0;
@@ -38,7 +30,6 @@ a {
     height: fit-content;
     width: 90%;
     padding: 3vh 0;
-    /* margin: 2vh 0; */
     margin-top: 2vh;
     margin-bottom: 0vh;
     display: flex;
@@ -46,7 +37,6 @@ a {
     align-items: center;
     flex-direction: column;
     background-color: rgba(12, 250, 178, 0.05);
-    /* border: 0.1em solid whitesmoke; */
     border-radius: 25px;
 }
 
@@ -55,7 +45,6 @@ a {
     width: 7.5em;
     border-radius: 50%;
     margin: 2vh 0;
-    /* box-shadow: 0.5em 0.5em 0.5em black; */
 }
 
 .message-box {
@@ -68,12 +57,10 @@ h2 {
 
 .subtext-1,
 .subtext-2 {
-    /* padding-bottom: 0.25em; */
     width: fit-content;
     margin-top: 0.5em;
-    /* background-color: black; */
     border-bottom: 0.15em solid #0cfab2;
-        background-color: transparent;
+    background-color: transparent;
 }
 
 .user-name {
@@ -104,7 +91,6 @@ h2 {
 }
 
 .form-horizontal {
-    /* margin-bottom: 10%; */
     display: flex;
     justify-content: center;
     align-items: center;
