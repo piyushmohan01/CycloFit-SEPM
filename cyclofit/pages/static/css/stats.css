@@ -9,7 +9,6 @@
 }
 
 .container {
-    /* width: fit-content; */
     padding-bottom: 2em; 
     flex-direction: column;
     overflow: hidden;

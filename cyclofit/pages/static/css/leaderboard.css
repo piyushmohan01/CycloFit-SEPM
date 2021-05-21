@@ -57,7 +57,6 @@ button {
     outline: none;
     border: none;
     color: black;
-    /* background-color: #0cfab2; */
     border: 0.1em solid whitesmoke;
 }
 
@@ -68,7 +67,6 @@ button {
 }
 
 .pagelink {
-    /* padding-bottom: 1em; */
     width: 100%;
     justify-content: space-evenly;
 }
