@@ -1,5 +1,7 @@
 # CycloFit-SEPM
 
+![Project-Banner](https://i.imgur.com/mmQ8CqZl.png)
+
 - Mobile Web Application for Cyclists of all kinds that lets them track their progress.
 - Currently works on all mobile screen sizes. (Wide screens are to be added later in the future)
 - Tech Stack :
