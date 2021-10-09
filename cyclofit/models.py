@@ -25,16 +25,16 @@ class User(db.Model, UserMixin):
     rewards = db.relationship('Reward', backref='user', uselist=False)
     # setting token with secret key and expiration
     def get_reset_token(self, expires_sec=1800):
-        s = Serializer(current_app.config['SECRET_KEY'], expires_sec)
-        return s.dumps({'user_id':self.id}).decode('utf-8')
+        serializer_token = Serializer(current_app.config['SECRET_KEY'], expires_sec)
+        return serializer_token.dumps({'user_id':self.id}).decode('utf-8')
 
     # static python method
     # verifying the reset token
     @staticmethod
     def verify_reset_token(token):
-        s = Serializer(current_app.config['SECRET_KEY'])
+        serializer_token = Serializer(current_app.config['SECRET_KEY'])
         try:
-            user_id = s.loads(token)['user_id']
+            user_id = serializer_token.loads(token)['user_id']
         except:
             return None
         return User.query.get(user_id)
@@ -51,10 +51,11 @@ class Profile(db.Model):
     gender = db.Column(db.String(20), nullable=False)
     emergency_no = db.Column(db.Integer, unique=False, nullable=False)
     date_registered = db.Column(db.DateTime, nullable=False, default=datetime.today)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), unique=True, nullable=False)  
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), unique=True, nullable=False)
     # console-print
     def __repr__(self):
-        return f"User('{self.id}', '{self.area}', '{self.contact_no}', '{self.age}', '{self.gender}', '{self.emergency_no}', '{self.date_registered}', '{self.user_id}')"
+        return f"User('{self.id}', '{self.area}', '{self.contact_no}', '{self.age}',\
+            '{self.gender}', '{self.emergency_no}', '{self.date_registered}', '{self.user_id}')"
 
 class Ride(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -71,14 +72,17 @@ class Ride(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     #console-print
     def __repr__(self):
-        return f"Ride('{self.id}', '{self.ride_date}', '{self.duration}', '{self.avg_speed}', '{self.distance}', {self.met}', {self.rider_weight}', '{self.calorie_count}', {self.weight_loss}', '{self.cycle_type}', '{self.ride_rating}', '{self.user_id}')"
+        return f"Ride('{self.id}', '{self.ride_date}', '{self.duration}', '{self.avg_speed}',\
+            '{self.distance}', {self.met}', {self.rider_weight}', '{self.calorie_count}', {self.weight_loss}',\
+            '{self.cycle_type}', '{self.ride_rating}', '{self.user_id}')"
 
 class Reward(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     day_streak = db.Column(db.Integer, nullable=False, default=0)
     cal_dur_ratio = db.Column(db.Integer, nullable=False, default=0)
     reward_points = db.Column(db.Integer, nullable=False, default=0)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), unique=True, nullable=False)  
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), unique=True, nullable=False)
     # console-print
     def __repr__(self):
-        return f"Reward('{self.id}', '{self.day_streak}', '{self.cal_dur_ratio}', '{self.reward_points}', '{self.user_id}')"
+        return f"Reward('{self.id}', '{self.day_streak}', '{self.cal_dur_ratio}',\
+            '{self.reward_points}', '{self.user_id}')"

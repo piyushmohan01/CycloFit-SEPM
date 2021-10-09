@@ -6,7 +6,7 @@ load_dotenv()
 
 class Config:
     SECRET_KEY = os.getenv('SECRET_KEY')
-    if SECRET_KEY == None:
+    if SECRET_KEY is None:
         SECRET_KEY = secrets.token_hex(16)
     SQLALCHEMY_DATABASE_URI = 'sqlite:///../CycloFit-SEPM/cyclofit/database/main.db'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
