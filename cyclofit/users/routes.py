@@ -23,7 +23,7 @@ def register():
     form = RegistrationForm()
     if form.validate_on_submit():
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-        user = User(username=form.username.data, 
+        user = User(username=form.username.data,
                     email=form.email.data,
                     password=hashed_password)
         db.session.add(user)
@@ -38,17 +38,17 @@ def register02():
     form = ProfileForm()
     if form.validate_on_submit():
         if 'user_id' in session:
-            id = session['user_id']
-            user = User.query.get(id)
-            profile = Profile(area=form.area.data, 
+            session_id = session['user_id']
+            user = User.query.get(session_id)
+            user_profile = Profile(area=form.area.data,
                             contact_no=form.contactno.data,
                             age=form.age.data,
                             gender=form.gender.data,
                             emergency_no=form.emergencyno.data,
                             user=user)
-            db.session.add(profile)
+            db.session.add(user_profile)
             db.session.commit()
-            print(profile)
+            print(user_profile)
             return redirect(url_for('users.login')) # home changed to login
     return render_template('register02.html', form=form)
 
@@ -65,10 +65,9 @@ def login():
                 # if the user tries to access home page when logged out
                 next_page = request.args.get('next')
                 return redirect(next_page) if next_page else redirect(url_for('users.home'))
-            else:
-                flash(f'Login Unsuccessful! Try again!')
+            flash('Login Unsuccessful! Try again!')
         else:
-            flash(f'No Account Found!')
+            flash('No Account Found!')
     return render_template('login.html', form=form)
 
 @users.route("/logout")
@@ -88,7 +87,7 @@ def profile():
     date_li = list(date_string.split(' '))
     current_datereg = date_li[0]
     image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
-    
+
     return render_template('profile.html', image_file=image_file,
     current_area=current_area,
     current_contactno=current_contactno,
@@ -111,7 +110,7 @@ def general_update():
         db.session.commit()
         # flash(f'Account Updated Successfully!')
         return redirect(url_for('users.home'))
-    elif request.method == 'GET':
+    if request.method == 'GET':
         form.username.data = current_user.username
         form.email.data = current_user.email
     image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
@@ -130,7 +129,7 @@ def personal_update():
         user.emergency_no = form.emergencyno.data
         db.session.commit()
         return redirect(url_for('users.home'))
-    elif request.method == 'GET':
+    if request.method == 'GET':
         form.area.data = user.area
         form.contactno.data = user.contact_no
         form.age.data = user.age
@@ -146,7 +145,7 @@ def reset_request():
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
         send_reset_email(user)
-        flash(f'Email for Password Reset is sent!')
+        flash('Email for Password Reset is sent!')
         return redirect(url_for('users.login'))
     return render_template('reset_req.html', form=form)
 
@@ -156,14 +155,14 @@ def reset_token(token):
         return redirect(url_for('users.home'))
     user = User.verify_reset_token(token)
     if user is None:
-        flash(f'Invalid/Expired Token')
+        flash('Invalid/Expired Token')
         return redirect(url_for('users.reset_request'))
     form = ResetPasswordForm()
     if form.validate_on_submit():
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
         user.password = hashed_password
         db.session.commit()
-        flash(f'Password has been updated successfully!')
+        flash('Password has been updated successfully!')
         return redirect(url_for('users.login'))
     return render_template('reset_tok.html', form=form)
 
@@ -229,7 +228,8 @@ def stats():
         '5':0,
     }
 
-    for num in range(1,total_rides):ride_ids.append(num)
+    for num in range(1,total_rides):
+        ride_ids.append(num)
     for row in rides:
         ride_dates.append(row.ride_date.strftime('%a'))
         rider_weights.append(row.rider_weight)
@@ -251,32 +251,44 @@ def stats():
 
         cycle_types.append(row.cycle_type.capitalize())
 
-        if row.cycle_type == 'Afford': 
+        if row.cycle_type == 'Afford':
             cycle_types_dict['Afford'] += 1
             cycle_cal_dict['Afford'] += row.calorie_count
-        elif row.cycle_type == 'Health': 
+        elif row.cycle_type == 'Health':
             cycle_types_dict['Health'] += 1
             cycle_cal_dict['Health'] += row.calorie_count
-        elif row.cycle_type == 'Premium': 
+        elif row.cycle_type == 'Premium':
             cycle_types_dict['Premium'] += 1
             cycle_cal_dict['Premium'] += row.calorie_count
-        elif row.cycle_type == 'Student': 
+        elif row.cycle_type == 'Student':
             cycle_types_dict['Student'] += 1
             cycle_cal_dict['Student'] += row.calorie_count
 
-        if row.ride_date.strftime('%a') == 'Sat': day_dist_dict['Sat'] += row.distance
-        elif row.ride_date.strftime('%a') == 'Sun': day_dist_dict['Sun'] += row.distance
-        elif row.ride_date.strftime('%a') == 'Mon': day_dist_dict['Mon'] += row.distance
-        elif row.ride_date.strftime('%a') == 'Tue': day_dist_dict['Tue'] += row.distance
-        elif row.ride_date.strftime('%a') == 'Wed': day_dist_dict['Wed'] += row.distance
-        elif row.ride_date.strftime('%a') == 'Thu': day_dist_dict['Thu'] += row.distance
-        elif row.ride_date.strftime('%a') == 'Fri': day_dist_dict['Fri'] += row.distance
+        if row.ride_date.strftime('%a') == 'Sat':
+            day_dist_dict['Sat'] += row.distance
+        elif row.ride_date.strftime('%a') == 'Sun':
+            day_dist_dict['Sun'] += row.distance
+        elif row.ride_date.strftime('%a') == 'Mon':
+            day_dist_dict['Mon'] += row.distance
+        elif row.ride_date.strftime('%a') == 'Tue':
+            day_dist_dict['Tue'] += row.distance
+        elif row.ride_date.strftime('%a') == 'Wed':
+            day_dist_dict['Wed'] += row.distance
+        elif row.ride_date.strftime('%a') == 'Thu':
+            day_dist_dict['Thu'] += row.distance
+        elif row.ride_date.strftime('%a') == 'Fri':
+            day_dist_dict['Fri'] += row.distance
 
-        if row.ride_rating == 1: ride_rating_dict['1'] += 1
-        if row.ride_rating == 2: ride_rating_dict['2'] += 1
-        if row.ride_rating == 3: ride_rating_dict['3'] += 1
-        if row.ride_rating == 4: ride_rating_dict['4'] += 1
-        if row.ride_rating == 5: ride_rating_dict['5'] += 1
+        if row.ride_rating == 1:
+            ride_rating_dict['1'] += 1
+        if row.ride_rating == 2:
+            ride_rating_dict['2'] += 1
+        if row.ride_rating == 3:
+            ride_rating_dict['3'] += 1
+        if row.ride_rating == 4:
+            ride_rating_dict['4'] += 1
+        if row.ride_rating == 5:
+            ride_rating_dict['5'] += 1
         # ride_ratings.append(row.ride_rating)
 
     cycle_types = sorted((list(set((cycle_types)))))
@@ -315,12 +327,13 @@ def stats():
 
 @users.route('/Leaderboard')
 def leaderboard():
-    page = request.args.get('page', 1, type=int)
+    # page = request.args.get('page', 1, type=int)
     rewards = Reward.query.filter()\
         .order_by(Reward.reward_points.desc())\
         .limit(7)
     if len(list(Ride.query.filter_by(user_id=current_user.id))) == 0:
         return redirect(url_for('rides.new_ride'))
-    users = User.query.all()
+    user_list = User.query.all()
     user_count = len(list(rewards))
-    return render_template('leaderboard.html', rewards=rewards, users=users, user_count=user_count)
+    return render_template('leaderboard.html', rewards=rewards, users=user_list,\
+        user_count=user_count)
