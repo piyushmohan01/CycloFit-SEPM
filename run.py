@@ -20,4 +20,4 @@ if __name__ == '__main__':
     print(' * Running on :', hostname)
     ip_address = get_ip()
     print(' * Local IPv4 Addreess :', ip_address)
-    app.run(debug=False, host=ip_address)
+    app.run(debug=True, host=ip_address)
