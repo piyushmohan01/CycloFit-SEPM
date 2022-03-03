@@ -32,29 +32,29 @@ Index | Library/Package Name | Version Info | Description
 ## Installation :
 - Fork the Repository (top-right) or clone it with :
 ```
-$ git clone https://github.com/piyushmohan01/CycloFit-SEPM.git
+git clone https://github.com/piyushmohan01/CycloFit-SEPM.git
 ```
 - From cmd navigate into the Project folder (CycloFit-SEPM) :
 ```
-$ cd CycloFit-SEPM
+cd CycloFit-SEPM
 ```
 
 ## Configuration :
 - On windows, you can configure the app using the batch file `$ setup.bat` 
 - The batch file has the following commands in order :
 ```
-$ pip install virtualenv
-$ virtualenv env
-$ env\Scripts\activate
+pip install virtualenv
+virtualenv env
+env\Scripts\activate
 ```
 - Use `source env/bin/activate` for Linux/Mac OS
 - Once, env is activated install the requirements with :
 ```
-$ pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 - Once all the packages are installed, run the app using :
 ```python
-$ run.py
+run.py
 ```
 - Click on the ip address displayed on the terminal
 - The app launches on your devices local ipv4 address 
