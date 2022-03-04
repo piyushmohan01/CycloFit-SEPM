@@ -57,7 +57,6 @@ pip install -r requirements.txt
 run.py
 ```
 - Click on the ip address displayed on the terminal
-- The app launches on your devices local ipv4 address 
 - The app launches on your device's local ipv4 address
 - Since, the app is MOBILE-ONLY currently, you'd have to do the following :
 
